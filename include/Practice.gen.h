@@ -6,6 +6,7 @@
 #define _DEPARTMENT_PRACTICE_H_
 
 class Employer;
+class Passing_practice;
 
 class DEPARTMENT_EXPORT Practice
 {
@@ -15,11 +16,13 @@ class DEPARTMENT_EXPORT Practice
 public:
 
    typedef qx::QxCollection<long, std::shared_ptr<Employer> > type_list_of_employers;
+   typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > type_list_of_passing_practice;
 
 protected:
 
    long m_Practice_id;
    type_list_of_employers m_list_of_employers;
+   type_list_of_passing_practice m_list_of_passing_practice;
 
 public:
 
@@ -31,16 +34,23 @@ public:
    type_list_of_employers getlist_of_employers() const;
    type_list_of_employers & list_of_employers();
    const type_list_of_employers & list_of_employers() const;
+   type_list_of_passing_practice getlist_of_passing_practice() const;
+   type_list_of_passing_practice & list_of_passing_practice();
+    const type_list_of_passing_practice & list_of_passing_practice() const;
 
    void setPractice_id(const long & val);
 
    void setlist_of_employers(const type_list_of_employers & val);
 
+   void setlist_of_passing_practice(const type_list_of_passing_practice & val);
+
    type_list_of_employers getlist_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_list_of_employers & list_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_list_of_passing_practice getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_list_of_passing_practice & list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
-
+   static QString relation_list_of_passing_practice(bool key = false) { Q_UNUSED(key); return "list_of_passing_practice"; }
    static QString relation_list_of_employers(bool key = false) { Q_UNUSED(key); return "list_of_employers"; }
 
 public:
@@ -51,6 +61,7 @@ public:
 
 public:
 
+
    static QString table_name(bool key = false) { return (key ? QString("Practice") : QString("t_Practice")); }
 
 };
@@ -60,6 +71,8 @@ typedef qx::QxCollection<long, Practice_ptr> list_of_Practice;
 typedef std::shared_ptr<list_of_Practice> list_of_Practice_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Practice, qx::trait::no_base_class_defined, 0, Practice)
+
+#include "../include/Passing_practice.gen.h"
 
 #include "../include/Employer.gen.h"
 

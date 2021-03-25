@@ -37,6 +37,7 @@ void register_class(QxClass<Employer> & t)
    pRelation = t.relationOneToMany(& Employer::m_list_of_Events, "list_of_Events", "employer", 0);
    pRelation = t.relationOneToMany(& Employer::m_list_of_Head_employer, "list_of_Head_employer", "employer", 0);
    pRelation = t.relationOneToMany(& Employer::m_list_of_Contact_employer, "list_of_Contact_employer", "employer", 0);
+   pRelation = t.relationOneToMany(& Employer::m_list_of_passing_practice, "list_of_passing_practice", "Employer_id", 0);
 
    qx::QxValidatorX<Employer> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }
@@ -89,6 +90,12 @@ Employer::type_list_of_Contact_employer & Employer::list_of_Contact_employer() {
 
 const Employer::type_list_of_Contact_employer & Employer::list_of_Contact_employer() const { return m_list_of_Contact_employer; }
 
+Employer::type_list_of_passing_practice Employer::getlist_of_passing_practice() const { return m_list_of_passing_practice; }
+
+Employer::type_list_of_passing_practice & Employer::list_of_passing_practice() { return m_list_of_passing_practice; }
+
+const Employer::type_list_of_passing_practice & Employer::list_of_passing_practice() const { return m_list_of_passing_practice; }
+
 void Employer::setEmployer_id(const long & val) { m_Employer_id = val; }
 
 void Employer::setname(const QString & val) { m_name = val; }
@@ -105,12 +112,14 @@ void Employer::setlist_of_Head_employer(const Employer::type_list_of_Head_employ
 
 void Employer::setlist_of_Contact_employer(const Employer::type_list_of_Contact_employer & val) { m_list_of_Contact_employer = val; }
 
+void Employer::setlist_of_passing_practice(const Employer::type_list_of_passing_practice & val) { m_list_of_passing_practice = val; }
 
 Employer::type_list_of_Events Employer::getlist_of_Events() const { return m_list_of_Events; }
 
 Employer::type_list_of_Events & Employer::list_of_Events() { return m_list_of_Events; }
 
 const Employer::type_list_of_Events & Employer::list_of_Events() const { return m_list_of_Events; }
+
 
 Employer::type_list_of_Activity Employer::getlist_of_Activity(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 
@@ -318,6 +327,36 @@ Employer::type_list_of_Contact_employer & Employer::list_of_Contact_employer(boo
    if (! daoError.isValid()) { this->m_list_of_Contact_employer = tmp.m_list_of_Contact_employer; }
    if (pDaoError) { (* pDaoError) = daoError; }
    return m_list_of_Contact_employer;
+}
+
+Employer::type_list_of_passing_practice Employer::getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return getlist_of_passing_practice(); }
+   QString sRelation = "{Employer_id} | list_of_passing_practice";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Employer tmp;
+   tmp.m_Employer_id = this->m_Employer_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_passing_practice = tmp.m_list_of_passing_practice; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_passing_practice;
+}
+
+Employer::type_list_of_passing_practice & Employer::list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return list_of_passing_practice(); }
+   QString sRelation = "{Employer_id} | list_of_passing_practice";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Employer tmp;
+   tmp.m_Employer_id = this->m_Employer_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_passing_practice = tmp.m_list_of_passing_practice; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_passing_practice;
 }
 
 

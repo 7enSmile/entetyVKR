@@ -26,6 +26,7 @@ void register_class(QxClass<Head_university> & t)
    pRelation->getDataMember()->setName("persone_id");
    pRelation = t.relationManyToOne(& Head_university::m_department, "department", 0);
    pRelation->getDataMember()->setName("department_id");
+   pRelation = t.relationOneToMany(& Head_university::m_list_of_passing_practice, "list_of_passing_practice", "Head_university_id", 0);
 
    qx::QxValidatorX<Head_university> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }
@@ -44,11 +45,20 @@ Head_university::type_persone Head_university::getpersone() const { return m_per
 
 Head_university::type_department Head_university::getdepartment() const { return m_department; }
 
+Head_university::type_list_of_passing_practice Head_university::getlist_of_passing_practice() const { return m_list_of_passing_practice; }
+
+Head_university::type_list_of_passing_practice & Head_university::list_of_passing_practice() { return m_list_of_passing_practice; }
+
+const Head_university::type_list_of_passing_practice & Head_university::list_of_passing_practice() const { return m_list_of_passing_practice; }
+
+
 void Head_university::setHead_university_id(const long & val) { m_Head_university_id = val; }
 
 void Head_university::setpersone(const Head_university::type_persone & val) { m_persone = val; }
 
 void Head_university::setdepartment(const Head_university::type_department & val) { m_department = val; }
+
+void Head_university::setlist_of_passing_practice(const Head_university::type_list_of_passing_practice & val) { m_list_of_passing_practice = val; }
 
 Head_university::type_persone Head_university::getpersone(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
@@ -78,4 +88,33 @@ Head_university::type_department Head_university::getdepartment(bool bLoadFromDa
    if (! daoError.isValid()) { this->m_department = tmp.m_department; }
    if (pDaoError) { (* pDaoError) = daoError; }
    return m_department;
+}
+Head_university::type_list_of_passing_practice Head_university::getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return getlist_of_passing_practice(); }
+   QString sRelation = "{Head_university_id} | list_of_passing_practice";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Head_university tmp;
+   tmp.m_Head_university_id = this->m_Head_university_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_passing_practice = tmp.m_list_of_passing_practice; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_passing_practice;
+}
+
+Head_university::type_list_of_passing_practice & Head_university::list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return list_of_passing_practice(); }
+   QString sRelation = "{Head_university_id} | list_of_passing_practice";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Head_university tmp;
+   tmp.m_Head_university_id = this->m_Head_university_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_passing_practice = tmp.m_list_of_passing_practice; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_passing_practice;
 }
