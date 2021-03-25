@@ -12,13 +12,13 @@ class DEPARTMENT_EXPORT Head_employer
 public:
 
    typedef std::shared_ptr<Employer> type_employer;
-   typedef std::shared_ptr<Person> type_person_id;
+   typedef std::shared_ptr<Person> type_person;
 
 protected:
 
-   long m_Head_employer_id;
+   long m_Head_employer;
    type_employer m_employer;
-   type_person_id m_person_id;
+   type_person m_person;
 
 public:
 
@@ -26,16 +26,16 @@ public:
    Head_employer(const long & id);
    virtual ~Head_employer();
 
-   long getHead_employer_id() const;
+   long getHead_employer() const;
    type_employer getemployer() const;
-   type_person_id getperson_id() const;
+   type_person getperson() const;
 
    void setHead_employer_id(const long & val);
    void setemployer(const type_employer & val);
-   void setperson_id(const type_person_id & val);
+   void setperson(const type_person & val);
 
    type_employer getemployer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_person_id getperson_id(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_person getperson(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 

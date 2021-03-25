@@ -36,6 +36,7 @@ void register_class(QxClass<Employer> & t)
    pRelation = t.relationManyToMany(& Employer::m_list_of_Practice, "list_of_Practice", "t_qxee_Practice_Employer", "Employer_id", "Practice_id", 0);
    pRelation = t.relationOneToMany(& Employer::m_list_of_Events, "list_of_Events", "employer", 0);
    pRelation = t.relationOneToMany(& Employer::m_list_of_Head_employer, "list_of_Head_employer", "employer", 0);
+   pRelation = t.relationOneToMany(& Employer::m_list_of_Contact_employer, "list_of_Contact_employer", "employer", 0);
 
    qx::QxValidatorX<Employer> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }
@@ -82,6 +83,12 @@ Employer::type_list_of_Head_employer & Employer::list_of_Head_employer() { retur
 
 const Employer::type_list_of_Head_employer & Employer::list_of_Head_employer() const { return m_list_of_Head_employer; }
 
+Employer::type_list_of_Contact_employer Employer::getlist_of_Contact_employer() const { return m_list_of_Contact_employer; }
+
+Employer::type_list_of_Contact_employer & Employer::list_of_Contact_employer() { return m_list_of_Contact_employer; }
+
+const Employer::type_list_of_Contact_employer & Employer::list_of_Contact_employer() const { return m_list_of_Contact_employer; }
+
 void Employer::setEmployer_id(const long & val) { m_Employer_id = val; }
 
 void Employer::setname(const QString & val) { m_name = val; }
@@ -95,6 +102,9 @@ void Employer::setlist_of_Task(const Employer::type_list_of_Task & val) { m_list
 void Employer::setlist_of_Practice(const Employer::type_list_of_Practice & val) { m_list_of_Practice = val; }
 
 void Employer::setlist_of_Head_employer(const Employer::type_list_of_Head_employer & val) { m_list_of_Head_employer = val; }
+
+void Employer::setlist_of_Contact_employer(const Employer::type_list_of_Contact_employer & val) { m_list_of_Contact_employer = val; }
+
 
 Employer::type_list_of_Events Employer::getlist_of_Events() const { return m_list_of_Events; }
 
@@ -280,4 +290,34 @@ Employer::type_list_of_Head_employer & Employer::list_of_Head_employer(bool bLoa
    if (pDaoError) { (* pDaoError) = daoError; }
    return m_list_of_Head_employer;
 }
+Employer::type_list_of_Contact_employer Employer::getlist_of_Contact_employer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return getlist_of_Contact_employer(); }
+   QString sRelation = "{Employer_id} | list_of_Contact_employer";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Employer tmp;
+   tmp.m_Employer_id = this->m_Employer_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_Contact_employer = tmp.m_list_of_Contact_employer; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_Contact_employer;
+}
+
+Employer::type_list_of_Contact_employer & Employer::list_of_Contact_employer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return list_of_Contact_employer(); }
+   QString sRelation = "{Employer_id} | list_of_Contact_employer";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Employer tmp;
+   tmp.m_Employer_id = this->m_Employer_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_Contact_employer = tmp.m_list_of_Contact_employer; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_Contact_employer;
+}
+
 

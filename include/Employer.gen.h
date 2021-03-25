@@ -11,6 +11,7 @@ class Task;
 class Practice;
 class Events;
 class Head_employer;
+class Contact_employer;
 
 class DEPARTMENT_EXPORT Employer
 {
@@ -25,6 +26,7 @@ public:
    typedef qx::QxCollection<long, std::shared_ptr<Practice> > type_list_of_Practice;
    typedef qx::QxCollection<long, std::shared_ptr<Events> > type_list_of_Events;
    typedef qx::QxCollection<long, std::shared_ptr<Head_employer> > type_list_of_Head_employer;
+   typedef qx::QxCollection<long, std::shared_ptr<Contact_employer> > type_list_of_Contact_employer;
 
 protected:
 
@@ -36,6 +38,7 @@ protected:
    type_list_of_Practice m_list_of_Practice;
    type_list_of_Events m_list_of_Events;
    type_list_of_Head_employer m_list_of_Head_employer;
+   type_list_of_Contact_employer m_list_of_Contact_employer;
 
 
 public:
@@ -64,6 +67,9 @@ public:
    type_list_of_Head_employer getlist_of_Head_employer() const;
    type_list_of_Head_employer & list_of_Head_employer();
    const type_list_of_Head_employer & list_of_Head_employer() const;
+   type_list_of_Contact_employer getlist_of_Contact_employer() const;
+   type_list_of_Contact_employer & list_of_Contact_employer();
+   const type_list_of_Contact_employer & list_of_Contact_employer() const;
 
    void setEmployer_id(const long & val);
    void setname(const QString & val);
@@ -73,6 +79,8 @@ public:
    void setlist_of_Practice(const type_list_of_Practice & val);
    void setlist_of_Events(const type_list_of_Events & val);
    void setlist_of_Head_employer(const type_list_of_Head_employer & val);
+   void setlist_of_Contact_employer(const type_list_of_Contact_employer & val);
+
 
    type_list_of_Activity getlist_of_Activity(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_list_of_Activity & list_of_Activity(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
@@ -86,6 +94,9 @@ public:
    type_list_of_Events & list_of_Events(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_list_of_Head_employer getlist_of_Head_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_list_of_Head_employer & list_of_Head_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_list_of_Contact_employer getlist_of_Contact_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_list_of_Contact_employer & list_of_Contact_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+
 
 
 public:
@@ -96,6 +107,7 @@ public:
    static QString relation_list_of_Practice(bool key = false) { Q_UNUSED(key); return "list_of_Practice"; }
    static QString relation_list_of_Events(bool key = false) { Q_UNUSED(key); return "list_of_Events"; }
    static QString relation_list_of_Head_employer(bool key = false) { Q_UNUSED(key); return "list_of_Head_employer"; }
+   static QString relation_list_of_Contact_employer(bool key = false) { Q_UNUSED(key); return "list_of_Contact_employer"; }
 
 
 public:
@@ -121,6 +133,7 @@ QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Employer, qx::trait::no_base_class
 #include "../include/Practice.gen.h"
 #include "../include/Event.gen.h"
 #include "../include/Head_employer.gen.h"
+#include "../include/Contact_employer.gen.h"
 #include "../custom/include/Employer.h"
 
 #endif // _DEPARTMENT_EMPLOYER_H_

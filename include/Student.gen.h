@@ -11,14 +11,14 @@ class DEPARTMENT_EXPORT Student
 
 public:
 
-   typedef std::shared_ptr<Group> type_group_id;
-   typedef std::shared_ptr<Person> type_person_id;
+   typedef std::shared_ptr<Group> type_group;
+   typedef std::shared_ptr<Person> type_person;
 
 protected:
 
    long m_Strudent_id;
-   type_group_id m_group_id;
-   type_person_id m_person_id;
+   type_group m_group;
+   type_person m_person;
 
 public:
 
@@ -27,20 +27,20 @@ public:
    virtual ~Student();
 
    long getStrudent_id() const;
-   type_group_id getgroup_id() const;
-   type_person_id getperson_id() const;
+   type_group getgroup() const;
+   type_person getperson() const;
 
    void setStrudent_id(const long & val);
-   void setgroup_id(const type_group_id & val);
-   void setperson_id(const type_person_id & val);
+   void setgroup(const type_group & val);
+   void setperson(const type_person & val);
 
-   type_group_id getgroup_id(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_person_id getperson_id(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_group getgroup(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_person getperson(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 
-   static QString relation_group_id(bool key = false) { Q_UNUSED(key); return "group_id"; }
-   static QString relation_person_id(bool key = false) { Q_UNUSED(key); return "person_id"; }
+   static QString relation_group(bool key = false) { return (key ? QString("group") : QString("group_id")); }
+   static QString relation_person(bool key = false) { Q_UNUSED(key); return "person"; }
 
 public:
 

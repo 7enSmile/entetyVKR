@@ -22,8 +22,9 @@ void register_class(QxClass<Student> & t)
 
    pData = t.id(& Student::m_Strudent_id, "Strudent_id", 0);
 
-   pRelation = t.relationManyToOne(& Student::m_group_id, "group_id", 0);
-   pRelation = t.relationManyToOne(& Student::m_person_id, "person_id", 0);
+   pRelation = t.relationManyToOne(& Student::m_group, "group", 0);
+   pRelation->getDataMember()->setName("group_id");
+   pRelation = t.relationManyToOne(& Student::m_person, "person", 0);
 
    qx::QxValidatorX<Student> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }
@@ -38,42 +39,42 @@ Student::~Student() { ; }
 
 long Student::getStrudent_id() const { return m_Strudent_id; }
 
-Student::type_group_id Student::getgroup_id() const { return m_group_id; }
+Student::type_group Student::getgroup() const { return m_group; }
 
-Student::type_person_id Student::getperson_id() const { return m_person_id; }
+Student::type_person Student::getperson() const { return m_person; }
 
 void Student::setStrudent_id(const long & val) { m_Strudent_id = val; }
 
-void Student::setgroup_id(const Student::type_group_id & val) { m_group_id = val; }
+void Student::setgroup(const Student::type_group & val) { m_group = val; }
 
-void Student::setperson_id(const Student::type_person_id & val) { m_person_id = val; }
+void Student::setperson(const Student::type_person & val) { m_person = val; }
 
-Student::type_group_id Student::getgroup_id(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Student::type_group Student::getgroup(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getgroup_id(); }
-   QString sRelation = "{Strudent_id} | group_id";
+   if (! bLoadFromDatabase) { return getgroup(); }
+   QString sRelation = "{Strudent_id} | group";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Student tmp;
    tmp.m_Strudent_id = this->m_Strudent_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_group_id = tmp.m_group_id; }
+   if (! daoError.isValid()) { this->m_group = tmp.m_group; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_group_id;
+   return m_group;
 }
 
-Student::type_person_id Student::getperson_id(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Student::type_person Student::getperson(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getperson_id(); }
-   QString sRelation = "{Strudent_id} | person_id";
+   if (! bLoadFromDatabase) { return getperson(); }
+   QString sRelation = "{Strudent_id} | person";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Student tmp;
    tmp.m_Strudent_id = this->m_Strudent_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_person_id = tmp.m_person_id; }
+   if (! daoError.isValid()) { this->m_person = tmp.m_person; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_person_id;
+   return m_person;
 }

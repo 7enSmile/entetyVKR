@@ -19,7 +19,9 @@ HEADERS += $$PWD/include/Person.gen.h
 HEADERS += $$PWD/include/Group.gen.h
 HEADERS += $$PWD/include/Student.gen.h
 HEADERS += $$PWD/include/Head_employer.gen.h
-
+HEADERS += $$PWD/include/Contact_employer.gen.h
+HEADERS += $$PWD/include/Head_university.gen.h
+HEADERS += $$PWD/include/Department.gen.h
 HEADERS += $$PWD/custom/include/Activity.h
 HEADERS += $$PWD/custom/include/Collaboration.h
 HEADERS += $$PWD/custom/include/Employer.h
@@ -42,7 +44,9 @@ SOURCES += $$PWD/src/Person.gen.cpp
 SOURCES += $$PWD/src/Group.gen.cpp
 SOURCES += $$PWD/src/Student.gen.cpp
 SOURCES += $$PWD/src/Head_employer.gen.cpp
-
+SOURCES += $$PWD/src/Contact_employer.gen.cpp
+SOURCES += $$PWD/src/Head_university.gen.cpp
+SOURCES += $$PWD/src/Department.gen.cpp
 SOURCES += $$PWD/custom/src/Activity.cpp
 SOURCES += $$PWD/custom/src/Collaboration.cpp
 SOURCES += $$PWD/custom/src/Employer.cpp
