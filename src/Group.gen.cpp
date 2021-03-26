@@ -17,9 +17,9 @@ void register_class(QxClass<Group> & t)
    qx::IxFunction * pFct = NULL; Q_UNUSED(pFct);
    qx::IxValidator * pValidator = NULL; Q_UNUSED(pValidator);
 
-   t.setName("t_Groups");
+   t.setName("t_Group");
 
-   pData = t.id(& Group::m_Groups_id, "Groups_id", 0);
+   pData = t.id(& Group::m_Groups_id, "Group_id", 0);
 
    pData = t.data(& Group::m_number, "number", 0, true, true);
 

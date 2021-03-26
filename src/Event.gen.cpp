@@ -17,9 +17,9 @@ void register_class(QxClass<Events> & t)
    qx::IxFunction * pFct = NULL; Q_UNUSED(pFct);
    qx::IxValidator * pValidator = NULL; Q_UNUSED(pValidator);
 
-   t.setName("t_Events");
+   t.setName("t_Event");
 
-   pData = t.id(& Events::m_Events_id, "Events_id", 0);
+   pData = t.id(& Events::m_Events_id, "Event_id", 0);
 
    pData = t.data(& Events::m_name, "name", 0, true, true);
    pData = t.data(& Events::m_description, "description", 0, true, true);

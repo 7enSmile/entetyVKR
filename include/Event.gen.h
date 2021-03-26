@@ -49,7 +49,7 @@ public:
 
 public:
 
-   static QString column_Events_id(bool key = false) { Q_UNUSED(key); return "Events_id"; }
+   static QString column_Events_id(bool key = false) { Q_UNUSED(key); return "Event_id"; }
    static QString column_name(bool key = false) { Q_UNUSED(key); return "name"; }
    static QString column_description(bool key = false) { Q_UNUSED(key); return "description"; }
    static QString column_begin(bool key = false) { Q_UNUSED(key); return "begin"; }
@@ -57,7 +57,7 @@ public:
 
 public:
 
-   static QString table_name(bool key = false) { return (key ? QString("Events") : QString("t_Events")); }
+   static QString table_name(bool key = false) { return (key ? QString("Event") : QString("t_Event")); }
 
 };
 

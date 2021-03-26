@@ -43,12 +43,12 @@ public:
 
 public:
 
-   static QString column_Groups_id(bool key = false) { Q_UNUSED(key); return "Groups_id"; }
+   static QString column_Groups_id(bool key = false) { Q_UNUSED(key); return "Group_id"; }
    static QString column_number(bool key = false) { Q_UNUSED(key); return "number"; }
 
 public:
 
-   static QString table_name(bool key = false) { return (key ? QString("Group") : QString("t_Groups")); }
+   static QString table_name(bool key = false) { return (key ? QString("Group") : QString("t_Group")); }
 
 };
 
