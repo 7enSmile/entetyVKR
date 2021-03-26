@@ -87,7 +87,8 @@ public:
    static QString relation_list_of_students(bool key = false) { Q_UNUSED(key); return "list_of_students"; }
    static QString relation_list_of_Head_employer(bool key = false) { Q_UNUSED(key); return "list_of_Head_employer"; }
    static QString relation_list_of_Contact_employer(bool key = false) { Q_UNUSED(key); return "list_of_Contact_employer"; }
-    static QString relation_list_of_Head_university(bool key = false) { Q_UNUSED(key); return "list_of_Head_university"; }
+   static QString relation_list_of_Head_university(bool key = false) { Q_UNUSED(key); return "list_of_Head_university"; }
+
 
 public:
 

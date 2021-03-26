@@ -28,8 +28,9 @@ void register_class(QxClass<Person> & t)
    pData = t.data(& Person::m_phone_number, "phone_number", 0, true, true);
    pData = t.data(& Person::m_email, "email", 0, true, true);
 
-   pRelation = t.relationOneToMany(& Person::m_list_of_students, "list_of_students", "Person_id", 0);
-   pRelation = t.relationOneToMany(& Person::m_list_of_Head_employer, "list_of_Head_employer", "person", 0);
+   pRelation = t.relationOneToMany(& Person::m_list_of_students, "list_of_students", "person", 0);
+   pRelation = t.relationOneToMany(& Person::m_list_of_Head_employer, "list_of_Head_employer", "person_id", 0);
+   pRelation = t.relationOneToMany(& Person::m_list_of_Head_university, "list_of_Head_university", "persone", 0);
    pRelation = t.relationOneToMany(& Person::m_list_of_Contact_employer, "list_of_Contact_employer", "person", 0);
 
    qx::QxValidatorX<Person> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);

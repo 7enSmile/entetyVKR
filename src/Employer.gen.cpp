@@ -37,7 +37,7 @@ void register_class(QxClass<Employer> & t)
    pRelation = t.relationOneToMany(& Employer::m_list_of_Events, "list_of_Events", "employer", 0);
    pRelation = t.relationOneToMany(& Employer::m_list_of_Head_employer, "list_of_Head_employer", "employer", 0);
    pRelation = t.relationOneToMany(& Employer::m_list_of_Contact_employer, "list_of_Contact_employer", "employer", 0);
-   pRelation = t.relationOneToMany(& Employer::m_list_of_passing_practice, "list_of_passing_practice", "Employer_id", 0);
+   pRelation = t.relationOneToMany(& Employer::m_list_of_passing_practice, "list_of_passing_practice", "employer", 0);
 
    qx::QxValidatorX<Employer> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }
