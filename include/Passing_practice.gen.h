@@ -16,11 +16,12 @@ class DEPARTMENT_EXPORT Passing_practice
 public:
 
    typedef std::shared_ptr<Practice> type_practice;
-   typedef qx::QxCollection<long, std::shared_ptr<Student> > type_list_of_Student;
+
    typedef std::shared_ptr<Head_employer> type_Head_employer;
    typedef std::shared_ptr<Head_university> type_Head_university;
    typedef std::shared_ptr<Task_practice> type_task;
    typedef std::shared_ptr<Employer> type_employer;
+   typedef std::shared_ptr<Student> type_studen;
 
 
 protected:
@@ -29,11 +30,12 @@ protected:
    QDate m_beginning;
    QDate m_ending;
    type_practice m_practice;
-   type_list_of_Student m_list_of_Student;
+
    type_Head_employer m_Head_employer_id;
    type_Head_university m_Head_university_id;
    type_task m_task;
    type_employer m_employer;
+   type_studen m_studen;
 
 
 public:
@@ -46,42 +48,40 @@ public:
    QDate getbeginning() const;
    QDate getending() const;
    type_practice getpractice() const;
-   type_list_of_Student getlist_of_Student() const;
-   type_list_of_Student & list_of_Student();
-   const type_list_of_Student & list_of_Student() const;
+   type_studen getstuden() const;
    type_Head_employer getHead_employer() const;
    type_Head_university getHead_university() const;
    type_task gettask() const;
    type_employer getemployer() const;
 
 
-
    void setPassing_practice(const long & val);
    void setbeginning(const QDate & val);
    void setending(const QDate & val);
    void setpractice(const type_practice & val);
-   void setlist_of_Student(const type_list_of_Student & val);
+
    void setHead_employer(const type_Head_employer & val);
    void setHead_university(const type_Head_university & val);
    void settask(const type_task & val);
    void setemployer(const type_employer & val);
+   void setstuden(const type_studen & val);
 
    type_task gettask(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_practice getpractice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Student getlist_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Student & list_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_Head_employer getHead_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_Head_university getHead_university(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_employer getemployer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_studen getstuden(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 
    static QString relation_practice(bool key = false) { return (key ? QString("practice") : QString("practice_id")); }
-   static QString relation_list_of_Student(bool key = false) { Q_UNUSED(key); return "list_of_Student"; }
+
    static QString relation_Head_employer_id(bool key = false) { Q_UNUSED(key); return "Head_employer_id"; }
    static QString relation_Head_university_id(bool key = false) { Q_UNUSED(key); return "Head_university_id"; }
    static QString relation_task(bool key = false) { return (key ? QString("task") : QString("task_id")); }
    static QString relation_employer(bool key = false) { return (key ? QString("employer") : QString("employer_id")); }
+   static QString relation_studen(bool key = false) { return (key ? QString("studen") : QString("Student_id")); }
 
 
 

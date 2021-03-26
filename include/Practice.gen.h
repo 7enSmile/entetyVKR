@@ -36,7 +36,7 @@ public:
    const type_list_of_employers & list_of_employers() const;
    type_list_of_passing_practice getlist_of_passing_practice() const;
    type_list_of_passing_practice & list_of_passing_practice();
-    const type_list_of_passing_practice & list_of_passing_practice() const;
+   const type_list_of_passing_practice & list_of_passing_practice() const;
 
    void setPractice_id(const long & val);
 

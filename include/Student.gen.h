@@ -16,12 +16,15 @@ public:
    typedef std::shared_ptr<Person> type_person;
    typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > type_list_of_passing_practice;
 
+
+
 protected:
 
    long m_Strudent_id;
    type_group m_group;
    type_person m_person;
    type_list_of_passing_practice m_list_of_passing_practice;
+
 
 public:
 
@@ -36,17 +39,16 @@ public:
    type_list_of_passing_practice & list_of_passing_practice();
    const type_list_of_passing_practice & list_of_passing_practice() const;
 
+
    void setStrudent_id(const long & val);
    void setgroup(const type_group & val);
    void setperson(const type_person & val);
    void setlist_of_passing_practice(const type_list_of_passing_practice & val);
 
-
-
-   type_group getgroup(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_person getperson(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_list_of_passing_practice getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_list_of_passing_practice & list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_group getgroup(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_person getperson(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 
 public:
@@ -54,6 +56,7 @@ public:
    static QString relation_group(bool key = false) { return (key ? QString("group") : QString("group_id")); }
    static QString relation_person(bool key = false) { Q_UNUSED(key); return "person"; }
    static QString relation_list_of_passing_practice(bool key = false) { Q_UNUSED(key); return "list_of_passing_practice"; }
+
 
 
 public:

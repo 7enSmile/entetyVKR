@@ -25,7 +25,9 @@ void register_class(QxClass<Student> & t)
    pRelation = t.relationManyToOne(& Student::m_group, "group", 0);
    pRelation->getDataMember()->setName("group_id");
    pRelation = t.relationManyToOne(& Student::m_person, "person", 0);
-   pRelation = t.relationManyToMany(& Student::m_list_of_passing_practice, "list_of_passing_practice", "t_qxee_Student_Passing_practice", "Student_id", "Passing_practice_id", 0);
+   pRelation = t.relationOneToMany(& Student::m_list_of_passing_practice, "list_of_passing_practice", "studen", 0);
+
+
 
    qx::QxValidatorX<Student> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }
@@ -50,7 +52,6 @@ Student::type_list_of_passing_practice & Student::list_of_passing_practice() { r
 
 const Student::type_list_of_passing_practice & Student::list_of_passing_practice() const { return m_list_of_passing_practice; }
 
-
 void Student::setStrudent_id(const long & val) { m_Strudent_id = val; }
 
 void Student::setgroup(const Student::type_group & val) { m_group = val; }
@@ -58,6 +59,8 @@ void Student::setgroup(const Student::type_group & val) { m_group = val; }
 void Student::setperson(const Student::type_person & val) { m_person = val; }
 
 void Student::setlist_of_passing_practice(const Student::type_list_of_passing_practice & val) { m_list_of_passing_practice = val; }
+
+
 
 Student::type_group Student::getgroup(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
@@ -118,4 +121,5 @@ Student::type_list_of_passing_practice & Student::list_of_passing_practice(bool 
    if (pDaoError) { (* pDaoError) = daoError; }
    return m_list_of_passing_practice;
 }
+
 

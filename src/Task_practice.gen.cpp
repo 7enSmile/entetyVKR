@@ -23,7 +23,7 @@ void register_class(QxClass<Task_practice> & t)
 
    pData = t.data(& Task_practice::m_description, "description", 0, true, true);
 
-   pRelation = t.relationOneToMany(& Task_practice::m_list_of_passeing_practice, "list_of_passeing_practice", "Task_id", 0);
+   pRelation = t.relationOneToMany(& Task_practice::m_list_of_passeing_practice, "list_of_passeing_practice", "task", 0);
 
    qx::QxValidatorX<Task_practice> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }

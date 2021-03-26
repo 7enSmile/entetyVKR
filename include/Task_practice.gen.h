@@ -48,7 +48,7 @@ public:
 
 public:
 
-   static QString table_name(bool key = false) { return (key ? QString("Task_practice") : QString("t_Task_parctice")); }
+   static QString table_name(bool key = false) { return (key ? QString("Task_practice") : QString("t_Task_practice")); }
 
 };
 
