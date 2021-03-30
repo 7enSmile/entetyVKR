@@ -26,8 +26,8 @@ void register_class(QxClass<Report> & t)
    pData = t.data(& Report::m_feedback_employer, "feedback_employer", 0, true, true);
 
    pRelation = t.relationManyToOne(& Report::m_practice_result, "practice_result", 0);
-   pRelation = t.relationManyToOne(& Report::m_Head_university, "Head_university", 0);
-   pRelation->getDataMember()->setName("Head_university_id");
+   pRelation = t.relationManyToOne(& Report::m_Head_university, "Head_university_id", 0);
+
    pRelation = t.relationManyToOne(& Report::m_Head_employer, "Head_employer_id", 0);
 
 

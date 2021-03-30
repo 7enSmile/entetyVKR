@@ -24,7 +24,7 @@ void register_class(QxClass<Practice_result> & t)
    pData = t.data(& Practice_result::m_estimate_employer, "estimate_employer", 0, true, true);
    pData = t.data(& Practice_result::m_estimate_university, "estimate_university", 0, true, true);
 
-   pRelation = t.relationOneToMany(& Practice_result::m_list_of_reports, "list_of_reports", "practice_result_id", 0);
+   pRelation = t.relationOneToMany(& Practice_result::m_list_of_reports, "list_of_reports", "practice_result", 0);
 
    qx::QxValidatorX<Practice_result> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }

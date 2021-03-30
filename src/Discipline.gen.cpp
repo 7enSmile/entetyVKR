@@ -26,7 +26,7 @@ void register_class(QxClass<Discipline> & t)
    pData = t.data(& Discipline::m_name, "name", 0, true, true);
    pData = t.data(& Discipline::m_description, "description", 0, true, true);
 
-   pRelation = t.relationManyToOne(& Discipline::m_educational_program, "educational_program", 0);
+   pRelation = t.relationManyToOne(& Discipline::m_educational_program, "educational_program_id", 0);
    pRelation->getDataMember()->setName("Educational_program_id");
    pRelation = t.relationOneToMany(& Discipline::m_list_of_result_educational, "list_of_result_educational", "Discipline_id", 0);
 

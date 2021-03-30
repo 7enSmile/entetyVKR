@@ -25,9 +25,9 @@ void register_class(QxClass<Result_education> & t)
    pData = t.data(& Result_education::m_description, "description", 0, true, true);
    pData = t.data(& Result_education::m_acquired_skills, "acquired_skills", 0, true, true);
 
-   pRelation = t.relationManyToOne(& Result_education::m_educational_program, "educational_program", 0);
+   pRelation = t.relationManyToOne(& Result_education::m_educational_program, "educational_program_id", 0);
    pRelation->getDataMember()->setName("Educational_program_id");
-   pRelation = t.relationManyToOne(& Result_education::m_discipline, "discipline", 0);
+   pRelation = t.relationManyToOne(& Result_education::m_discipline, "Discipline_id", 0);
    pRelation->getDataMember()->setName("Discipline_id");
    pRelation = t.relationManyToMany(& Result_education::m_list_of_Employer, "list_of_Employer", "t_qxee_Employer_Result_education", "Result_discipline_id", "Employer_id", 0);
 

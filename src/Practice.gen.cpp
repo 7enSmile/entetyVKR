@@ -29,7 +29,7 @@ void register_class(QxClass<Practice> & t)
 
    pRelation = t.relationManyToMany(& Practice::m_list_of_employers, "list_of_employers", "t_qxee_Practice_Employer", "Practice_id", "Employer_id", 0);
    pRelation = t.relationOneToMany(& Practice::m_list_of_passing_practice, "list_of_passing_practice", "practice", 0);
-   pRelation = t.relationManyToOne(& Practice::m_education_program, "education_program", 0);
+   pRelation = t.relationManyToOne(& Practice::m_education_program, "Education_program", 0);
    pRelation->getDataMember()->setName("Education_program_id");
 
 
