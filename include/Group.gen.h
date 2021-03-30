@@ -26,16 +26,16 @@ public:
 
    long getGroups_id() const;
    QString getnumber() const;
-   type_list_of_Strudent getlist_of_Strudent() const;
-   type_list_of_Strudent & list_of_Strudent();
-   const type_list_of_Strudent & list_of_Strudent() const;
+   type_list_of_Strudent getlist_of_Student() const;
+   type_list_of_Strudent & list_of_Student();
+   const type_list_of_Strudent & list_of_Student() const;
 
    void setGroups_id(const long & val);
    void setnumber(const QString & val);
    void setlist_of_Strudent(const type_list_of_Strudent & val);
 
-   type_list_of_Strudent getlist_of_Strudent(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Strudent & list_of_Strudent(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_list_of_Strudent getlist_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_list_of_Strudent & list_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 

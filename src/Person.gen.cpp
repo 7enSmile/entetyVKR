@@ -44,7 +44,7 @@ Person::Person(const long & id) : m_Person(id) { ; }
 
 Person::~Person() { ; }
 
-long Person::getPerson() const { return m_Person; }
+long Person::getPerson_id() const { return m_Person; }
 
 QString Person::getfistname() const { return m_fistname; }
 
@@ -56,7 +56,7 @@ QString Person::getphone_number() const { return m_phone_number; }
 
 QString Person::getemail() const { return m_email; }
 
-Person::type_list_of_students Person::getlist_of_students() const { return m_list_of_students; }
+Person::type_list_of_students Person::getlist_of_Students() const { return m_list_of_students; }
 
 Person::type_list_of_students & Person::list_of_students() { return m_list_of_students; }
 
@@ -80,7 +80,7 @@ Person::type_list_of_Head_university & Person::list_of_Head_university() { retur
 
 const Person::type_list_of_Head_university & Person::list_of_Head_university() const { return m_list_of_Head_university; }
 
-void Person::setPerson(const long & val) { m_Person = val; }
+void Person::setPerson_id(const long & val) { m_Person = val; }
 
 void Person::setfistname(const QString & val) { m_fistname = val; }
 
@@ -92,7 +92,7 @@ void Person::setphone_number(const QString & val) { m_phone_number = val; }
 
 void Person::setemail(const QString & val) { m_email = val; }
 
-void Person::setlist_of_students(const Person::type_list_of_students & val) { m_list_of_students = val; }
+void Person::setlist_of_Students(const Person::type_list_of_students & val) { m_list_of_students = val; }
 
 void Person::setlist_of_Head_employer(const Person::type_list_of_Head_employer & val) { m_list_of_Head_employer = val; }
 
@@ -101,10 +101,10 @@ void Person::setlist_of_Contact_employer(const Person::type_list_of_Contact_empl
 void Person::setlist_of_Head_university(const Person::type_list_of_Head_university & val) { m_list_of_Head_university = val; }
 
 
-Person::type_list_of_students Person::getlist_of_students(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Person::type_list_of_students Person::getlist_of_Students(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getlist_of_students(); }
+   if (! bLoadFromDatabase) { return getlist_of_Students(); }
    QString sRelation = "{Person_id} | list_of_students";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }

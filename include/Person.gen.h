@@ -40,13 +40,13 @@ public:
    Person(const long & id);
    virtual ~Person();
 
-   long getPerson() const;
+   long getPerson_id() const;
    QString getfistname() const;
    QString getlastname() const;
    QString getpatronymic() const;
    QString getphone_number() const;
    QString getemail() const;
-   type_list_of_students getlist_of_students() const;
+   type_list_of_students getlist_of_Students() const;
    type_list_of_students & list_of_students();
    const type_list_of_students & list_of_students() const;
    type_list_of_Head_employer getlist_of_Head_employer() const;
@@ -60,18 +60,18 @@ public:
    const type_list_of_Head_university & list_of_Head_university() const;
 
 
-   void setPerson(const long & val);
+   void setPerson_id(const long & val);
    void setfistname(const QString & val);
    void setlastname(const QString & val);
    void setpatronymic(const QString & val);
    void setphone_number(const QString & val);
    void setemail(const QString & val);
-   void setlist_of_students(const type_list_of_students & val);
+   void setlist_of_Students(const type_list_of_students & val);
    void setlist_of_Head_employer(const type_list_of_Head_employer & val);
    void setlist_of_Contact_employer(const type_list_of_Contact_employer & val);
    void setlist_of_Head_university(const type_list_of_Head_university & val);
 
-   type_list_of_students getlist_of_students(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_list_of_students getlist_of_Students(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_list_of_students & list_of_students(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_list_of_Head_employer getlist_of_Head_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_list_of_Head_employer & list_of_Head_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);

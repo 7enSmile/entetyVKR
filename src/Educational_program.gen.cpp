@@ -29,6 +29,8 @@ void register_class(QxClass<Educational_program> & t)
 
    pRelation = t.relationOneToMany(& Educational_program::m_list_of_result_education, "list_of_result_education", "educational_program_id", 0);
    pRelation = t.relationOneToMany(& Educational_program::m_list_of_discipline, "list_of_discipline", "educational_program_id", 0);
+   pRelation = t.relationOneToMany(& Educational_program::m_list_of_Practice, "list_of_Practice", "Education_program", 0);
+   pRelation = t.relationOneToMany(& Educational_program::m_list_of_Student, "list_of_Student", "Education_program", 0);
 
    qx::QxValidatorX<Educational_program> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }
@@ -63,6 +65,19 @@ Educational_program::type_list_of_discipline & Educational_program::list_of_disc
 
 const Educational_program::type_list_of_discipline & Educational_program::list_of_discipline() const { return m_list_of_discipline; }
 
+Educational_program::type_list_of_Practice Educational_program::getlist_of_Practice() const { return m_list_of_Practice; }
+
+Educational_program::type_list_of_Practice & Educational_program::list_of_Practice() { return m_list_of_Practice; }
+
+const Educational_program::type_list_of_Practice & Educational_program::list_of_Practice() const { return m_list_of_Practice; }
+
+Educational_program::type_list_of_Student Educational_program::getlist_of_Student() const { return m_list_of_Student; }
+
+Educational_program::type_list_of_Student & Educational_program::list_of_Student() { return m_list_of_Student; }
+
+const Educational_program::type_list_of_Student & Educational_program::list_of_Student() const { return m_list_of_Student; }
+
+
 void Educational_program::seteducational_program_id(const long & val) { m_educational_program_id = val; }
 
 void Educational_program::setname(const QString & val) { m_name = val; }
@@ -76,6 +91,11 @@ void Educational_program::setfocus(const QString & val) { m_focus = val; }
 void Educational_program::setlist_of_result_education(const Educational_program::type_list_of_result_education & val) { m_list_of_result_education = val; }
 
 void Educational_program::setlist_of_discipline(const Educational_program::type_list_of_discipline & val) { m_list_of_discipline = val; }
+
+void Educational_program::setlist_of_Practice(const Educational_program::type_list_of_Practice & val) { m_list_of_Practice = val; }
+
+void Educational_program::setlist_of_Student(const Educational_program::type_list_of_Student & val) { m_list_of_Student = val; }
+
 
 Educational_program::type_list_of_result_education Educational_program::getlist_of_result_education(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
@@ -135,4 +155,64 @@ Educational_program::type_list_of_discipline & Educational_program::list_of_disc
    if (! daoError.isValid()) { this->m_list_of_discipline = tmp.m_list_of_discipline; }
    if (pDaoError) { (* pDaoError) = daoError; }
    return m_list_of_discipline;
+}
+
+Educational_program::type_list_of_Practice Educational_program::getlist_of_Practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return getlist_of_Practice(); }
+   QString sRelation = "{educational_program_id} | list_of_Practice";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Educational_program tmp;
+   tmp.m_educational_program_id = this->m_educational_program_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_Practice = tmp.m_list_of_Practice; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_Practice;
+}
+
+Educational_program::type_list_of_Practice & Educational_program::list_of_Practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return list_of_Practice(); }
+   QString sRelation = "{educational_program_id} | list_of_Practice";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Educational_program tmp;
+   tmp.m_educational_program_id = this->m_educational_program_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_Practice = tmp.m_list_of_Practice; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_Practice;
+}
+
+Educational_program::type_list_of_Student Educational_program::getlist_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return getlist_of_Student(); }
+   QString sRelation = "{educational_program_id} | list_of_Student";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Educational_program tmp;
+   tmp.m_educational_program_id = this->m_educational_program_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_Student = tmp.m_list_of_Student; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_Student;
+}
+
+Educational_program::type_list_of_Student & Educational_program::list_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return list_of_Student(); }
+   QString sRelation = "{educational_program_id} | list_of_Student";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Educational_program tmp;
+   tmp.m_educational_program_id = this->m_educational_program_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_Student = tmp.m_list_of_Student; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_Student;
 }

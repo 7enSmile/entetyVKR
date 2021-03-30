@@ -29,6 +29,7 @@ void register_class(QxClass<Result_education> & t)
    pRelation->getDataMember()->setName("Educational_program_id");
    pRelation = t.relationManyToOne(& Result_education::m_discipline, "discipline", 0);
    pRelation->getDataMember()->setName("Discipline_id");
+   pRelation = t.relationManyToMany(& Result_education::m_list_of_Employer, "list_of_Employer", "t_qxee_Employer_Result_education", "Result_discipline_id", "Employer_id", 0);
 
    qx::QxValidatorX<Result_education> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }
@@ -51,6 +52,13 @@ Result_education::type_educational_program Result_education::geteducational_prog
 
 Result_education::type_discipline Result_education::getdiscipline() const { return m_discipline; }
 
+Result_education::type_list_of_Employer Result_education::getlist_of_Employer() const { return m_list_of_Employer; }
+
+Result_education::type_list_of_Employer & Result_education::list_of_Employer() { return m_list_of_Employer; }
+
+const Result_education::type_list_of_Employer & Result_education::list_of_Employer() const { return m_list_of_Employer; }
+
+
 void Result_education::setResult_discipline_id(const long & val) { m_Result_discipline_id = val; }
 
 void Result_education::setdescription(const QString & val) { m_description = val; }
@@ -60,6 +68,8 @@ void Result_education::setacquired_skills(const QString & val) { m_acquired_skil
 void Result_education::seteducational_program(const Result_education::type_educational_program & val) { m_educational_program = val; }
 
 void Result_education::setdiscipline(const Result_education::type_discipline & val) { m_discipline = val; }
+
+void Result_education::setlist_of_Employer(const Result_education::type_list_of_Employer & val) { m_list_of_Employer = val; }
 
 Result_education::type_educational_program Result_education::geteducational_program(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
@@ -89,4 +99,34 @@ Result_education::type_discipline Result_education::getdiscipline(bool bLoadFrom
    if (! daoError.isValid()) { this->m_discipline = tmp.m_discipline; }
    if (pDaoError) { (* pDaoError) = daoError; }
    return m_discipline;
+}
+
+Result_education::type_list_of_Employer Result_education::getlist_of_Employer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return getlist_of_Employer(); }
+   QString sRelation = "{Result_discipline_id} | list_of_Employer";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Result_education tmp;
+   tmp.m_Result_discipline_id = this->m_Result_discipline_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_Employer = tmp.m_list_of_Employer; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_Employer;
+}
+
+Result_education::type_list_of_Employer & Result_education::list_of_Employer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return list_of_Employer(); }
+   QString sRelation = "{Result_discipline_id} | list_of_Employer";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Result_education tmp;
+   tmp.m_Result_discipline_id = this->m_Result_discipline_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_Employer = tmp.m_list_of_Employer; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_Employer;
 }

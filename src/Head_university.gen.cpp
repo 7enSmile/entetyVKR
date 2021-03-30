@@ -27,6 +27,7 @@ void register_class(QxClass<Head_university> & t)
    pRelation = t.relationManyToOne(& Head_university::m_department, "department", 0);
    pRelation->getDataMember()->setName("department_id");
    pRelation = t.relationOneToMany(& Head_university::m_list_of_passing_practice, "list_of_passing_practice", "Head_university_id", 0);
+   pRelation = t.relationOneToMany(& Head_university::m_list_of_Reports, "list_of_Reports", "Head_university_id", 0);
 
    qx::QxValidatorX<Head_university> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }
@@ -51,6 +52,12 @@ Head_university::type_list_of_passing_practice & Head_university::list_of_passin
 
 const Head_university::type_list_of_passing_practice & Head_university::list_of_passing_practice() const { return m_list_of_passing_practice; }
 
+Head_university::type_list_of_Reports Head_university::getlist_of_Reports() const { return m_list_of_Reports; }
+
+Head_university::type_list_of_Reports & Head_university::list_of_Reports() { return m_list_of_Reports; }
+
+const Head_university::type_list_of_Reports & Head_university::list_of_Reports() const { return m_list_of_Reports; }
+
 
 void Head_university::setHead_university_id(const long & val) { m_Head_university_id = val; }
 
@@ -59,6 +66,8 @@ void Head_university::setpersone(const Head_university::type_persone & val) { m_
 void Head_university::setdepartment(const Head_university::type_department & val) { m_department = val; }
 
 void Head_university::setlist_of_passing_practice(const Head_university::type_list_of_passing_practice & val) { m_list_of_passing_practice = val; }
+
+void Head_university::setlist_of_Reports(const Head_university::type_list_of_Reports & val) { m_list_of_Reports = val; }
 
 Head_university::type_persone Head_university::getpersone(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
@@ -117,4 +126,34 @@ Head_university::type_list_of_passing_practice & Head_university::list_of_passin
    if (! daoError.isValid()) { this->m_list_of_passing_practice = tmp.m_list_of_passing_practice; }
    if (pDaoError) { (* pDaoError) = daoError; }
    return m_list_of_passing_practice;
+}
+
+Head_university::type_list_of_Reports Head_university::getlist_of_Reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return getlist_of_Reports(); }
+   QString sRelation = "{Head_university_id} | list_of_Reports";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Head_university tmp;
+   tmp.m_Head_university_id = this->m_Head_university_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_Reports = tmp.m_list_of_Reports; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_Reports;
+}
+
+Head_university::type_list_of_Reports & Head_university::list_of_Reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return list_of_Reports(); }
+   QString sRelation = "{Head_university_id} | list_of_Reports";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Head_university tmp;
+   tmp.m_Head_university_id = this->m_Head_university_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_Reports = tmp.m_list_of_Reports; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_Reports;
 }

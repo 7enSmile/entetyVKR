@@ -7,6 +7,8 @@
 
 class Employer;
 class Passing_practice;
+class Educational_program;
+
 
 class DEPARTMENT_EXPORT Practice
 {
@@ -17,12 +19,14 @@ public:
 
    typedef qx::QxCollection<long, std::shared_ptr<Employer> > type_list_of_employers;
    typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > type_list_of_passing_practice;
+   typedef std::shared_ptr<Educational_program> type_education_program;
 
 protected:
 
    long m_Practice_id;
    type_list_of_employers m_list_of_employers;
    type_list_of_passing_practice m_list_of_passing_practice;
+   type_education_program m_education_program;
 
 public:
 
@@ -31,27 +35,33 @@ public:
    virtual ~Practice();
 
    long getPractice_id() const;
-   type_list_of_employers getlist_of_employers() const;
+   type_list_of_employers getlist_of_Employers() const;
    type_list_of_employers & list_of_employers();
    const type_list_of_employers & list_of_employers() const;
-   type_list_of_passing_practice getlist_of_passing_practice() const;
+   type_list_of_passing_practice getlist_of_Passing_practice() const;
    type_list_of_passing_practice & list_of_passing_practice();
    const type_list_of_passing_practice & list_of_passing_practice() const;
+   type_education_program geteducation_program() const;
 
    void setPractice_id(const long & val);
 
-   void setlist_of_employers(const type_list_of_employers & val);
+   void setlist_of_Employers(const type_list_of_employers & val);
 
-   void setlist_of_passing_practice(const type_list_of_passing_practice & val);
+   void setlist_of_Passing_practice(const type_list_of_passing_practice & val);
 
-   type_list_of_employers getlist_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   void seteducation_program(const type_education_program & val);
+
+   type_list_of_employers getlist_of_Employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_list_of_employers & list_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_passing_practice getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_list_of_passing_practice getlist_of_Passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_list_of_passing_practice & list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_education_program geteducation_program(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+
 
 public:
    static QString relation_list_of_passing_practice(bool key = false) { Q_UNUSED(key); return "list_of_passing_practice"; }
    static QString relation_list_of_employers(bool key = false) { Q_UNUSED(key); return "list_of_employers"; }
+   static QString relation_education_program(bool key = false) { return (key ? QString("education_program") : QString("Education_program_id")); }
 
 public:
 
@@ -75,6 +85,8 @@ QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Practice, qx::trait::no_base_class
 #include "../include/Passing_practice.gen.h"
 
 #include "../include/Employer.gen.h"
+
+#include "../include/Educational_program.gen.h"
 
 #include "../custom/include/Practice.h"
 

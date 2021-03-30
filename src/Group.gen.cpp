@@ -40,11 +40,11 @@ long Group::getGroups_id() const { return m_Groups_id; }
 
 QString Group::getnumber() const { return m_number; }
 
-Group::type_list_of_Strudent Group::getlist_of_Strudent() const { return m_list_of_Strudent; }
+Group::type_list_of_Strudent Group::getlist_of_Student() const { return m_list_of_Strudent; }
 
-Group::type_list_of_Strudent & Group::list_of_Strudent() { return m_list_of_Strudent; }
+Group::type_list_of_Strudent & Group::list_of_Student() { return m_list_of_Strudent; }
 
-const Group::type_list_of_Strudent & Group::list_of_Strudent() const { return m_list_of_Strudent; }
+const Group::type_list_of_Strudent & Group::list_of_Student() const { return m_list_of_Strudent; }
 
 void Group::setGroups_id(const long & val) { m_Groups_id = val; }
 
@@ -52,10 +52,10 @@ void Group::setnumber(const QString & val) { m_number = val; }
 
 void Group::setlist_of_Strudent(const Group::type_list_of_Strudent & val) { m_list_of_Strudent = val; }
 
-Group::type_list_of_Strudent Group::getlist_of_Strudent(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Group::type_list_of_Strudent Group::getlist_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getlist_of_Strudent(); }
+   if (! bLoadFromDatabase) { return getlist_of_Student(); }
    QString sRelation = "{Groups_id} | list_of_Strudent";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
@@ -67,10 +67,10 @@ Group::type_list_of_Strudent Group::getlist_of_Strudent(bool bLoadFromDatabase, 
    return m_list_of_Strudent;
 }
 
-Group::type_list_of_Strudent & Group::list_of_Strudent(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Group::type_list_of_Strudent & Group::list_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return list_of_Strudent(); }
+   if (! bLoadFromDatabase) { return list_of_Student(); }
    QString sRelation = "{Groups_id} | list_of_Strudent";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }

@@ -3,6 +3,8 @@
 
 class Result_education;
 class Discipline;
+class Practice;
+class Student;
 
 class DEPARTMENT_EXPORT Educational_program
 {
@@ -13,6 +15,9 @@ public:
 
    typedef qx::QxCollection<long, std::shared_ptr<Result_education> > type_list_of_result_education;
    typedef qx::QxCollection<long, std::shared_ptr<Discipline> > type_list_of_discipline;
+   typedef qx::QxCollection<long, std::shared_ptr<Practice> > type_list_of_Practice;
+   typedef qx::QxCollection<long, std::shared_ptr<Student> > type_list_of_Student;
+
 
 protected:
 
@@ -23,6 +28,9 @@ protected:
    QString m_focus;
    type_list_of_result_education m_list_of_result_education;
    type_list_of_discipline m_list_of_discipline;
+   type_list_of_Practice m_list_of_Practice;
+   type_list_of_Student m_list_of_Student;
+
 
 public:
 
@@ -41,6 +49,12 @@ public:
    type_list_of_discipline getlist_of_discipline() const;
    type_list_of_discipline & list_of_discipline();
    const type_list_of_discipline & list_of_discipline() const;
+   type_list_of_Practice getlist_of_Practice() const;
+   type_list_of_Practice & list_of_Practice();
+   const type_list_of_Practice & list_of_Practice() const;
+   type_list_of_Student getlist_of_Student() const;
+   type_list_of_Student & list_of_Student();
+   const type_list_of_Student & list_of_Student() const;
 
    void seteducational_program_id(const long & val);
    void setname(const QString & val);
@@ -49,16 +63,24 @@ public:
    void setfocus(const QString & val);
    void setlist_of_result_education(const type_list_of_result_education & val);
    void setlist_of_discipline(const type_list_of_discipline & val);
+   void setlist_of_Practice(const type_list_of_Practice & val);
+   void setlist_of_Student(const type_list_of_Student & val);
 
    type_list_of_result_education getlist_of_result_education(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_list_of_result_education & list_of_result_education(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_list_of_discipline getlist_of_discipline(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_list_of_discipline & list_of_discipline(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_list_of_Practice getlist_of_Practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_list_of_Practice & list_of_Practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_list_of_Student getlist_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_list_of_Student & list_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 
    static QString relation_list_of_result_education(bool key = false) { Q_UNUSED(key); return "list_of_result_education"; }
    static QString relation_list_of_discipline(bool key = false) { Q_UNUSED(key); return "list_of_discipline"; }
+   static QString relation_list_of_Student(bool key = false) { Q_UNUSED(key); return "list_of_Student"; }
+
 
 public:
 
@@ -79,10 +101,10 @@ typedef qx::QxCollection<long, Educational_program_ptr> list_of_Educational_prog
 typedef std::shared_ptr<list_of_Educational_program> list_of_Educational_program_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Educational_program, qx::trait::no_base_class_defined, 0, Educational_program)
-
+#include "../include/Practice.gen.h"
 #include "../include/Result_education.gen.h"
 #include "../include/Discipline.gen.h"
-
+#include "../include/Student.gen.h"
 
 
 #endif // _DEPARTMENT_EDUCATIONAL_PROGRAM_H_

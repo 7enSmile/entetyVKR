@@ -26,6 +26,8 @@ void register_class(QxClass<Student> & t)
    pRelation->getDataMember()->setName("group_id");
    pRelation = t.relationManyToOne(& Student::m_person, "person", 0);
    pRelation = t.relationOneToMany(& Student::m_list_of_passing_practice, "list_of_passing_practice", "studen", 0);
+   pRelation = t.relationManyToOne(& Student::m_Education_program, "Education_program", 0);
+   pRelation->getDataMember()->setName("Education_program_id");
 
 
 
@@ -50,6 +52,8 @@ Student::type_list_of_passing_practice Student::getlist_of_passing_practice() co
 
 Student::type_list_of_passing_practice & Student::list_of_passing_practice() { return m_list_of_passing_practice; }
 
+Student::type_Education_program Student::getEducation_program() const { return m_Education_program; }
+
 const Student::type_list_of_passing_practice & Student::list_of_passing_practice() const { return m_list_of_passing_practice; }
 
 void Student::setStrudent_id(const long & val) { m_Strudent_id = val; }
@@ -59,6 +63,10 @@ void Student::setgroup(const Student::type_group & val) { m_group = val; }
 void Student::setperson(const Student::type_person & val) { m_person = val; }
 
 void Student::setlist_of_passing_practice(const Student::type_list_of_passing_practice & val) { m_list_of_passing_practice = val; }
+
+void Student::setEducation_program(const Student::type_Education_program & val) { m_Education_program = val; }
+
+
 
 
 
@@ -120,6 +128,21 @@ Student::type_list_of_passing_practice & Student::list_of_passing_practice(bool 
    if (! daoError.isValid()) { this->m_list_of_passing_practice = tmp.m_list_of_passing_practice; }
    if (pDaoError) { (* pDaoError) = daoError; }
    return m_list_of_passing_practice;
+}
+
+Student::type_Education_program Student::getEducation_program(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return getEducation_program(); }
+   QString sRelation = "{Student_id} | Education_program";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Student tmp;
+   tmp.m_Strudent_id = this->m_Strudent_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_Education_program = tmp.m_Education_program; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_Education_program;
 }
 
 
