@@ -7,6 +7,8 @@ class Head_employer;
 class Head_university;
 class Task_practice;
 class Employer;
+class Report;
+class Practice_result;
 
 class DEPARTMENT_EXPORT Passing_practice
 {
@@ -22,6 +24,10 @@ public:
    typedef std::shared_ptr<Task_practice> type_task;
    typedef std::shared_ptr<Employer> type_employer;
    typedef std::shared_ptr<Student> type_studen;
+   typedef std::shared_ptr<Report> type_Report;
+   typedef std::shared_ptr<Practice_result> type_Practice_result;
+   typedef std::shared_ptr<Report> type_Report;
+   typedef std::shared_ptr<Practice_result> type_Practice_result;
 
 
 protected:
@@ -36,6 +42,8 @@ protected:
    type_task m_task;
    type_employer m_employer;
    type_studen m_studen;
+   type_Report m_Report;
+   type_Practice_result m_Practice_result;
 
 
 public:
@@ -53,6 +61,9 @@ public:
    type_Head_university getHead_university() const;
    type_task gettask() const;
    type_employer getemployer() const;
+   type_Report getReport() const;
+   type_Practice_result getPractice_result() const;
+
 
 
    void setPassing_practice(const long & val);
@@ -65,6 +76,8 @@ public:
    void settask(const type_task & val);
    void setemployer(const type_employer & val);
    void setstuden(const type_studen & val);
+   void setReport(const type_Report & val);
+   void setPractice_result(const type_Practice_result & val);
 
    type_task gettask(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_practice getpractice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
@@ -72,6 +85,8 @@ public:
    type_Head_university getHead_university(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_employer getemployer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_studen getstuden(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_Report getReport(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_Practice_result getPractice_result(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 
@@ -82,6 +97,8 @@ public:
    static QString relation_task(bool key = false) { return (key ? QString("task") : QString("task_id")); }
    static QString relation_employer(bool key = false) { return (key ? QString("employer") : QString("employer_id")); }
    static QString relation_studen(bool key = false) { return (key ? QString("studen") : QString("Student_id")); }
+   static QString relation_Report(bool key = false) { Q_UNUSED(key); return "Report"; }
+   static QString relation_Practice_result(bool key = false) { Q_UNUSED(key); return "Practice_result"; }
 
 
 
@@ -102,6 +119,8 @@ typedef qx::QxCollection<long, Passing_practice_ptr> list_of_Passing_practice;
 typedef std::shared_ptr<list_of_Passing_practice> list_of_Passing_practice_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Passing_practice, qx::trait::no_base_class_defined, 0, Passing_practice)
+
+#include "../include/Report.gen.h"
 #include "../include/Employer.gen.h"
 #include "../include/Practice.gen.h"
 #include "../include/Student.gen.h"

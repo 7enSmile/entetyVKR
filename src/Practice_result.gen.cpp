@@ -25,6 +25,8 @@ void register_class(QxClass<Practice_result> & t)
    pData = t.data(& Practice_result::m_estimate_university, "estimate_university", 0, true, true);
 
    pRelation = t.relationOneToMany(& Practice_result::m_list_of_reports, "list_of_reports", "practice_result", 0);
+   pRelation = t.relationOneToOne(& Practice_result::m_passing_practice, "passing_practice", 0);
+   pRelation = t.relationManyToOne(& Practice_result::m_Student, "Student_id", 0);
 
    qx::QxValidatorX<Practice_result> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }
@@ -49,6 +51,11 @@ Practice_result::type_list_of_reports & Practice_result::list_of_reports() { ret
 
 const Practice_result::type_list_of_reports & Practice_result::list_of_reports() const { return m_list_of_reports; }
 
+
+Practice_result::type_passing_practice Practice_result::getpassing_practice() const { return m_passing_practice; }
+
+Practice_result::type_Student Practice_result::getStudent() const { return m_Student; }
+
 void Practice_result::setpractice_result_id(const long & val) { m_practice_result_id = val; }
 
 void Practice_result::setestimate_employer(const QString & val) { m_estimate_employer = val; }
@@ -56,6 +63,10 @@ void Practice_result::setestimate_employer(const QString & val) { m_estimate_emp
 void Practice_result::setestimate_university(const QString & val) { m_estimate_university = val; }
 
 void Practice_result::setlist_of_reports(const Practice_result::type_list_of_reports & val) { m_list_of_reports = val; }
+
+void Practice_result::setpassing_practice(const Practice_result::type_passing_practice & val) { m_passing_practice = val; }
+
+void Practice_result::setStudent(const Practice_result::type_Student & val) { m_Student = val; }
 
 Practice_result::type_list_of_reports Practice_result::getlist_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
@@ -85,4 +96,34 @@ Practice_result::type_list_of_reports & Practice_result::list_of_reports(bool bL
    if (! daoError.isValid()) { this->m_list_of_reports = tmp.m_list_of_reports; }
    if (pDaoError) { (* pDaoError) = daoError; }
    return m_list_of_reports;
+}
+
+Practice_result::type_passing_practice Practice_result::getpassing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return getpassing_practice(); }
+   QString sRelation = "{Practice_result_id} | passing_practice";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Practice_result tmp;
+   tmp.m_practice_result_id = this->m_practice_result_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_passing_practice = tmp.m_passing_practice; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_passing_practice;
+}
+
+Practice_result::type_Student Practice_result::getStudent(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return getStudent(); }
+   QString sRelation = "{Practice_result_id} | Student";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Practice_result tmp;
+   tmp.m_practice_result_id = this->m_practice_result_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_Student = tmp.m_Student; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_Student;
 }

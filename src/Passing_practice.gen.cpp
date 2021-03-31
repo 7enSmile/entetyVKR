@@ -40,6 +40,8 @@ void register_class(QxClass<Passing_practice> & t)
    pRelation->getDataMember()->setName("employer_id");
    pRelation = t.relationManyToOne(& Passing_practice::m_studen, "studen", 0);
    pRelation->getDataMember()->setName("Student_id");
+   pRelation = t.relationManyToOne(& Passing_practice::m_Report, "Report_id", 0);
+   pRelation = t.relationOneToOne(& Passing_practice::m_Practice_result, "Practice_result", 0);
 
    qx::QxValidatorX<Passing_practice> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }
@@ -74,6 +76,11 @@ Passing_practice::type_Head_employer Passing_practice::getHead_employer() const 
 
 Passing_practice::type_Head_university Passing_practice::getHead_university() const { return m_Head_university_id; }
 
+Passing_practice::type_Report Passing_practice::getReport() const { return m_Report; }
+
+Passing_practice::type_Practice_result Passing_practice::getPractice_result() const { return m_Practice_result; }
+
+
 void Passing_practice::setPassing_practice(const long & val) { m_Passing_practice_id = val; }
 
 void Passing_practice::setbeginning(const QDate & val) { m_beginning = val; }
@@ -93,6 +100,10 @@ void Passing_practice::settask(const Passing_practice::type_task & val) { m_task
 void Passing_practice::setemployer(const Passing_practice::type_employer & val) { m_employer = val; }
 
 void Passing_practice::setstuden(const Passing_practice::type_studen & val) { m_studen = val; }
+
+void Passing_practice::setReport(const Passing_practice::type_Report & val) { m_Report = val; }
+
+void Passing_practice::setPractice_result(const Passing_practice::type_Practice_result & val) { m_Practice_result = val; }
 
 Passing_practice::type_practice Passing_practice::getpractice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
@@ -183,5 +194,35 @@ Passing_practice::type_studen Passing_practice::getstuden(bool bLoadFromDatabase
    if (! daoError.isValid()) { this->m_studen = tmp.m_studen; }
    if (pDaoError) { (* pDaoError) = daoError; }
    return m_studen;
+}
+
+Passing_practice::type_Report Passing_practice::getReport(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return getReport(); }
+   QString sRelation = "{Passing_practice_id} | Report";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Passing_practice tmp;
+   tmp.m_Passing_practice_id = this->m_Passing_practice_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_Report = tmp.m_Report; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_Report;
+}
+
+Passing_practice::type_Practice_result Passing_practice::getPractice_result(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return getPractice_result(); }
+   QString sRelation = "{Passing_practice_id} | Practice_result";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Passing_practice tmp;
+   tmp.m_Passing_practice_id = this->m_Passing_practice_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_Practice_result = tmp.m_Practice_result; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_Practice_result;
 }
 

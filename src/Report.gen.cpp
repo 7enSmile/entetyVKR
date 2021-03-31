@@ -29,6 +29,8 @@ void register_class(QxClass<Report> & t)
    pRelation = t.relationManyToOne(& Report::m_Head_university, "Head_university_id", 0);
 
    pRelation = t.relationManyToOne(& Report::m_Head_employer, "Head_employer_id", 0);
+   pRelation = t.relationOneToMany(& Report::m_list_of_Passing_practice, "list_of_Passing_practice", "Report_id", 0);
+   pRelation = t.relationManyToOne(& Report::m_Student, "Student_id", 0);
 
 
    qx::QxValidatorX<Report> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
@@ -56,6 +58,14 @@ Report::type_Head_university Report::getHead_university() const { return m_Head_
 
 Report::type_Head_employer Report::getHead_employer() const { return m_Head_employer; }
 
+Report::type_list_of_Passing_practice Report::getlist_of_Passing_practice() const { return m_list_of_Passing_practice; }
+
+Report::type_list_of_Passing_practice & Report::list_of_Passing_practice() { return m_list_of_Passing_practice; }
+
+const Report::type_list_of_Passing_practice & Report::list_of_Passing_practice() const { return m_list_of_Passing_practice; }
+
+Report::type_Student Report::getStudent() const { return m_Student; }
+
 void Report::setReport_id(const long & val) { m_Report_id = val; }
 
 void Report::setreport(const QByteArray & val) { m_report = val; }
@@ -69,6 +79,10 @@ void Report::setpractice_result(const Report::type_practice_result & val) { m_pr
 void Report::setHead_university(const Report::type_Head_university & val) { m_Head_university = val; }
 
 void Report::setHead_employer(const Report::type_Head_employer & val) { m_Head_employer = val; }
+
+void Report::setlist_of_Passing_practice(const Report::type_list_of_Passing_practice & val) { m_list_of_Passing_practice = val; }
+
+void Report::setStudent(const Report::type_Student & val) { m_Student = val; }
 
 Report::type_practice_result Report::getpractice_result(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
@@ -113,4 +127,49 @@ Report::type_Head_employer Report::getHead_employer(bool bLoadFromDatabase, cons
    if (! daoError.isValid()) { this->m_Head_employer = tmp.m_Head_employer; }
    if (pDaoError) { (* pDaoError) = daoError; }
    return m_Head_employer;
+}
+
+Report::type_list_of_Passing_practice Report::getlist_of_Passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return getlist_of_Passing_practice(); }
+   QString sRelation = "{Report_id} | list_of_Passing_practice";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Report tmp;
+   tmp.m_Report_id = this->m_Report_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_Passing_practice = tmp.m_list_of_Passing_practice; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_Passing_practice;
+}
+
+Report::type_list_of_Passing_practice & Report::list_of_Passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return list_of_Passing_practice(); }
+   QString sRelation = "{Report_id} | list_of_Passing_practice";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Report tmp;
+   tmp.m_Report_id = this->m_Report_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_Passing_practice = tmp.m_list_of_Passing_practice; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_Passing_practice;
+}
+
+Report::type_Student Report::getStudent(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return getStudent(); }
+   QString sRelation = "{Report_id} | Student";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Report tmp;
+   tmp.m_Report_id = this->m_Report_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_Student = tmp.m_Student; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_Student;
 }
