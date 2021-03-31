@@ -49,7 +49,7 @@ QDate Events::getbegin() const { return m_begin; }
 
 QDate Events::getending() const { return m_ending; }
 
-Events::employer_ptr Events::getemployer() const { return m_employer; }
+Events::Employer_ptr Events::getemployer() const { return m_employer; }
 
 void Events::setevents_id(const long & val) { m_events_id = val; }
 
@@ -61,9 +61,9 @@ void Events::setbegin(const QDate & val) { m_begin = val; }
 
 void Events::setending(const QDate & val) { m_ending = val; }
 
-void Events::setemployer(const Events::employer_ptr & val) { m_employer = val; }
+void Events::setemployer(const Events::Employer_ptr & val) { m_employer = val; }
 
-Events::employer_ptr Events::getemployer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Events::Employer_ptr Events::getemployer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getemployer(); }

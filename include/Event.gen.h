@@ -10,7 +10,7 @@ class DEPARTMENT_EXPORT Events
 
 public:
 
-   typedef std::shared_ptr<Employer> employer_ptr;
+   typedef std::shared_ptr<Employer> Employer_ptr;
 
 protected:
 
@@ -19,7 +19,7 @@ protected:
    QString m_description;
    QDate m_begin;
    QDate m_ending;
-   employer_ptr m_employer;
+   Employer_ptr m_employer;
 
 public:
 
@@ -32,16 +32,16 @@ public:
    QString getdescription() const;
    QDate getbegin() const;
    QDate getending() const;
-   employer_ptr getemployer() const;
+   Employer_ptr getemployer() const;
 
    void setevents_id(const long & val);
    void setname(const QString & val);
    void setdescription(const QString & val);
    void setbegin(const QDate & val);
    void setending(const QDate & val);
-   void setemployer(const employer_ptr & val);
+   void setemployer(const Employer_ptr & val);
 
-   employer_ptr getemployer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   Employer_ptr getemployer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 

@@ -55,7 +55,7 @@ public:
    Employer(const long & id);
    virtual ~Employer();
 
-   long getEmployer_id() const;
+   long getemployer_id() const;
    QString getname() const;
    ListOfActivity getlist_of_activity() const;
    ListOfActivity & list_of_activity();
@@ -94,7 +94,7 @@ public:
    void setlist_of_events(const ListOfEvents & val);
    void setlist_of_head_employer(const ListOfHeadEmployer & val);
    void setlist_of_contact_employer(const ListOfContactEmployer & val);
-   void setlist_of_Passing_practice(const ListOfPassingPractice & val);
+   void setlist_of_passing_practice(const ListOfPassingPractice & val);
    void setlist_of_result_education(const ListOfResultEducation & val);
 
 
@@ -112,7 +112,7 @@ public:
    ListOfHeadEmployer & list_of_head_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    ListOfContactEmployer getlist_of_contact_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    ListOfContactEmployer & list_of_contact_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   ListOfPassingPractice getlist_of_Passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfPassingPractice getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    ListOfPassingPractice & list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    ListOfResultEducation getlist_of_result_education(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    ListOfResultEducation & list_of_result_education(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);

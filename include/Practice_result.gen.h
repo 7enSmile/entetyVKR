@@ -12,9 +12,9 @@ class DEPARTMENT_EXPORT Practice_result
 
 public:
 
-   typedef qx::QxCollection<long, std::shared_ptr<Report> > type_list_of_reports;
-   typedef std::shared_ptr<Passing_practice> type_passing_practice;
-   typedef std::shared_ptr<Student> type_Student;
+   typedef qx::QxCollection<long, std::shared_ptr<Report> > ListOfReport;
+   typedef std::shared_ptr<Passing_practice> PassingPractice_ptr;
+   typedef std::shared_ptr<Student> Student_ptr;
 
 
 protected:
@@ -22,9 +22,9 @@ protected:
    long m_practice_result_id;
    QString m_estimate_employer;
    QString m_estimate_university;
-   type_list_of_reports m_list_of_reports;
-   type_passing_practice m_passing_practice;
-   type_Student m_Student;
+   ListOfReport m_list_of_reports;
+   PassingPractice_ptr m_passing_practice;
+   Student_ptr m_student;
 
 public:
 
@@ -35,23 +35,23 @@ public:
    long getpractice_result_id() const;
    QString getestimate_employer() const;
    QString getestimate_university() const;
-   type_list_of_reports getlist_of_reports() const;
-   type_list_of_reports & list_of_reports();
-   const type_list_of_reports & list_of_reports() const;
-   type_passing_practice getpassing_practice() const;
-   type_Student getStudent() const;
+   ListOfReport getlist_of_reports() const;
+   ListOfReport & list_of_reports();
+   const ListOfReport & list_of_reports() const;
+   PassingPractice_ptr getpassing_practice() const;
+   Student_ptr getStudent() const;
 
    void setpractice_result_id(const long & val);
    void setestimate_employer(const QString & val);
    void setestimate_university(const QString & val);
-   void setlist_of_reports(const type_list_of_reports & val);
-   void setpassing_practice(const type_passing_practice & val);
-   void setStudent(const type_Student & val);
+   void setlist_of_reports(const ListOfReport & val);
+   void setpassing_practice(const PassingPractice_ptr & val);
+   void setStudent(const Student_ptr & val);
 
-   type_list_of_reports getlist_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_reports & list_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_passing_practice getpassing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_Student getStudent(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfReport getlist_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfReport & list_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   PassingPractice_ptr getpassing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   Student_ptr getStudent(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 

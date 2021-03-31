@@ -47,11 +47,11 @@ QString Task::getname() const { return m_name; }
 
 QString Task::getdescription() const { return m_description; }
 
-Task::type_list_of_employers Task::getlist_of_employers() const { return m_list_of_employers; }
+Task::ListOfEmployer Task::getlist_of_employers() const { return m_list_of_employers; }
 
-Task::type_list_of_employers & Task::list_of_employers() { return m_list_of_employers; }
+Task::ListOfEmployer & Task::list_of_employers() { return m_list_of_employers; }
 
-const Task::type_list_of_employers & Task::list_of_employers() const { return m_list_of_employers; }
+const Task::ListOfEmployer & Task::list_of_employers() const { return m_list_of_employers; }
 
 void Task::setTask_id(const long & val) { m_Task_id = val; }
 
@@ -59,9 +59,9 @@ void Task::setname(const QString & val) { m_name = val; }
 
 void Task::setdescription(const QString & val) { m_description = val; }
 
-void Task::setlist_of_employers(const Task::type_list_of_employers & val) { m_list_of_employers = val; }
+void Task::setlist_of_employers(const Task::ListOfEmployer & val) { m_list_of_employers = val; }
 
-Task::type_list_of_employers Task::getlist_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Task::ListOfEmployer Task::getlist_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_employers(); }
@@ -76,7 +76,7 @@ Task::type_list_of_employers Task::getlist_of_employers(bool bLoadFromDatabase, 
    return m_list_of_employers;
 }
 
-Task::type_list_of_employers & Task::list_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Task::ListOfEmployer & Task::list_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_employers(); }

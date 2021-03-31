@@ -48,37 +48,37 @@ long Practice::getPractice_id() const { return m_Practice_id; }
 
 
 
-Practice::type_list_of_employers Practice::getlist_of_Employers() const { return m_list_of_employers; }
+Practice::ListOfEmployer Practice::getlist_of_employers() const { return m_list_of_employers; }
 
-Practice::type_list_of_employers & Practice::list_of_employers() { return m_list_of_employers; }
+Practice::ListOfEmployer & Practice::list_of_employers() { return m_list_of_employers; }
 
-const Practice::type_list_of_employers & Practice::list_of_employers() const { return m_list_of_employers; }
+const Practice::ListOfEmployer & Practice::list_of_employers() const { return m_list_of_employers; }
 
-Practice::type_list_of_passing_practice Practice::getlist_of_Passing_practice() const { return m_list_of_passing_practice; }
+Practice::ListOfPassingPractice Practice::getlist_of_passing_practice() const { return m_list_of_passing_practice; }
 
-Practice::type_education_program Practice::geteducation_program() const { return m_education_program; }
-
-
-Practice::type_list_of_passing_practice & Practice::list_of_passing_practice() { return m_list_of_passing_practice; }
-
-const Practice::type_list_of_passing_practice & Practice::list_of_passing_practice() const { return m_list_of_passing_practice; }
+Practice::EducationProgram_ptr Practice::geteducation_program() const { return m_education_program; }
 
 
-void Practice::setPractice_id(const long & val) { m_Practice_id = val; }
+Practice::ListOfPassingPractice & Practice::list_of_passing_practice() { return m_list_of_passing_practice; }
+
+const Practice::ListOfPassingPractice & Practice::list_of_passing_practice() const { return m_list_of_passing_practice; }
+
+
+void Practice::setpractice_id(const long & val) { m_Practice_id = val; }
 
 
 
-void Practice::setlist_of_Employers(const Practice::type_list_of_employers & val) { m_list_of_employers = val; }
+void Practice::setlist_of_employers(const Practice::ListOfEmployer & val) { m_list_of_employers = val; }
 
-void Practice::setlist_of_Passing_practice(const Practice::type_list_of_passing_practice & val) { m_list_of_passing_practice = val; }
+void Practice::setlist_of_passing_practice(const Practice::ListOfPassingPractice & val) { m_list_of_passing_practice = val; }
 
-void Practice::seteducation_program(const Practice::type_education_program & val) { m_education_program = val; }
+void Practice::seteducation_program(const Practice::EducationProgram_ptr & val) { m_education_program = val; }
 
 
-Practice::type_list_of_employers Practice::getlist_of_Employers(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Practice::ListOfEmployer Practice::getlist_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getlist_of_Employers(); }
+   if (! bLoadFromDatabase) { return getlist_of_employers(); }
    QString sRelation = "{Practice_id} | list_of_employers";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
@@ -90,7 +90,7 @@ Practice::type_list_of_employers Practice::getlist_of_Employers(bool bLoadFromDa
    return m_list_of_employers;
 }
 
-Practice::type_list_of_employers & Practice::list_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Practice::ListOfEmployer & Practice::list_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_employers(); }
@@ -105,10 +105,10 @@ Practice::type_list_of_employers & Practice::list_of_employers(bool bLoadFromDat
    return m_list_of_employers;
 }
 
-Practice::type_list_of_passing_practice Practice::getlist_of_Passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Practice::ListOfPassingPractice Practice::getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getlist_of_Passing_practice(); }
+   if (! bLoadFromDatabase) { return getlist_of_passing_practice(); }
    QString sRelation = "{Practice_id} | list_of_passing_practice";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
@@ -120,7 +120,7 @@ Practice::type_list_of_passing_practice Practice::getlist_of_Passing_practice(bo
    return m_list_of_passing_practice;
 }
 
-Practice::type_list_of_passing_practice & Practice::list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Practice::ListOfPassingPractice & Practice::list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_passing_practice(); }
@@ -135,7 +135,7 @@ Practice::type_list_of_passing_practice & Practice::list_of_passing_practice(boo
    return m_list_of_passing_practice;
 }
 
-Practice::type_education_program Practice::geteducation_program(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Practice::EducationProgram_ptr Practice::geteducation_program(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return geteducation_program(); }

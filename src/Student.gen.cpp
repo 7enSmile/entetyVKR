@@ -26,7 +26,7 @@ void register_class(QxClass<Student> & t)
    pRelation->getDataMember()->setName("group_id");
    pRelation = t.relationManyToOne(& Student::m_person, "person", 0);
    pRelation = t.relationOneToMany(& Student::m_list_of_passing_practice, "list_of_passing_practice", "studen", 0);
-   pRelation = t.relationManyToOne(& Student::m_Education_program, "Education_program", 0);
+   pRelation = t.relationManyToOne(& Student::m_education_program, "Education_program", 0);
    pRelation->getDataMember()->setName("Education_program_id");
    pRelation = t.relationOneToMany(& Student::m_list_of_reports, "list_of_reports", "Student_id", 0);
    pRelation = t.relationOneToMany(& Student::m_list_of_practice_result, "list_of_practice_result", "Student_id", 0);
@@ -46,48 +46,48 @@ Student::~Student() { ; }
 
 long Student::getStrudent_id() const { return m_Strudent_id; }
 
-Student::type_group Student::getgroup() const { return m_group; }
+Student::Group_ptr Student::getgroup() const { return m_group; }
 
-Student::type_person Student::getperson() const { return m_person; }
+Student::Person_ptr Student::getperson() const { return m_person; }
 
-Student::type_list_of_passing_practice Student::getlist_of_passing_practice() const { return m_list_of_passing_practice; }
+Student::ListOfPassingPractice Student::getlist_of_passing_practice() const { return m_list_of_passing_practice; }
 
-Student::type_list_of_passing_practice & Student::list_of_passing_practice() { return m_list_of_passing_practice; }
+Student::ListOfPassingPractice & Student::list_of_passing_practice() { return m_list_of_passing_practice; }
 
-Student::type_Education_program Student::getEducation_program() const { return m_Education_program; }
+Student::EducationProgram_ptr Student::getEducation_program() const { return m_education_program; }
 
-const Student::type_list_of_passing_practice & Student::list_of_passing_practice() const { return m_list_of_passing_practice; }
+const Student::ListOfPassingPractice & Student::list_of_passing_practice() const { return m_list_of_passing_practice; }
 
-Student::type_list_of_reports Student::getlist_of_reports() const { return m_list_of_reports; }
+Student::ListOfReport Student::getlist_of_reports() const { return m_list_of_reports; }
 
-Student::type_list_of_reports & Student::list_of_reports() { return m_list_of_reports; }
+Student::ListOfReport & Student::list_of_reports() { return m_list_of_reports; }
 
-const Student::type_list_of_reports & Student::list_of_reports() const { return m_list_of_reports; }
+const Student::ListOfReport & Student::list_of_reports() const { return m_list_of_reports; }
 
-Student::type_list_of_practice_result Student::getlist_of_practice_result() const { return m_list_of_practice_result; }
+Student::ListOfPracticeResult Student::getlist_of_practice_result() const { return m_list_of_practice_result; }
 
-Student::type_list_of_practice_result & Student::list_of_practice_result() { return m_list_of_practice_result; }
+Student::ListOfPracticeResult & Student::list_of_practice_result() { return m_list_of_practice_result; }
 
-const Student::type_list_of_practice_result & Student::list_of_practice_result() const { return m_list_of_practice_result; }
+const Student::ListOfPracticeResult & Student::list_of_practice_result() const { return m_list_of_practice_result; }
 
 
 void Student::setStrudent_id(const long & val) { m_Strudent_id = val; }
 
-void Student::setgroup(const Student::type_group & val) { m_group = val; }
+void Student::setgroup(const Student::Group_ptr & val) { m_group = val; }
 
-void Student::setperson(const Student::type_person & val) { m_person = val; }
+void Student::setperson(const Student::Person_ptr & val) { m_person = val; }
 
-void Student::setlist_of_passing_practice(const Student::type_list_of_passing_practice & val) { m_list_of_passing_practice = val; }
+void Student::setlist_of_passing_practice(const Student::ListOfPassingPractice & val) { m_list_of_passing_practice = val; }
 
-void Student::setEducation_program(const Student::type_Education_program & val) { m_Education_program = val; }
+void Student::setEducation_program(const Student::EducationProgram_ptr & val) { m_education_program = val; }
 
-void Student::setlist_of_reports(const Student::type_list_of_reports & val) { m_list_of_reports = val; }
+void Student::setlist_of_reports(const Student::ListOfReport & val) { m_list_of_reports = val; }
 
-void Student::setlist_of_practice_result(const Student::type_list_of_practice_result & val) { m_list_of_practice_result = val; }
+void Student::setlist_of_practice_result(const Student::ListOfPracticeResult & val) { m_list_of_practice_result = val; }
 
 
 
-Student::type_group Student::getgroup(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Student::Group_ptr Student::getgroup(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getgroup(); }
@@ -102,7 +102,7 @@ Student::type_group Student::getgroup(bool bLoadFromDatabase, const QString & sA
    return m_group;
 }
 
-Student::type_person Student::getperson(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Student::Person_ptr Student::getperson(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getperson(); }
@@ -117,7 +117,7 @@ Student::type_person Student::getperson(bool bLoadFromDatabase, const QString & 
    return m_person;
 }
 
-Student::type_list_of_passing_practice Student::getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Student::ListOfPassingPractice Student::getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_passing_practice(); }
@@ -132,7 +132,7 @@ Student::type_list_of_passing_practice Student::getlist_of_passing_practice(bool
    return m_list_of_passing_practice;
 }
 
-Student::type_list_of_passing_practice & Student::list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Student::ListOfPassingPractice & Student::list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_passing_practice(); }
@@ -147,7 +147,7 @@ Student::type_list_of_passing_practice & Student::list_of_passing_practice(bool 
    return m_list_of_passing_practice;
 }
 
-Student::type_Education_program Student::getEducation_program(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Student::EducationProgram_ptr Student::getEducation_program(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getEducation_program(); }
@@ -157,12 +157,12 @@ Student::type_Education_program Student::getEducation_program(bool bLoadFromData
    Student tmp;
    tmp.m_Strudent_id = this->m_Strudent_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_Education_program = tmp.m_Education_program; }
+   if (! daoError.isValid()) { this->m_education_program = tmp.m_education_program; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_Education_program;
+   return m_education_program;
 }
 
-Student::type_list_of_reports Student::getlist_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Student::ListOfReport Student::getlist_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_reports(); }
@@ -177,7 +177,7 @@ Student::type_list_of_reports Student::getlist_of_reports(bool bLoadFromDatabase
    return m_list_of_reports;
 }
 
-Student::type_list_of_reports & Student::list_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Student::ListOfReport & Student::list_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_reports(); }
@@ -192,7 +192,7 @@ Student::type_list_of_reports & Student::list_of_reports(bool bLoadFromDatabase,
    return m_list_of_reports;
 }
 
-Student::type_list_of_practice_result Student::getlist_of_practice_result(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Student::ListOfPracticeResult Student::getlist_of_practice_result(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_practice_result(); }
@@ -207,7 +207,7 @@ Student::type_list_of_practice_result Student::getlist_of_practice_result(bool b
    return m_list_of_practice_result;
 }
 
-Student::type_list_of_practice_result & Student::list_of_practice_result(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Student::ListOfPracticeResult & Student::list_of_practice_result(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_practice_result(); }

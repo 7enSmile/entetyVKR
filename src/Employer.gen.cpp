@@ -52,7 +52,7 @@ Employer::Employer(const long & id) : m_Employer_id(id) { ; }
 
 Employer::~Employer() { ; }
 
-long Employer::getEmployer_id() const { return m_Employer_id; }
+long Employer::getemployer_id() const { return m_Employer_id; }
 
 QString Employer::getname() const { return m_name; }
 
@@ -121,7 +121,7 @@ void Employer::setlist_of_head_employer(const Employer::ListOfHeadEmployer & val
 
 void Employer::setlist_of_contact_employer(const Employer::ListOfContactEmployer & val) { m_list_of_contact_employer = val; }
 
-void Employer::setlist_of_Passing_practice(const Employer::ListOfPassingPractice & val) { m_list_of_passing_practice = val; }
+void Employer::setlist_of_passing_practice(const Employer::ListOfPassingPractice & val) { m_list_of_passing_practice = val; }
 
 void Employer::setlist_of_result_education(const Employer::ListOfResultEducation & val) { m_list_of_result_education = val; }
 
@@ -340,7 +340,7 @@ Employer::ListOfContactEmployer & Employer::list_of_contact_employer(bool bLoadF
    return m_list_of_contact_employer;
 }
 
-Employer::ListOfPassingPractice Employer::getlist_of_Passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Employer::ListOfPassingPractice Employer::getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_passing_practice(); }

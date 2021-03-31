@@ -10,13 +10,13 @@ class DEPARTMENT_EXPORT Task_practice
 
 public:
 
-   typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > type_list_of_passeing_practice;
+   typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > ListOfPassingPractice;
 
 protected:
 
    long m_Task_id;
    QString m_description;
-   type_list_of_passeing_practice m_list_of_passeing_practice;
+   ListOfPassingPractice m_list_of_passeing_practice;
 
 public:
 
@@ -26,16 +26,16 @@ public:
 
    long getTask_id() const;
    QString getdescription() const;
-   type_list_of_passeing_practice getlist_of_passeing_practice() const;
-   type_list_of_passeing_practice & list_of_passeing_practice();
-   const type_list_of_passeing_practice & list_of_passeing_practice() const;
+   ListOfPassingPractice getlist_of_passeing_practice() const;
+   ListOfPassingPractice & list_of_passeing_practice();
+   const ListOfPassingPractice & list_of_passeing_practice() const;
 
    void setTask_id(const long & val);
    void setdescription(const QString & val);
-   void setlist_of_passeing_practice(const type_list_of_passeing_practice & val);
+   void setlist_of_passeing_practice(const ListOfPassingPractice & val);
 
-   type_list_of_passeing_practice getlist_of_passeing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_passeing_practice & list_of_passeing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfPassingPractice getlist_of_passeing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfPassingPractice & list_of_passeing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 

@@ -17,16 +17,16 @@ class DEPARTMENT_EXPORT Practice
 
 public:
 
-   typedef qx::QxCollection<long, std::shared_ptr<Employer> > type_list_of_employers;
-   typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > type_list_of_passing_practice;
-   typedef std::shared_ptr<Educational_program> type_education_program;
+   typedef qx::QxCollection<long, std::shared_ptr<Employer> > ListOfEmployer;
+   typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > ListOfPassingPractice;
+   typedef std::shared_ptr<Educational_program> EducationProgram_ptr;
 
 protected:
 
    long m_Practice_id;
-   type_list_of_employers m_list_of_employers;
-   type_list_of_passing_practice m_list_of_passing_practice;
-   type_education_program m_education_program;
+   ListOfEmployer m_list_of_employers;
+   ListOfPassingPractice m_list_of_passing_practice;
+   EducationProgram_ptr m_education_program;
 
 public:
 
@@ -35,27 +35,27 @@ public:
    virtual ~Practice();
 
    long getPractice_id() const;
-   type_list_of_employers getlist_of_Employers() const;
-   type_list_of_employers & list_of_employers();
-   const type_list_of_employers & list_of_employers() const;
-   type_list_of_passing_practice getlist_of_Passing_practice() const;
-   type_list_of_passing_practice & list_of_passing_practice();
-   const type_list_of_passing_practice & list_of_passing_practice() const;
-   type_education_program geteducation_program() const;
+   ListOfEmployer getlist_of_employers() const;
+   ListOfEmployer & list_of_employers();
+   const ListOfEmployer & list_of_employers() const;
+   ListOfPassingPractice getlist_of_passing_practice() const;
+   ListOfPassingPractice & list_of_passing_practice();
+   const ListOfPassingPractice & list_of_passing_practice() const;
+   EducationProgram_ptr geteducation_program() const;
 
-   void setPractice_id(const long & val);
+   void setpractice_id(const long & val);
 
-   void setlist_of_Employers(const type_list_of_employers & val);
+   void setlist_of_employers(const ListOfEmployer & val);
 
-   void setlist_of_Passing_practice(const type_list_of_passing_practice & val);
+   void setlist_of_passing_practice(const ListOfPassingPractice & val);
 
-   void seteducation_program(const type_education_program & val);
+   void seteducation_program(const EducationProgram_ptr & val);
 
-   type_list_of_employers getlist_of_Employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_employers & list_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_passing_practice getlist_of_Passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_passing_practice & list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_education_program geteducation_program(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfEmployer getlist_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfEmployer & list_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfPassingPractice getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfPassingPractice & list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   EducationProgram_ptr geteducation_program(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 
 public:

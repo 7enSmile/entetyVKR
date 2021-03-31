@@ -15,12 +15,12 @@ class DEPARTMENT_EXPORT Student
 
 public:
 
-   typedef std::shared_ptr<Group> type_group;
-   typedef std::shared_ptr<Person> type_person;
-   typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > type_list_of_passing_practice;
-   typedef std::shared_ptr<Educational_program> type_Education_program;
-   typedef qx::QxCollection<long, std::shared_ptr<Report> > type_list_of_reports;
-   typedef qx::QxCollection<long, std::shared_ptr<Practice_result> > type_list_of_practice_result;
+   typedef std::shared_ptr<Group> Group_ptr;
+   typedef std::shared_ptr<Person> Person_ptr;
+   typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > ListOfPassingPractice;
+   typedef std::shared_ptr<Educational_program> EducationProgram_ptr;
+   typedef qx::QxCollection<long, std::shared_ptr<Report> > ListOfReport;
+   typedef qx::QxCollection<long, std::shared_ptr<Practice_result> > ListOfPracticeResult;
 
 
 
@@ -28,12 +28,12 @@ public:
 protected:
 
    long m_Strudent_id;
-   type_group m_group;
-   type_person m_person;
-   type_list_of_passing_practice m_list_of_passing_practice;
-   type_Education_program m_Education_program;
-   type_list_of_reports m_list_of_reports;
-   type_list_of_practice_result m_list_of_practice_result;
+   Group_ptr m_group;
+   Person_ptr m_person;
+   ListOfPassingPractice m_list_of_passing_practice;
+   EducationProgram_ptr m_education_program;
+   ListOfReport m_list_of_reports;
+   ListOfPracticeResult m_list_of_practice_result;
 
 
 
@@ -44,38 +44,38 @@ public:
    virtual ~Student();
 
    long getStrudent_id() const;
-   type_group getgroup() const;
-   type_person getperson() const;
-   type_list_of_passing_practice getlist_of_passing_practice() const;
-   type_list_of_passing_practice & list_of_passing_practice();
-   const type_list_of_passing_practice & list_of_passing_practice() const;
-   type_Education_program getEducation_program() const;
-   type_list_of_reports getlist_of_reports() const;
-   type_list_of_reports & list_of_reports();
-   const type_list_of_reports & list_of_reports() const;
-   type_list_of_practice_result getlist_of_practice_result() const;
-   type_list_of_practice_result & list_of_practice_result();
-   const type_list_of_practice_result & list_of_practice_result() const;
+   Group_ptr getgroup() const;
+   Person_ptr getperson() const;
+   ListOfPassingPractice getlist_of_passing_practice() const;
+   ListOfPassingPractice & list_of_passing_practice();
+   const ListOfPassingPractice & list_of_passing_practice() const;
+   EducationProgram_ptr getEducation_program() const;
+   ListOfReport getlist_of_reports() const;
+   ListOfReport & list_of_reports();
+   const ListOfReport & list_of_reports() const;
+   ListOfPracticeResult getlist_of_practice_result() const;
+   ListOfPracticeResult & list_of_practice_result();
+   const ListOfPracticeResult & list_of_practice_result() const;
 
 
    void setStrudent_id(const long & val);
-   void setgroup(const type_group & val);
-   void setperson(const type_person & val);
-   void setlist_of_passing_practice(const type_list_of_passing_practice & val);
-   void setEducation_program(const type_Education_program & val);
-   void setlist_of_reports(const type_list_of_reports & val);
-   void setlist_of_practice_result(const type_list_of_practice_result & val);
+   void setgroup(const Group_ptr & val);
+   void setperson(const Person_ptr & val);
+   void setlist_of_passing_practice(const ListOfPassingPractice & val);
+   void setEducation_program(const EducationProgram_ptr & val);
+   void setlist_of_reports(const ListOfReport & val);
+   void setlist_of_practice_result(const ListOfPracticeResult & val);
 
 
-   type_list_of_passing_practice getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_passing_practice & list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_group getgroup(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_person getperson(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_Education_program getEducation_program(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_reports getlist_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_reports & list_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_practice_result getlist_of_practice_result(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_practice_result & list_of_practice_result(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfPassingPractice getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfPassingPractice & list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   Group_ptr getgroup(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   Person_ptr getperson(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   EducationProgram_ptr getEducation_program(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfReport getlist_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfReport & list_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfPracticeResult getlist_of_practice_result(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfPracticeResult & list_of_practice_result(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 
 
@@ -84,7 +84,7 @@ public:
    static QString relation_group(bool key = false) { return (key ? QString("group") : QString("group_id")); }
    static QString relation_person(bool key = false) { Q_UNUSED(key); return "person"; }
    static QString relation_list_of_passing_practice(bool key = false) { Q_UNUSED(key); return "list_of_passing_practice"; }
-   static QString relation_Education_program(bool key = false) { Q_UNUSED(key); return "Education_program"; }
+   static QString relation_education_program(bool key = false) { Q_UNUSED(key); return "Education_program"; }
    static QString relation_list_of_reports(bool key = false) { Q_UNUSED(key); return "list_of_reports"; }
    static QString relation_list_of_practice_result(bool key = false) { Q_UNUSED(key); return "list_of_practice_result"; }
 

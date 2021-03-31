@@ -29,7 +29,7 @@ void register_class(QxClass<Result_education> & t)
    pRelation->getDataMember()->setName("Educational_program_id");
    pRelation = t.relationManyToOne(& Result_education::m_discipline, "Discipline_id", 0);
    pRelation->getDataMember()->setName("Discipline_id");
-   pRelation = t.relationManyToMany(& Result_education::m_list_of_Employer, "list_of_Employer", "t_qxee_Employer_Result_education", "Result_discipline_id", "Employer_id", 0);
+   pRelation = t.relationManyToMany(& Result_education::m_list_of_employer, "list_of_employer", "t_qxee_employer_Result_education", "Result_discipline_id", "Employer_id", 0);
 
    qx::QxValidatorX<Result_education> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }
@@ -48,15 +48,15 @@ QString Result_education::getdescription() const { return m_description; }
 
 QString Result_education::getacquired_skills() const { return m_acquired_skills; }
 
-Result_education::type_educational_program Result_education::geteducational_program() const { return m_educational_program; }
+Result_education::EducationProgram_ptr Result_education::geteducational_program() const { return m_educational_program; }
 
-Result_education::type_discipline Result_education::getdiscipline() const { return m_discipline; }
+Result_education::Discipline_ptr Result_education::getdiscipline() const { return m_discipline; }
 
-Result_education::type_list_of_Employer Result_education::getlist_of_Employer() const { return m_list_of_Employer; }
+Result_education::ListOfEmployer Result_education::getlist_of_employer() const { return m_list_of_employer; }
 
-Result_education::type_list_of_Employer & Result_education::list_of_Employer() { return m_list_of_Employer; }
+Result_education::ListOfEmployer & Result_education::list_of_employer() { return m_list_of_employer; }
 
-const Result_education::type_list_of_Employer & Result_education::list_of_Employer() const { return m_list_of_Employer; }
+const Result_education::ListOfEmployer & Result_education::list_of_employer() const { return m_list_of_employer; }
 
 
 void Result_education::setResult_discipline_id(const long & val) { m_Result_discipline_id = val; }
@@ -65,13 +65,13 @@ void Result_education::setdescription(const QString & val) { m_description = val
 
 void Result_education::setacquired_skills(const QString & val) { m_acquired_skills = val; }
 
-void Result_education::seteducational_program(const Result_education::type_educational_program & val) { m_educational_program = val; }
+void Result_education::seteducational_program(const Result_education::EducationProgram_ptr & val) { m_educational_program = val; }
 
-void Result_education::setdiscipline(const Result_education::type_discipline & val) { m_discipline = val; }
+void Result_education::setdiscipline(const Result_education::Discipline_ptr & val) { m_discipline = val; }
 
-void Result_education::setlist_of_Employer(const Result_education::type_list_of_Employer & val) { m_list_of_Employer = val; }
+void Result_education::setlist_of_employer(const Result_education::ListOfEmployer & val) { m_list_of_employer = val; }
 
-Result_education::type_educational_program Result_education::geteducational_program(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Result_education::EducationProgram_ptr Result_education::geteducational_program(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return geteducational_program(); }
@@ -86,7 +86,7 @@ Result_education::type_educational_program Result_education::geteducational_prog
    return m_educational_program;
 }
 
-Result_education::type_discipline Result_education::getdiscipline(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Result_education::Discipline_ptr Result_education::getdiscipline(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getdiscipline(); }
@@ -101,32 +101,32 @@ Result_education::type_discipline Result_education::getdiscipline(bool bLoadFrom
    return m_discipline;
 }
 
-Result_education::type_list_of_Employer Result_education::getlist_of_Employer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Result_education::ListOfEmployer Result_education::getlist_of_employer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getlist_of_Employer(); }
-   QString sRelation = "{Result_discipline_id} | list_of_Employer";
+   if (! bLoadFromDatabase) { return getlist_of_employer(); }
+   QString sRelation = "{Result_discipline_id} | list_of_employer";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Result_education tmp;
    tmp.m_Result_discipline_id = this->m_Result_discipline_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Employer = tmp.m_list_of_Employer; }
+   if (! daoError.isValid()) { this->m_list_of_employer = tmp.m_list_of_employer; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Employer;
+   return m_list_of_employer;
 }
 
-Result_education::type_list_of_Employer & Result_education::list_of_Employer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Result_education::ListOfEmployer & Result_education::list_of_employer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return list_of_Employer(); }
-   QString sRelation = "{Result_discipline_id} | list_of_Employer";
+   if (! bLoadFromDatabase) { return list_of_employer(); }
+   QString sRelation = "{Result_discipline_id} | list_of_employer";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Result_education tmp;
    tmp.m_Result_discipline_id = this->m_Result_discipline_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Employer = tmp.m_list_of_Employer; }
+   if (! daoError.isValid()) { this->m_list_of_employer = tmp.m_list_of_employer; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Employer;
+   return m_list_of_employer;
 }

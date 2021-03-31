@@ -40,19 +40,19 @@ long Task_practice::getTask_id() const { return m_Task_id; }
 
 QString Task_practice::getdescription() const { return m_description; }
 
-Task_practice::type_list_of_passeing_practice Task_practice::getlist_of_passeing_practice() const { return m_list_of_passeing_practice; }
+Task_practice::ListOfPassingPractice Task_practice::getlist_of_passeing_practice() const { return m_list_of_passeing_practice; }
 
-Task_practice::type_list_of_passeing_practice & Task_practice::list_of_passeing_practice() { return m_list_of_passeing_practice; }
+Task_practice::ListOfPassingPractice & Task_practice::list_of_passeing_practice() { return m_list_of_passeing_practice; }
 
-const Task_practice::type_list_of_passeing_practice & Task_practice::list_of_passeing_practice() const { return m_list_of_passeing_practice; }
+const Task_practice::ListOfPassingPractice & Task_practice::list_of_passeing_practice() const { return m_list_of_passeing_practice; }
 
 void Task_practice::setTask_id(const long & val) { m_Task_id = val; }
 
 void Task_practice::setdescription(const QString & val) { m_description = val; }
 
-void Task_practice::setlist_of_passeing_practice(const Task_practice::type_list_of_passeing_practice & val) { m_list_of_passeing_practice = val; }
+void Task_practice::setlist_of_passeing_practice(const Task_practice::ListOfPassingPractice & val) { m_list_of_passeing_practice = val; }
 
-Task_practice::type_list_of_passeing_practice Task_practice::getlist_of_passeing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Task_practice::ListOfPassingPractice Task_practice::getlist_of_passeing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_passeing_practice(); }
@@ -67,7 +67,7 @@ Task_practice::type_list_of_passeing_practice Task_practice::getlist_of_passeing
    return m_list_of_passeing_practice;
 }
 
-Task_practice::type_list_of_passeing_practice & Task_practice::list_of_passeing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Task_practice::ListOfPassingPractice & Task_practice::list_of_passeing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_passeing_practice(); }

@@ -20,7 +20,7 @@ void register_class(QxClass<Head_employer> & t)
 
    t.setName("t_Head_employer");
 
-   pData = t.id(& Head_employer::m_Head_employer, "Head_employer_id", 0);
+   pData = t.id(& Head_employer::m_head_employer, "Head_employer_id", 0);
 
    pRelation = t.relationManyToOne(& Head_employer::m_employer, "employer", 0);
    pRelation = t.relationManyToOne(& Head_employer::m_person, "person_id", 0);
@@ -34,13 +34,13 @@ void register_class(QxClass<Head_employer> & t)
 
 } // namespace qx
 
-Head_employer::Head_employer() : m_Head_employer(0) { ; }
+Head_employer::Head_employer() : m_head_employer(0) { ; }
 
-Head_employer::Head_employer(const long & id) : m_Head_employer(id) { ; }
+Head_employer::Head_employer(const long & id) : m_head_employer(id) { ; }
 
 Head_employer::~Head_employer() { ; }
 
-long Head_employer::getHead_employer() const { return m_Head_employer; }
+long Head_employer::getHead_employer() const { return m_head_employer; }
 
 Head_employer::Employer_ptr Head_employer::getemployer() const { return m_employer; }
 
@@ -52,14 +52,14 @@ Head_employer::ListOfPassingPractice & Head_employer::list_of_passing_practice()
 
 const Head_employer::ListOfPassingPractice & Head_employer::list_of_passing_practice() const { return m_list_of_passing_practice; }
 
-Head_employer::LostOfReport Head_employer::getlist_of_reports() const { return m_list_of_reports; }
+Head_employer::ListOfReport Head_employer::getlist_of_reports() const { return m_list_of_reports; }
 
-Head_employer::LostOfReport & Head_employer::list_of_reports() { return m_list_of_reports; }
+Head_employer::ListOfReport & Head_employer::list_of_reports() { return m_list_of_reports; }
 
-const Head_employer::LostOfReport & Head_employer::list_of_reports() const { return m_list_of_reports; }
+const Head_employer::ListOfReport & Head_employer::list_of_reports() const { return m_list_of_reports; }
 
 
-void Head_employer::setHead_employer_id(const long & val) { m_Head_employer = val; }
+void Head_employer::setHead_employer_id(const long & val) { m_head_employer = val; }
 
 void Head_employer::setemployer(const Head_employer::Employer_ptr & val) { m_employer = val; }
 
@@ -67,7 +67,7 @@ void Head_employer::setperson(const Head_employer::Person_ptr & val) { m_person 
 
 void Head_employer::setlist_of_passing_practice(const Head_employer::ListOfPassingPractice & val) { m_list_of_passing_practice = val; }
 
-void Head_employer::setlist_of_reports(const Head_employer::LostOfReport & val) { m_list_of_reports = val; }
+void Head_employer::setlist_of_reports(const Head_employer::ListOfReport & val) { m_list_of_reports = val; }
 
 Head_employer::Employer_ptr Head_employer::getemployer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
@@ -77,7 +77,7 @@ Head_employer::Employer_ptr Head_employer::getemployer(bool bLoadFromDatabase, c
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Head_employer tmp;
-   tmp.m_Head_employer = this->m_Head_employer;
+   tmp.m_head_employer = this->m_head_employer;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
    if (! daoError.isValid()) { this->m_employer = tmp.m_employer; }
    if (pDaoError) { (* pDaoError) = daoError; }
@@ -92,7 +92,7 @@ Head_employer::Person_ptr Head_employer::getperson(bool bLoadFromDatabase, const
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Head_employer tmp;
-   tmp.m_Head_employer = this->m_Head_employer;
+   tmp.m_head_employer = this->m_head_employer;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
    if (! daoError.isValid()) { this->m_person = tmp.m_person; }
    if (pDaoError) { (* pDaoError) = daoError; }
@@ -107,7 +107,7 @@ Head_employer::ListOfPassingPractice Head_employer::getlist_of_passing_practice(
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Head_employer tmp;
-   tmp.m_Head_employer = this->m_Head_employer;
+   tmp.m_head_employer = this->m_head_employer;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
    if (! daoError.isValid()) { this->m_list_of_passing_practice = tmp.m_list_of_passing_practice; }
    if (pDaoError) { (* pDaoError) = daoError; }
@@ -122,14 +122,14 @@ Head_employer::ListOfPassingPractice & Head_employer::list_of_passing_practice(b
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Head_employer tmp;
-   tmp.m_Head_employer = this->m_Head_employer;
+   tmp.m_head_employer = this->m_head_employer;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
    if (! daoError.isValid()) { this->m_list_of_passing_practice = tmp.m_list_of_passing_practice; }
    if (pDaoError) { (* pDaoError) = daoError; }
    return m_list_of_passing_practice;
 }
 
-Head_employer::LostOfReport Head_employer::getlist_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Head_employer::ListOfReport Head_employer::getlist_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_reports(); }
@@ -137,14 +137,14 @@ Head_employer::LostOfReport Head_employer::getlist_of_reports(bool bLoadFromData
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Head_employer tmp;
-   tmp.m_Head_employer = this->m_Head_employer;
+   tmp.m_head_employer = this->m_head_employer;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
    if (! daoError.isValid()) { this->m_list_of_reports = tmp.m_list_of_reports; }
    if (pDaoError) { (* pDaoError) = daoError; }
    return m_list_of_reports;
 }
 
-Head_employer::LostOfReport & Head_employer::list_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Head_employer::ListOfReport & Head_employer::list_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_reports(); }
@@ -152,7 +152,7 @@ Head_employer::LostOfReport & Head_employer::list_of_reports(bool bLoadFromDatab
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Head_employer tmp;
-   tmp.m_Head_employer = this->m_Head_employer;
+   tmp.m_head_employer = this->m_head_employer;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
    if (! daoError.isValid()) { this->m_list_of_reports = tmp.m_list_of_reports; }
    if (pDaoError) { (* pDaoError) = daoError; }

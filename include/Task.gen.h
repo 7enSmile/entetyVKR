@@ -14,14 +14,14 @@ class DEPARTMENT_EXPORT Task
 
 public:
 
-   typedef qx::QxCollection<long, std::shared_ptr<Employer> > type_list_of_employers;
+   typedef qx::QxCollection<long, std::shared_ptr<Employer> > ListOfEmployer;
 
 protected:
 
    long m_Task_id;
    QString m_name;
    QString m_description;
-   type_list_of_employers m_list_of_employers;
+   ListOfEmployer m_list_of_employers;
 
 public:
 
@@ -32,17 +32,17 @@ public:
    long getTask_id() const;
    QString getname() const;
    QString getdescription() const;
-   type_list_of_employers getlist_of_employers() const;
-   type_list_of_employers & list_of_employers();
-   const type_list_of_employers & list_of_employers() const;
+   ListOfEmployer getlist_of_employers() const;
+   ListOfEmployer & list_of_employers();
+   const ListOfEmployer & list_of_employers() const;
 
    void setTask_id(const long & val);
    void setname(const QString & val);
    void setdescription(const QString & val);
-   void setlist_of_employers(const type_list_of_employers & val);
+   void setlist_of_employers(const ListOfEmployer & val);
 
-   type_list_of_employers getlist_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_employers & list_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfEmployer getlist_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfEmployer & list_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 
