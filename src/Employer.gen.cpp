@@ -30,15 +30,15 @@ void register_class(QxClass<Employer> & t)
 
    pData = t.data(& Employer::m_name, "name", 0, true, true);
 
-   pRelation = t.relationManyToMany(& Employer::m_list_of_Activity, "list_of_Activity", "t_qxee_Activity_Employer", "Employer_id", "Activity_id", 0);
-   pRelation = t.relationManyToMany(& Employer::m_list_of_Collaboration, "list_of_Collaboration", "t_qxee_Collaboration_Employer", "Employer_id", "Collaboration_id", 0);
-   pRelation = t.relationManyToMany(& Employer::m_list_of_Task, "list_of_Task", "t_qxee_Task_Employer", "Employer_id", "Task_id", 0);
-   pRelation = t.relationManyToMany(& Employer::m_list_of_Practice, "list_of_Practice", "t_qxee_Practice_Employer", "Employer_id", "Practice_id", 0);
-   pRelation = t.relationOneToMany(& Employer::m_list_of_Events, "list_of_Events", "employer", 0);
-   pRelation = t.relationOneToMany(& Employer::m_list_of_Head_employer, "list_of_Head_employer", "employer", 0);
-   pRelation = t.relationOneToMany(& Employer::m_list_of_Contact_employer, "list_of_Contact_employer", "employer", 0);
+   pRelation = t.relationManyToMany(& Employer::m_list_of_activity, "list_of_activity", "t_qxee_activity_Employer", "Employer_id", "Activity_id", 0);
+   pRelation = t.relationManyToMany(& Employer::m_list_of_collaboration, "list_of_collaboration", "t_qxee_collaboration_Employer", "Employer_id", "Collaboration_id", 0);
+   pRelation = t.relationManyToMany(& Employer::m_list_of_task, "list_of_task", "t_qxee_task_Employer", "Employer_id", "Task_id", 0);
+   pRelation = t.relationManyToMany(& Employer::m_list_of_practice, "list_of_practice", "t_qxee_practice_Employer", "Employer_id", "Practice_id", 0);
+   pRelation = t.relationOneToMany(& Employer::m_list_of_events, "list_of_events", "employer", 0);
+   pRelation = t.relationOneToMany(& Employer::m_list_of_head_employer, "list_of_head_employer", "employer", 0);
+   pRelation = t.relationOneToMany(& Employer::m_list_of_contact_employer, "list_of_contact_employer", "employer", 0);
    pRelation = t.relationOneToMany(& Employer::m_list_of_passing_practice, "list_of_passing_practice", "employer", 0);
-   pRelation = t.relationManyToMany(& Employer::m_list_of_Result_education, "list_of_Result_education", "t_qxee_Employer_Result_education", "Employer_id", "Result_discipline_id", 0);
+   pRelation = t.relationManyToMany(& Employer::m_list_of_result_education, "list_of_result_education", "t_qxee_Employer_result_education", "Employer_id", "Result_discipline_id", 0);
 
 
    qx::QxValidatorX<Employer> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
@@ -56,291 +56,291 @@ long Employer::getEmployer_id() const { return m_Employer_id; }
 
 QString Employer::getname() const { return m_name; }
 
-Employer::type_list_of_Activity Employer::getlist_of_Activity() const { return m_list_of_Activity; }
+Employer::ListOfActivity Employer::getlist_of_activity() const { return m_list_of_activity; }
 
-Employer::type_list_of_Activity & Employer::list_of_Activity() { return m_list_of_Activity; }
+Employer::ListOfActivity & Employer::list_of_activity() { return m_list_of_activity; }
 
-const Employer::type_list_of_Activity & Employer::list_of_Activity() const { return m_list_of_Activity; }
+const Employer::ListOfActivity & Employer::list_of_activity() const { return m_list_of_activity; }
 
-Employer::type_list_of_Collaboration Employer::getlist_of_Collaboration() const { return m_list_of_Collaboration; }
+Employer::ListOfCollaboration Employer::getlist_of_collaboration() const { return m_list_of_collaboration; }
 
-Employer::type_list_of_Collaboration & Employer::list_of_Collaboration() { return m_list_of_Collaboration; }
+Employer::ListOfCollaboration & Employer::list_of_collaboration() { return m_list_of_collaboration; }
 
-const Employer::type_list_of_Collaboration & Employer::list_of_Collaboration() const { return m_list_of_Collaboration; }
+const Employer::ListOfCollaboration & Employer::list_of_collaboration() const { return m_list_of_collaboration; }
 
-Employer::type_list_of_Task Employer::getlist_of_Task() const { return m_list_of_Task; }
+Employer::ListOfTask Employer::getlist_of_task() const { return m_list_of_task; }
 
-Employer::type_list_of_Task & Employer::list_of_Task() { return m_list_of_Task; }
+Employer::ListOfTask & Employer::list_of_task() { return m_list_of_task; }
 
-const Employer::type_list_of_Task & Employer::list_of_Task() const { return m_list_of_Task; }
+const Employer::ListOfTask & Employer::list_of_task() const { return m_list_of_task; }
 
-Employer::type_list_of_Practice Employer::getlist_of_Practice() const { return m_list_of_Practice; }
+Employer::ListOfPractice Employer::getlist_of_practice() const { return m_list_of_practice; }
 
-Employer::type_list_of_Practice & Employer::list_of_Practice() { return m_list_of_Practice; }
+Employer::ListOfPractice & Employer::list_of_practice() { return m_list_of_practice; }
 
-const Employer::type_list_of_Practice & Employer::list_of_Practice() const { return m_list_of_Practice; }
+const Employer::ListOfPractice & Employer::list_of_practice() const { return m_list_of_practice; }
 
-Employer::type_list_of_Head_employer Employer::getlist_of_Head_employer() const { return m_list_of_Head_employer; }
+Employer::ListOfHeadEmployer Employer::getlist_of_head_employer() const { return m_list_of_head_employer; }
 
-Employer::type_list_of_Head_employer & Employer::list_of_Head_employer() { return m_list_of_Head_employer; }
+Employer::ListOfHeadEmployer & Employer::list_of_head_employer() { return m_list_of_head_employer; }
 
-const Employer::type_list_of_Head_employer & Employer::list_of_Head_employer() const { return m_list_of_Head_employer; }
+const Employer::ListOfHeadEmployer & Employer::list_of_head_employer() const { return m_list_of_head_employer; }
 
-Employer::type_list_of_Contact_employer Employer::getlist_of_Contact_employer() const { return m_list_of_Contact_employer; }
+Employer::ListOfContactEmployer Employer::getlist_of_contact_employer() const { return m_list_of_contact_employer; }
 
-Employer::type_list_of_Contact_employer & Employer::list_of_Contact_employer() { return m_list_of_Contact_employer; }
+Employer::ListOfContactEmployer & Employer::list_of_contact_employer() { return m_list_of_contact_employer; }
 
-const Employer::type_list_of_Contact_employer & Employer::list_of_Contact_employer() const { return m_list_of_Contact_employer; }
+const Employer::ListOfContactEmployer & Employer::list_of_contact_employer() const { return m_list_of_contact_employer; }
 
-Employer::type_list_of_passing_practice Employer::getlist_of_passing_practice() const { return m_list_of_passing_practice; }
+Employer::ListOfPassingPractice Employer::getlist_of_passing_practice() const { return m_list_of_passing_practice; }
 
-Employer::type_list_of_passing_practice & Employer::list_of_passing_practice() { return m_list_of_passing_practice; }
+Employer::ListOfPassingPractice & Employer::list_of_passing_practice() { return m_list_of_passing_practice; }
 
-const Employer::type_list_of_passing_practice & Employer::list_of_passing_practice() const { return m_list_of_passing_practice; }
+const Employer::ListOfPassingPractice & Employer::list_of_passing_practice() const { return m_list_of_passing_practice; }
 
 
-Employer::type_list_of_Result_education Employer::getlist_of_Result_education() const { return m_list_of_Result_education; }
+Employer::ListOfResultEducation Employer::getlist_of_result_education() const { return m_list_of_result_education; }
 
-Employer::type_list_of_Result_education & Employer::list_of_Result_education() { return m_list_of_Result_education; }
+Employer::ListOfResultEducation & Employer::list_of_result_education() { return m_list_of_result_education; }
 
-const Employer::type_list_of_Result_education & Employer::list_of_Result_education() const { return m_list_of_Result_education; }
+const Employer::ListOfResultEducation & Employer::list_of_result_education() const { return m_list_of_result_education; }
 
 void Employer::setEmployer_id(const long & val) { m_Employer_id = val; }
 
 void Employer::setname(const QString & val) { m_name = val; }
 
-void Employer::setlist_of_Activity(const Employer::type_list_of_Activity & val) { m_list_of_Activity = val; }
+void Employer::setlist_of_activity(const Employer::ListOfActivity & val) { m_list_of_activity = val; }
 
-void Employer::setlist_of_Collaboration(const Employer::type_list_of_Collaboration & val) { m_list_of_Collaboration = val; }
+void Employer::setlist_of_collaboration(const Employer::ListOfCollaboration & val) { m_list_of_collaboration = val; }
 
-void Employer::setlist_of_Task(const Employer::type_list_of_Task & val) { m_list_of_Task = val; }
+void Employer::setlist_of_task(const Employer::ListOfTask & val) { m_list_of_task = val; }
 
-void Employer::setlist_of_Practice(const Employer::type_list_of_Practice & val) { m_list_of_Practice = val; }
+void Employer::setlist_of_practice(const Employer::ListOfPractice & val) { m_list_of_practice = val; }
 
-void Employer::setlist_of_Head_employer(const Employer::type_list_of_Head_employer & val) { m_list_of_Head_employer = val; }
+void Employer::setlist_of_head_employer(const Employer::ListOfHeadEmployer & val) { m_list_of_head_employer = val; }
 
-void Employer::setlist_of_Contact_employer(const Employer::type_list_of_Contact_employer & val) { m_list_of_Contact_employer = val; }
+void Employer::setlist_of_contact_employer(const Employer::ListOfContactEmployer & val) { m_list_of_contact_employer = val; }
 
-void Employer::setlist_of_Passing_practice(const Employer::type_list_of_passing_practice & val) { m_list_of_passing_practice = val; }
+void Employer::setlist_of_Passing_practice(const Employer::ListOfPassingPractice & val) { m_list_of_passing_practice = val; }
 
-void Employer::setlist_of_Result_education(const Employer::type_list_of_Result_education & val) { m_list_of_Result_education = val; }
+void Employer::setlist_of_result_education(const Employer::ListOfResultEducation & val) { m_list_of_result_education = val; }
 
-Employer::type_list_of_Events Employer::getlist_of_Events() const { return m_list_of_Events; }
+Employer::ListOfEvents Employer::getlist_of_events() const { return m_list_of_events; }
 
-Employer::type_list_of_Events & Employer::list_of_Events() { return m_list_of_Events; }
+Employer::ListOfEvents & Employer::list_of_events() { return m_list_of_events; }
 
-const Employer::type_list_of_Events & Employer::list_of_Events() const { return m_list_of_Events; }
+const Employer::ListOfEvents & Employer::list_of_events() const { return m_list_of_events; }
 
 
-Employer::type_list_of_Activity Employer::getlist_of_Activity(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Employer::ListOfActivity Employer::getlist_of_activity(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getlist_of_Activity(); }
-   QString sRelation = "{Employer_id} | list_of_Activity";
+   if (! bLoadFromDatabase) { return getlist_of_activity(); }
+   QString sRelation = "{Employer_id} | list_of_activity";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Employer tmp;
    tmp.m_Employer_id = this->m_Employer_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Activity = tmp.m_list_of_Activity; }
+   if (! daoError.isValid()) { this->m_list_of_activity = tmp.m_list_of_activity; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Activity;
+   return m_list_of_activity;
 }
 
-Employer::type_list_of_Activity & Employer::list_of_Activity(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Employer::ListOfActivity & Employer::list_of_activity(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return list_of_Activity(); }
-   QString sRelation = "{Employer_id} | list_of_Activity";
+   if (! bLoadFromDatabase) { return list_of_activity(); }
+   QString sRelation = "{Employer_id} | list_of_activity";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Employer tmp;
    tmp.m_Employer_id = this->m_Employer_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Activity = tmp.m_list_of_Activity; }
+   if (! daoError.isValid()) { this->m_list_of_activity = tmp.m_list_of_activity; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Activity;
+   return m_list_of_activity;
 }
 
-Employer::type_list_of_Collaboration Employer::getlist_of_Collaboration(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Employer::ListOfCollaboration Employer::getlist_of_collaboration(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getlist_of_Collaboration(); }
-   QString sRelation = "{Employer_id} | list_of_Collaboration";
+   if (! bLoadFromDatabase) { return getlist_of_collaboration(); }
+   QString sRelation = "{Employer_id} | list_of_collaboration";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Employer tmp;
    tmp.m_Employer_id = this->m_Employer_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Collaboration = tmp.m_list_of_Collaboration; }
+   if (! daoError.isValid()) { this->m_list_of_collaboration = tmp.m_list_of_collaboration; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Collaboration;
+   return m_list_of_collaboration;
 }
 
-Employer::type_list_of_Collaboration & Employer::list_of_Collaboration(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Employer::ListOfCollaboration & Employer::list_of_collaboration(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return list_of_Collaboration(); }
-   QString sRelation = "{Employer_id} | list_of_Collaboration";
+   if (! bLoadFromDatabase) { return list_of_collaboration(); }
+   QString sRelation = "{Employer_id} | list_of_collaboration";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Employer tmp;
    tmp.m_Employer_id = this->m_Employer_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Collaboration = tmp.m_list_of_Collaboration; }
+   if (! daoError.isValid()) { this->m_list_of_collaboration = tmp.m_list_of_collaboration; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Collaboration;
+   return m_list_of_collaboration;
 }
 
-Employer::type_list_of_Task Employer::getlist_of_Task(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Employer::ListOfTask Employer::getlist_of_task(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getlist_of_Task(); }
-   QString sRelation = "{Employer_id} | list_of_Task";
+   if (! bLoadFromDatabase) { return getlist_of_task(); }
+   QString sRelation = "{Employer_id} | list_of_task";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Employer tmp;
    tmp.m_Employer_id = this->m_Employer_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Task = tmp.m_list_of_Task; }
+   if (! daoError.isValid()) { this->m_list_of_task = tmp.m_list_of_task; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Task;
+   return m_list_of_task;
 }
 
-Employer::type_list_of_Task & Employer::list_of_Task(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Employer::ListOfTask & Employer::list_of_task(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return list_of_Task(); }
-   QString sRelation = "{Employer_id} | list_of_Task";
+   if (! bLoadFromDatabase) { return list_of_task(); }
+   QString sRelation = "{Employer_id} | list_of_task";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Employer tmp;
    tmp.m_Employer_id = this->m_Employer_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Task = tmp.m_list_of_Task; }
+   if (! daoError.isValid()) { this->m_list_of_task = tmp.m_list_of_task; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Task;
+   return m_list_of_task;
 }
 
-Employer::type_list_of_Practice Employer::getlist_of_Practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Employer::ListOfPractice Employer::getlist_of_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getlist_of_Practice(); }
-   QString sRelation = "{Employer_id} | list_of_Practice";
+   if (! bLoadFromDatabase) { return getlist_of_practice(); }
+   QString sRelation = "{Employer_id} | list_of_practice";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Employer tmp;
    tmp.m_Employer_id = this->m_Employer_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Practice = tmp.m_list_of_Practice; }
+   if (! daoError.isValid()) { this->m_list_of_practice = tmp.m_list_of_practice; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Practice;
+   return m_list_of_practice;
 }
 
-Employer::type_list_of_Practice & Employer::list_of_Practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Employer::ListOfPractice & Employer::list_of_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return list_of_Practice(); }
-   QString sRelation = "{Employer_id} | list_of_Practice";
+   if (! bLoadFromDatabase) { return list_of_practice(); }
+   QString sRelation = "{Employer_id} | list_of_practice";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Employer tmp;
    tmp.m_Employer_id = this->m_Employer_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Practice = tmp.m_list_of_Practice; }
+   if (! daoError.isValid()) { this->m_list_of_practice = tmp.m_list_of_practice; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Practice;
+   return m_list_of_practice;
 }
-Employer::type_list_of_Events Employer::getlist_of_Events(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Employer::ListOfEvents Employer::getlist_of_events(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getlist_of_Events(); }
-   QString sRelation = "{Employer_id} | list_of_Events";
+   if (! bLoadFromDatabase) { return getlist_of_events(); }
+   QString sRelation = "{Employer_id} | list_of_events";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Employer tmp;
    tmp.m_Employer_id = this->m_Employer_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Events = tmp.m_list_of_Events; }
+   if (! daoError.isValid()) { this->m_list_of_events = tmp.m_list_of_events; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Events;
-}
-
-Employer::type_list_of_Events & Employer::list_of_Events(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
-{
-   if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return list_of_Events(); }
-   QString sRelation = "{Employer_id} | list_of_Events";
-   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
-   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
-   Employer tmp;
-   tmp.m_Employer_id = this->m_Employer_id;
-   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Events = tmp.m_list_of_Events; }
-   if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Events;
-}
-Employer::type_list_of_Head_employer Employer::getlist_of_Head_employer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
-{
-   if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getlist_of_Head_employer(); }
-   QString sRelation = "{Employer_id} | list_of_Head_employer";
-   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
-   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
-   Employer tmp;
-   tmp.m_Employer_id = this->m_Employer_id;
-   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Head_employer = tmp.m_list_of_Head_employer; }
-   if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Head_employer;
+   return m_list_of_events;
 }
 
-Employer::type_list_of_Head_employer & Employer::list_of_Head_employer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Employer::ListOfEvents & Employer::list_of_events(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return list_of_Head_employer(); }
-   QString sRelation = "{Employer_id} | list_of_Head_employer";
+   if (! bLoadFromDatabase) { return list_of_events(); }
+   QString sRelation = "{Employer_id} | list_of_events";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Employer tmp;
    tmp.m_Employer_id = this->m_Employer_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Head_employer = tmp.m_list_of_Head_employer; }
+   if (! daoError.isValid()) { this->m_list_of_events = tmp.m_list_of_events; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Head_employer;
+   return m_list_of_events;
 }
-Employer::type_list_of_Contact_employer Employer::getlist_of_Contact_employer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Employer::ListOfHeadEmployer Employer::getlist_of_head_employer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getlist_of_Contact_employer(); }
-   QString sRelation = "{Employer_id} | list_of_Contact_employer";
+   if (! bLoadFromDatabase) { return getlist_of_head_employer(); }
+   QString sRelation = "{Employer_id} | list_of_head_employer";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Employer tmp;
    tmp.m_Employer_id = this->m_Employer_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Contact_employer = tmp.m_list_of_Contact_employer; }
+   if (! daoError.isValid()) { this->m_list_of_head_employer = tmp.m_list_of_head_employer; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Contact_employer;
-}
-
-Employer::type_list_of_Contact_employer & Employer::list_of_Contact_employer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
-{
-   if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return list_of_Contact_employer(); }
-   QString sRelation = "{Employer_id} | list_of_Contact_employer";
-   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
-   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
-   Employer tmp;
-   tmp.m_Employer_id = this->m_Employer_id;
-   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Contact_employer = tmp.m_list_of_Contact_employer; }
-   if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Contact_employer;
+   return m_list_of_head_employer;
 }
 
-Employer::type_list_of_passing_practice Employer::getlist_of_Passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Employer::ListOfHeadEmployer & Employer::list_of_head_employer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return list_of_head_employer(); }
+   QString sRelation = "{Employer_id} | list_of_head_employer";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Employer tmp;
+   tmp.m_Employer_id = this->m_Employer_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_head_employer = tmp.m_list_of_head_employer; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_head_employer;
+}
+Employer::ListOfContactEmployer Employer::getlist_of_contact_employer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return getlist_of_contact_employer(); }
+   QString sRelation = "{Employer_id} | list_of_contact_employer";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Employer tmp;
+   tmp.m_Employer_id = this->m_Employer_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_contact_employer = tmp.m_list_of_contact_employer; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_contact_employer;
+}
+
+Employer::ListOfContactEmployer & Employer::list_of_contact_employer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return list_of_contact_employer(); }
+   QString sRelation = "{Employer_id} | list_of_contact_employer";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Employer tmp;
+   tmp.m_Employer_id = this->m_Employer_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_contact_employer = tmp.m_list_of_contact_employer; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_contact_employer;
+}
+
+Employer::ListOfPassingPractice Employer::getlist_of_Passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_passing_practice(); }
@@ -355,7 +355,7 @@ Employer::type_list_of_passing_practice Employer::getlist_of_Passing_practice(bo
    return m_list_of_passing_practice;
 }
 
-Employer::type_list_of_passing_practice & Employer::list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Employer::ListOfPassingPractice & Employer::list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_passing_practice(); }
@@ -370,34 +370,34 @@ Employer::type_list_of_passing_practice & Employer::list_of_passing_practice(boo
    return m_list_of_passing_practice;
 }
 
-Employer::type_list_of_Result_education Employer::getlist_of_Result_education(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Employer::ListOfResultEducation Employer::getlist_of_result_education(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getlist_of_Result_education(); }
-   QString sRelation = "{Employer_id} | list_of_Result_education";
+   if (! bLoadFromDatabase) { return getlist_of_result_education(); }
+   QString sRelation = "{Employer_id} | list_of_result_education";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Employer tmp;
    tmp.m_Employer_id = this->m_Employer_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Result_education = tmp.m_list_of_Result_education; }
+   if (! daoError.isValid()) { this->m_list_of_result_education = tmp.m_list_of_result_education; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Result_education;
+   return m_list_of_result_education;
 }
 
-Employer::type_list_of_Result_education & Employer::list_of_Result_education(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Employer::ListOfResultEducation & Employer::list_of_result_education(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return list_of_Result_education(); }
-   QString sRelation = "{Employer_id} | list_of_Result_education";
+   if (! bLoadFromDatabase) { return list_of_result_education(); }
+   QString sRelation = "{Employer_id} | list_of_result_education";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Employer tmp;
    tmp.m_Employer_id = this->m_Employer_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Result_education = tmp.m_list_of_Result_education; }
+   if (! daoError.isValid()) { this->m_list_of_result_education = tmp.m_list_of_result_education; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Result_education;
+   return m_list_of_result_education;
 }
 
 

@@ -11,8 +11,8 @@ class DEPARTMENT_EXPORT Discipline
 
 public:
 
-   typedef std::shared_ptr<Educational_program> type_educational_program;
-   typedef qx::QxCollection<long, std::shared_ptr<Result_education> > type_list_of_result_educational;
+   typedef std::shared_ptr<Educational_program> EducationProgram_ptr;
+   typedef qx::QxCollection<long, std::shared_ptr<Result_education> > ListOfResultEducational;
 
 protected:
 
@@ -20,8 +20,8 @@ protected:
    int m_semester;
    QString m_name;
    QString m_description;
-   type_educational_program m_educational_program;
-   type_list_of_result_educational m_list_of_result_educational;
+   EducationProgram_ptr m_educational_program;
+   ListOfResultEducational m_list_of_result_educational;
 
 public:
 
@@ -29,25 +29,25 @@ public:
    Discipline(const long & id);
    virtual ~Discipline();
 
-   long getDiscipline_id() const;
+   long getdiscipline_id() const;
    int getsemester() const;
    QString getname() const;
    QString getdescription() const;
-   type_educational_program geteducational_program() const;
-   type_list_of_result_educational getlist_of_result_educational() const;
-   type_list_of_result_educational & list_of_result_educational();
-   const type_list_of_result_educational & list_of_result_educational() const;
+   EducationProgram_ptr geteducational_program() const;
+   ListOfResultEducational getlist_of_result_educational() const;
+   ListOfResultEducational & list_of_result_educational();
+   const ListOfResultEducational & list_of_result_educational() const;
 
-   void setDiscipline_id(const long & val);
+   void setdiscipline_id(const long & val);
    void setsemester(const int & val);
    void setname(const QString & val);
    void setdescription(const QString & val);
-   void seteducational_program(const type_educational_program & val);
-   void setlist_of_result_educational(const type_list_of_result_educational & val);
+   void seteducational_program(const EducationProgram_ptr & val);
+   void setlist_of_result_educational(const ListOfResultEducational & val);
 
-   type_educational_program geteducational_program(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_result_educational getlist_of_result_educational(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_result_educational & list_of_result_educational(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   EducationProgram_ptr geteducational_program(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfResultEducational getlist_of_result_educational(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfResultEducational & list_of_result_educational(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 

@@ -36,23 +36,23 @@ Department::Department(const long & id) : m_Department_id(id) { ; }
 
 Department::~Department() { ; }
 
-long Department::getDepartment_id() const { return m_Department_id; }
+long Department::getdepartment_id() const { return m_Department_id; }
 
 QString Department::getname() const { return m_name; }
 
-Department::type_list_of_head_university Department::getlist_of_head_university() const { return m_list_of_head_university; }
+Department::ListOfHeadUniversity Department::getlist_of_head_university() const { return m_list_of_head_university; }
 
-Department::type_list_of_head_university & Department::list_of_head_university() { return m_list_of_head_university; }
+Department::ListOfHeadUniversity & Department::list_of_head_university() { return m_list_of_head_university; }
 
-const Department::type_list_of_head_university & Department::list_of_head_university() const { return m_list_of_head_university; }
+const Department::ListOfHeadUniversity & Department::list_of_head_university() const { return m_list_of_head_university; }
 
-void Department::setDepartment_id(const long & val) { m_Department_id = val; }
+void Department::setdepartment_id(const long & val) { m_Department_id = val; }
 
 void Department::setname(const QString & val) { m_name = val; }
 
-void Department::setlist_of_head_university(const Department::type_list_of_head_university & val) { m_list_of_head_university = val; }
+void Department::setlist_of_head_university(const Department::ListOfHeadUniversity & val) { m_list_of_head_university = val; }
 
-Department::type_list_of_head_university Department::getlist_of_head_university(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Department::ListOfHeadUniversity Department::getlist_of_head_university(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_head_university(); }
@@ -67,7 +67,7 @@ Department::type_list_of_head_university Department::getlist_of_head_university(
    return m_list_of_head_university;
 }
 
-Department::type_list_of_head_university & Department::list_of_head_university(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Department::ListOfHeadUniversity & Department::list_of_head_university(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_head_university(); }

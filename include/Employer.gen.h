@@ -23,30 +23,30 @@ class DEPARTMENT_EXPORT Employer
 
 public:
 
-   typedef qx::QxCollection<long, std::shared_ptr<Activity> > type_list_of_Activity;
-   typedef qx::QxCollection<long, std::shared_ptr<Collaboration> > type_list_of_Collaboration;
-   typedef qx::QxCollection<long, std::shared_ptr<Task> > type_list_of_Task;
-   typedef qx::QxCollection<long, std::shared_ptr<Practice> > type_list_of_Practice;
-   typedef qx::QxCollection<long, std::shared_ptr<Events> > type_list_of_Events;
-   typedef qx::QxCollection<long, std::shared_ptr<Head_employer> > type_list_of_Head_employer;
-   typedef qx::QxCollection<long, std::shared_ptr<Contact_employer> > type_list_of_Contact_employer;
-   typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > type_list_of_passing_practice;
-   typedef qx::QxCollection<long, std::shared_ptr<Result_education> > type_list_of_Result_education;
+   typedef qx::QxCollection<long, std::shared_ptr<Activity> > ListOfActivity;
+   typedef qx::QxCollection<long, std::shared_ptr<Collaboration> > ListOfCollaboration;
+   typedef qx::QxCollection<long, std::shared_ptr<Task> > ListOfTask;
+   typedef qx::QxCollection<long, std::shared_ptr<Practice> > ListOfPractice;
+   typedef qx::QxCollection<long, std::shared_ptr<Events> > ListOfEvents;
+   typedef qx::QxCollection<long, std::shared_ptr<Head_employer> > ListOfHeadEmployer;
+   typedef qx::QxCollection<long, std::shared_ptr<Contact_employer> > ListOfContactEmployer;
+   typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > ListOfPassingPractice;
+   typedef qx::QxCollection<long, std::shared_ptr<Result_education> > ListOfResultEducation;
 
 
 protected:
 
    long m_Employer_id;
    QString m_name;
-   type_list_of_Activity m_list_of_Activity;
-   type_list_of_Collaboration m_list_of_Collaboration;
-   type_list_of_Task m_list_of_Task;
-   type_list_of_Practice m_list_of_Practice;
-   type_list_of_Events m_list_of_Events;
-   type_list_of_Head_employer m_list_of_Head_employer;
-   type_list_of_Contact_employer m_list_of_Contact_employer;
-   type_list_of_passing_practice m_list_of_passing_practice;
-   type_list_of_Result_education m_list_of_Result_education;
+   ListOfActivity m_list_of_activity;
+   ListOfCollaboration m_list_of_collaboration;
+   ListOfTask m_list_of_task;
+   ListOfPractice m_list_of_practice;
+   ListOfEvents m_list_of_events;
+   ListOfHeadEmployer m_list_of_head_employer;
+   ListOfContactEmployer m_list_of_contact_employer;
+   ListOfPassingPractice m_list_of_passing_practice;
+   ListOfResultEducation m_list_of_result_education;
 
 
 public:
@@ -57,80 +57,80 @@ public:
 
    long getEmployer_id() const;
    QString getname() const;
-   type_list_of_Activity getlist_of_Activity() const;
-   type_list_of_Activity & list_of_Activity();
-   const type_list_of_Activity & list_of_Activity() const;
-   type_list_of_Collaboration getlist_of_Collaboration() const;
-   type_list_of_Collaboration & list_of_Collaboration();
-   const type_list_of_Collaboration & list_of_Collaboration() const;
-   type_list_of_Task getlist_of_Task() const;
-   type_list_of_Task & list_of_Task();
-   const type_list_of_Task & list_of_Task() const;
-   type_list_of_Practice getlist_of_Practice() const;
-   type_list_of_Practice & list_of_Practice();
-   const type_list_of_Practice & list_of_Practice() const;
-   type_list_of_Events getlist_of_Events() const;
-   type_list_of_Events & list_of_Events();
-   const type_list_of_Events & list_of_Events() const;
-   type_list_of_Head_employer getlist_of_Head_employer() const;
-   type_list_of_Head_employer & list_of_Head_employer();
-   const type_list_of_Head_employer & list_of_Head_employer() const;
-   type_list_of_Contact_employer getlist_of_Contact_employer() const;
-   type_list_of_Contact_employer & list_of_Contact_employer();
-   const type_list_of_Contact_employer & list_of_Contact_employer() const;
-   type_list_of_passing_practice getlist_of_passing_practice() const;
-   type_list_of_passing_practice & list_of_passing_practice();
-   const type_list_of_passing_practice & list_of_passing_practice() const;
-   type_list_of_Result_education getlist_of_Result_education() const;
-   type_list_of_Result_education & list_of_Result_education();
-   const type_list_of_Result_education & list_of_Result_education() const;
+   ListOfActivity getlist_of_activity() const;
+   ListOfActivity & list_of_activity();
+   const ListOfActivity & list_of_activity() const;
+   ListOfCollaboration getlist_of_collaboration() const;
+   ListOfCollaboration & list_of_collaboration();
+   const ListOfCollaboration & list_of_collaboration() const;
+   ListOfTask getlist_of_task() const;
+   ListOfTask & list_of_task();
+   const ListOfTask & list_of_task() const;
+   ListOfPractice getlist_of_practice() const;
+   ListOfPractice & list_of_practice();
+   const ListOfPractice & list_of_practice() const;
+   ListOfEvents getlist_of_events() const;
+   ListOfEvents & list_of_events();
+   const ListOfEvents & list_of_events() const;
+   ListOfHeadEmployer getlist_of_head_employer() const;
+   ListOfHeadEmployer & list_of_head_employer();
+   const ListOfHeadEmployer & list_of_head_employer() const;
+   ListOfContactEmployer getlist_of_contact_employer() const;
+   ListOfContactEmployer & list_of_contact_employer();
+   const ListOfContactEmployer & list_of_contact_employer() const;
+   ListOfPassingPractice getlist_of_passing_practice() const;
+   ListOfPassingPractice & list_of_passing_practice();
+   const ListOfPassingPractice & list_of_passing_practice() const;
+   ListOfResultEducation getlist_of_result_education() const;
+   ListOfResultEducation & list_of_result_education();
+   const ListOfResultEducation & list_of_result_education() const;
 
    void setEmployer_id(const long & val);
    void setname(const QString & val);
-   void setlist_of_Activity(const type_list_of_Activity & val);
-   void setlist_of_Collaboration(const type_list_of_Collaboration & val);
-   void setlist_of_Task(const type_list_of_Task & val);
-   void setlist_of_Practice(const type_list_of_Practice & val);
-   void setlist_of_Events(const type_list_of_Events & val);
-   void setlist_of_Head_employer(const type_list_of_Head_employer & val);
-   void setlist_of_Contact_employer(const type_list_of_Contact_employer & val);
-   void setlist_of_Passing_practice(const type_list_of_passing_practice & val);
-   void setlist_of_Result_education(const type_list_of_Result_education & val);
+   void setlist_of_activity(const ListOfActivity & val);
+   void setlist_of_collaboration(const ListOfCollaboration & val);
+   void setlist_of_task(const ListOfTask & val);
+   void setlist_of_practice(const ListOfPractice & val);
+   void setlist_of_events(const ListOfEvents & val);
+   void setlist_of_head_employer(const ListOfHeadEmployer & val);
+   void setlist_of_contact_employer(const ListOfContactEmployer & val);
+   void setlist_of_Passing_practice(const ListOfPassingPractice & val);
+   void setlist_of_result_education(const ListOfResultEducation & val);
 
 
-   type_list_of_Activity getlist_of_Activity(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Activity & list_of_Activity(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Collaboration getlist_of_Collaboration(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Collaboration & list_of_Collaboration(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Task getlist_of_Task(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Task & list_of_Task(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Practice getlist_of_Practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Practice & list_of_Practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Events getlist_of_Events(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Events & list_of_Events(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Head_employer getlist_of_Head_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Head_employer & list_of_Head_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Contact_employer getlist_of_Contact_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Contact_employer & list_of_Contact_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_passing_practice getlist_of_Passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_passing_practice & list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Result_education getlist_of_Result_education(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Result_education & list_of_Result_education(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfActivity getlist_of_activity(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfActivity & list_of_activity(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfCollaboration getlist_of_collaboration(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfCollaboration & list_of_collaboration(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfTask getlist_of_task(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfTask & list_of_task(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfPractice getlist_of_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfPractice & list_of_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfEvents getlist_of_events(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfEvents & list_of_events(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfHeadEmployer getlist_of_head_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfHeadEmployer & list_of_head_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfContactEmployer getlist_of_contact_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfContactEmployer & list_of_contact_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfPassingPractice getlist_of_Passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfPassingPractice & list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfResultEducation getlist_of_result_education(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfResultEducation & list_of_result_education(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 
 
 
 public:
 
-   static QString relation_list_of_Activity(bool key = false) { Q_UNUSED(key); return "list_of_Activity"; }
-   static QString relation_list_of_Collaboration(bool key = false) { Q_UNUSED(key); return "list_of_Collaboration"; }
-   static QString relation_list_of_Task(bool key = false) { Q_UNUSED(key); return "list_of_Task"; }
-   static QString relation_list_of_Practice(bool key = false) { Q_UNUSED(key); return "list_of_Practice"; }
-   static QString relation_list_of_Events(bool key = false) { Q_UNUSED(key); return "list_of_Events"; }
-   static QString relation_list_of_Head_employer(bool key = false) { Q_UNUSED(key); return "list_of_Head_employer"; }
-   static QString relation_list_of_Contact_employer(bool key = false) { Q_UNUSED(key); return "list_of_Contact_employer"; }
+   static QString relation_list_of_activity(bool key = false) { Q_UNUSED(key); return "list_of_activity"; }
+   static QString relation_list_of_collaboration(bool key = false) { Q_UNUSED(key); return "list_of_collaboration"; }
+   static QString relation_list_of_task(bool key = false) { Q_UNUSED(key); return "list_of_task"; }
+   static QString relation_list_of_practice(bool key = false) { Q_UNUSED(key); return "list_of_practice"; }
+   static QString relation_list_of_events(bool key = false) { Q_UNUSED(key); return "list_of_events"; }
+   static QString relation_list_of_head_employer(bool key = false) { Q_UNUSED(key); return "list_of_head_employer"; }
+   static QString relation_list_of_contact_employer(bool key = false) { Q_UNUSED(key); return "list_of_contact_employer"; }
    static QString relation_list_of_passing_practice(bool key = false) { Q_UNUSED(key); return "list_of_passing_practice"; }
-   static QString relation_list_of_Result_education(bool key = false) { Q_UNUSED(key); return "list_of_Result_education"; }
+   static QString relation_list_of_result_education(bool key = false) { Q_UNUSED(key); return "list_of_result_education"; }
 
 
 

@@ -13,10 +13,10 @@ class DEPARTMENT_EXPORT Educational_program
 
 public:
 
-   typedef qx::QxCollection<long, std::shared_ptr<Result_education> > type_list_of_result_education;
-   typedef qx::QxCollection<long, std::shared_ptr<Discipline> > type_list_of_discipline;
-   typedef qx::QxCollection<long, std::shared_ptr<Practice> > type_list_of_Practice;
-   typedef qx::QxCollection<long, std::shared_ptr<Student> > type_list_of_Student;
+   typedef qx::QxCollection<long, std::shared_ptr<Result_education> > ListOfResultEducation;
+   typedef qx::QxCollection<long, std::shared_ptr<Discipline> > ListOfDiscipline;
+   typedef qx::QxCollection<long, std::shared_ptr<Practice> > ListOfPractice;
+   typedef qx::QxCollection<long, std::shared_ptr<Student> > ListOfStudent;
 
 
 protected:
@@ -26,10 +26,10 @@ protected:
    QString m_description;
    QString m_field;
    QString m_focus;
-   type_list_of_result_education m_list_of_result_education;
-   type_list_of_discipline m_list_of_discipline;
-   type_list_of_Practice m_list_of_Practice;
-   type_list_of_Student m_list_of_Student;
+   ListOfResultEducation m_list_of_result_education;
+   ListOfDiscipline m_list_of_discipline;
+   ListOfPractice m_list_of_practice;
+   ListOfStudent m_list_of_student;
 
 
 public:
@@ -43,37 +43,37 @@ public:
    QString getdescription() const;
    QString getfield() const;
    QString getfocus() const;
-   type_list_of_result_education getlist_of_result_education() const;
-   type_list_of_result_education & list_of_result_education();
-   const type_list_of_result_education & list_of_result_education() const;
-   type_list_of_discipline getlist_of_discipline() const;
-   type_list_of_discipline & list_of_discipline();
-   const type_list_of_discipline & list_of_discipline() const;
-   type_list_of_Practice getlist_of_Practice() const;
-   type_list_of_Practice & list_of_Practice();
-   const type_list_of_Practice & list_of_Practice() const;
-   type_list_of_Student getlist_of_Student() const;
-   type_list_of_Student & list_of_Student();
-   const type_list_of_Student & list_of_Student() const;
+   ListOfResultEducation getlist_of_result_education() const;
+   ListOfResultEducation & list_of_result_education();
+   const ListOfResultEducation & list_of_result_education() const;
+   ListOfDiscipline getlist_of_discipline() const;
+   ListOfDiscipline & list_of_discipline();
+   const ListOfDiscipline & list_of_discipline() const;
+   ListOfPractice getlist_of_Practice() const;
+   ListOfPractice & list_of_Practice();
+   const ListOfPractice & list_of_Practice() const;
+   ListOfStudent getlist_of_Student() const;
+   ListOfStudent & list_of_Student();
+   const ListOfStudent & list_of_Student() const;
 
    void seteducational_program_id(const long & val);
    void setname(const QString & val);
    void setdescription(const QString & val);
    void setfield(const QString & val);
    void setfocus(const QString & val);
-   void setlist_of_result_education(const type_list_of_result_education & val);
-   void setlist_of_discipline(const type_list_of_discipline & val);
-   void setlist_of_Practice(const type_list_of_Practice & val);
-   void setlist_of_Student(const type_list_of_Student & val);
+   void setlist_of_result_education(const ListOfResultEducation & val);
+   void setlist_of_discipline(const ListOfDiscipline & val);
+   void setlist_of_Practice(const ListOfPractice & val);
+   void setlist_of_Student(const ListOfStudent & val);
 
-   type_list_of_result_education getlist_of_result_education(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_result_education & list_of_result_education(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_discipline getlist_of_discipline(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_discipline & list_of_discipline(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Practice getlist_of_Practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Practice & list_of_Practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Student getlist_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Student & list_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfResultEducation getlist_of_result_education(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfResultEducation & list_of_result_education(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfDiscipline getlist_of_discipline(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfDiscipline & list_of_discipline(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfPractice getlist_of_Practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfPractice & list_of_Practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfStudent getlist_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfStudent & list_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 

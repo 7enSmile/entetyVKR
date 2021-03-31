@@ -38,19 +38,19 @@ Contact_employer::Contact_employer(const long & id) : m_Contact_employer_id(id) 
 
 Contact_employer::~Contact_employer() { ; }
 
-long Contact_employer::getContact_employer_id() const { return m_Contact_employer_id; }
+long Contact_employer::getcontact_employer_id() const { return m_Contact_employer_id; }
 
-Contact_employer::type_employer Contact_employer::getemployer() const { return m_employer; }
+Contact_employer::Employer_ptr Contact_employer::getemployer() const { return m_employer; }
 
-Contact_employer::type_person Contact_employer::getperson() const { return m_person; }
+Contact_employer::Personr_ptr Contact_employer::getperson() const { return m_person; }
 
-void Contact_employer::setContact_employer_id(const long & val) { m_Contact_employer_id = val; }
+void Contact_employer::setcontact_employer_id(const long & val) { m_Contact_employer_id = val; }
 
-void Contact_employer::setemployer(const Contact_employer::type_employer & val) { m_employer = val; }
+void Contact_employer::setemployer(const Contact_employer::Employer_ptr & val) { m_employer = val; }
 
-void Contact_employer::setperson(const Contact_employer::type_person & val) { m_person = val; }
+void Contact_employer::setperson(const Contact_employer::Personr_ptr & val) { m_person = val; }
 
-Contact_employer::type_employer Contact_employer::getemployer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Contact_employer::Employer_ptr Contact_employer::getemployer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getemployer(); }
@@ -65,7 +65,7 @@ Contact_employer::type_employer Contact_employer::getemployer(bool bLoadFromData
    return m_employer;
 }
 
-Contact_employer::type_person Contact_employer::getperson(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Contact_employer::Personr_ptr Contact_employer::getperson(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getperson(); }

@@ -14,14 +14,14 @@ class DEPARTMENT_EXPORT Collaboration
 
 public:
 
-   typedef qx::QxCollection<long, std::shared_ptr<Employer> > type_list_of_employers;
+   typedef qx::QxCollection<long, std::shared_ptr<Employer> > ListOfEmployers;
 
 protected:
 
    long m_Collaboration_id;
    QString m_name;
    QString m_description;
-   type_list_of_employers m_list_of_employers;
+   ListOfEmployers m_list_of_employers;
 
 public:
 
@@ -29,20 +29,20 @@ public:
    Collaboration(const long & id);
    virtual ~Collaboration();
 
-   long getCollaboration_id() const;
+   long getcollaboration_id() const;
    QString getname() const;
    QString getdescription() const;
-   type_list_of_employers getlist_of_employers() const;
-   type_list_of_employers & list_of_employers();
-   const type_list_of_employers & list_of_employers() const;
+   ListOfEmployers getlist_of_employers() const;
+   ListOfEmployers & list_of_employers();
+   const ListOfEmployers & list_of_employers() const;
 
-   void setCollaboration_id(const long & val);
+   void setcollaboration_id(const long & val);
    void setname(const QString & val);
    void setdescription(const QString & val);
-   void setlist_of_employers(const type_list_of_employers & val);
+   void setlist_of_employers(const ListOfEmployers & val);
 
-   type_list_of_employers getlist_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_employers & list_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfEmployers getlist_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfEmployers & list_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 

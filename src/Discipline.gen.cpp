@@ -41,7 +41,7 @@ Discipline::Discipline(const long & id) : m_Discipline_id(id), m_semester(0) { ;
 
 Discipline::~Discipline() { ; }
 
-long Discipline::getDiscipline_id() const { return m_Discipline_id; }
+long Discipline::getdiscipline_id() const { return m_Discipline_id; }
 
 int Discipline::getsemester() const { return m_semester; }
 
@@ -49,15 +49,15 @@ QString Discipline::getname() const { return m_name; }
 
 QString Discipline::getdescription() const { return m_description; }
 
-Discipline::type_educational_program Discipline::geteducational_program() const { return m_educational_program; }
+Discipline::EducationProgram_ptr Discipline::geteducational_program() const { return m_educational_program; }
 
-Discipline::type_list_of_result_educational Discipline::getlist_of_result_educational() const { return m_list_of_result_educational; }
+Discipline::ListOfResultEducational Discipline::getlist_of_result_educational() const { return m_list_of_result_educational; }
 
-Discipline::type_list_of_result_educational & Discipline::list_of_result_educational() { return m_list_of_result_educational; }
+Discipline::ListOfResultEducational & Discipline::list_of_result_educational() { return m_list_of_result_educational; }
 
-const Discipline::type_list_of_result_educational & Discipline::list_of_result_educational() const { return m_list_of_result_educational; }
+const Discipline::ListOfResultEducational & Discipline::list_of_result_educational() const { return m_list_of_result_educational; }
 
-void Discipline::setDiscipline_id(const long & val) { m_Discipline_id = val; }
+void Discipline::setdiscipline_id(const long & val) { m_Discipline_id = val; }
 
 void Discipline::setsemester(const int & val) { m_semester = val; }
 
@@ -65,11 +65,11 @@ void Discipline::setname(const QString & val) { m_name = val; }
 
 void Discipline::setdescription(const QString & val) { m_description = val; }
 
-void Discipline::seteducational_program(const Discipline::type_educational_program & val) { m_educational_program = val; }
+void Discipline::seteducational_program(const Discipline::EducationProgram_ptr & val) { m_educational_program = val; }
 
-void Discipline::setlist_of_result_educational(const Discipline::type_list_of_result_educational & val) { m_list_of_result_educational = val; }
+void Discipline::setlist_of_result_educational(const Discipline::ListOfResultEducational & val) { m_list_of_result_educational = val; }
 
-Discipline::type_educational_program Discipline::geteducational_program(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Discipline::EducationProgram_ptr Discipline::geteducational_program(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return geteducational_program(); }
@@ -84,7 +84,7 @@ Discipline::type_educational_program Discipline::geteducational_program(bool bLo
    return m_educational_program;
 }
 
-Discipline::type_list_of_result_educational Discipline::getlist_of_result_educational(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Discipline::ListOfResultEducational Discipline::getlist_of_result_educational(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_result_educational(); }
@@ -99,7 +99,7 @@ Discipline::type_list_of_result_educational Discipline::getlist_of_result_educat
    return m_list_of_result_educational;
 }
 
-Discipline::type_list_of_result_educational & Discipline::list_of_result_educational(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Discipline::ListOfResultEducational & Discipline::list_of_result_educational(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_result_educational(); }

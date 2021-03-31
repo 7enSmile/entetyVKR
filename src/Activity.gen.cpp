@@ -41,27 +41,27 @@ Activity::Activity(const long & id) : m_Activity_id(id) { ; }
 
 Activity::~Activity() { ; }
 
-long Activity::getActivity_id() const { return m_Activity_id; }
+long Activity::getactivity_id() const { return m_Activity_id; }
 
 QString Activity::getname() const { return m_name; }
 
 QString Activity::getdescription() const { return m_description; }
 
-Activity::type_list_of_employers Activity::getlist_of_employers() const { return m_list_of_employers; }
+Activity::ListOfEmployers Activity::getlist_of_employers() const { return m_list_of_employers; }
 
-Activity::type_list_of_employers & Activity::list_of_employers() { return m_list_of_employers; }
+Activity::ListOfEmployers & Activity::list_of_employers() { return m_list_of_employers; }
 
-const Activity::type_list_of_employers & Activity::list_of_employers() const { return m_list_of_employers; }
+const Activity::ListOfEmployers & Activity::list_of_employers() const { return m_list_of_employers; }
 
-void Activity::setActivity_id(const long & val) { m_Activity_id = val; }
+void Activity::setactivity_id(const long & val) { m_Activity_id = val; }
 
 void Activity::setname(const QString & val) { m_name = val; }
 
 void Activity::setdescription(const QString & val) { m_description = val; }
 
-void Activity::setlist_of_employers(const Activity::type_list_of_employers & val) { m_list_of_employers = val; }
+void Activity::setlist_of_employers(const Activity::ListOfEmployers & val) { m_list_of_employers = val; }
 
-Activity::type_list_of_employers Activity::getlist_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Activity::ListOfEmployers Activity::getlist_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_employers(); }
@@ -76,7 +76,7 @@ Activity::type_list_of_employers Activity::getlist_of_employers(bool bLoadFromDa
    return m_list_of_employers;
 }
 
-Activity::type_list_of_employers & Activity::list_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Activity::ListOfEmployers & Activity::list_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_employers(); }

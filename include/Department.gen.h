@@ -10,13 +10,13 @@ class DEPARTMENT_EXPORT Department
 
 public:
 
-   typedef qx::QxCollection<long, std::shared_ptr<Head_university> > type_list_of_head_university;
+   typedef qx::QxCollection<long, std::shared_ptr<Head_university> > ListOfHeadUniversity;
 
 protected:
 
    long m_Department_id;
    QString m_name;
-   type_list_of_head_university m_list_of_head_university;
+   ListOfHeadUniversity m_list_of_head_university;
 
 public:
 
@@ -24,18 +24,18 @@ public:
    Department(const long & id);
    virtual ~Department();
 
-   long getDepartment_id() const;
+   long getdepartment_id() const;
    QString getname() const;
-   type_list_of_head_university getlist_of_head_university() const;
-   type_list_of_head_university & list_of_head_university();
-   const type_list_of_head_university & list_of_head_university() const;
+   ListOfHeadUniversity getlist_of_head_university() const;
+   ListOfHeadUniversity & list_of_head_university();
+   const ListOfHeadUniversity & list_of_head_university() const;
 
-   void setDepartment_id(const long & val);
+   void setdepartment_id(const long & val);
    void setname(const QString & val);
-   void setlist_of_head_university(const type_list_of_head_university & val);
+   void setlist_of_head_university(const ListOfHeadUniversity & val);
 
-   type_list_of_head_university getlist_of_head_university(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_head_university & list_of_head_university(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfHeadUniversity getlist_of_head_university(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfHeadUniversity & list_of_head_university(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 

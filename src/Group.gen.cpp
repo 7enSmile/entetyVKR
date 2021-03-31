@@ -23,7 +23,7 @@ void register_class(QxClass<Group> & t)
 
    pData = t.data(& Group::m_number, "number", 0, true, true);
 
-   pRelation = t.relationOneToMany(& Group::m_list_of_Strudent, "list_of_Strudent", "group", 0);
+   pRelation = t.relationOneToMany(& Group::m_list_of_student, "list_of_student", "group", 0);
 
    qx::QxValidatorX<Group> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }
@@ -36,48 +36,48 @@ Group::Group(const long & id) : m_Groups_id(id) { ; }
 
 Group::~Group() { ; }
 
-long Group::getGroups_id() const { return m_Groups_id; }
+long Group::getgroup_id() const { return m_Groups_id; }
 
 QString Group::getnumber() const { return m_number; }
 
-Group::type_list_of_Strudent Group::getlist_of_Student() const { return m_list_of_Strudent; }
+Group::ListOfStudent Group::getlist_of_student() const { return m_list_of_student; }
 
-Group::type_list_of_Strudent & Group::list_of_Student() { return m_list_of_Strudent; }
+Group::ListOfStudent & Group::list_of_student() { return m_list_of_student; }
 
-const Group::type_list_of_Strudent & Group::list_of_Student() const { return m_list_of_Strudent; }
+const Group::ListOfStudent & Group::list_of_student() const { return m_list_of_student; }
 
-void Group::setGroups_id(const long & val) { m_Groups_id = val; }
+void Group::setgroup_id(const long & val) { m_Groups_id = val; }
 
 void Group::setnumber(const QString & val) { m_number = val; }
 
-void Group::setlist_of_Strudent(const Group::type_list_of_Strudent & val) { m_list_of_Strudent = val; }
+void Group::setlist_of_student(const Group::ListOfStudent & val) { m_list_of_student = val; }
 
-Group::type_list_of_Strudent Group::getlist_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Group::ListOfStudent Group::getlist_of_student(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getlist_of_Student(); }
-   QString sRelation = "{Groups_id} | list_of_Strudent";
+   if (! bLoadFromDatabase) { return getlist_of_student(); }
+   QString sRelation = "{Groups_id} | list_of_student";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Group tmp;
    tmp.m_Groups_id = this->m_Groups_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Strudent = tmp.m_list_of_Strudent; }
+   if (! daoError.isValid()) { this->m_list_of_student = tmp.m_list_of_student; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Strudent;
+   return m_list_of_student;
 }
 
-Group::type_list_of_Strudent & Group::list_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Group::ListOfStudent & Group::list_of_student(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return list_of_Student(); }
-   QString sRelation = "{Groups_id} | list_of_Strudent";
+   if (! bLoadFromDatabase) { return list_of_student(); }
+   QString sRelation = "{Groups_id} | list_of_student";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    Group tmp;
    tmp.m_Groups_id = this->m_Groups_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Strudent = tmp.m_list_of_Strudent; }
+   if (! daoError.isValid()) { this->m_list_of_student = tmp.m_list_of_student; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Strudent;
+   return m_list_of_student;
 }

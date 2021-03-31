@@ -11,14 +11,14 @@ class DEPARTMENT_EXPORT Contact_employer
 
 public:
 
-   typedef std::shared_ptr<Employer> type_employer;
-   typedef std::shared_ptr<Person> type_person;
+   typedef std::shared_ptr<Employer> Employer_ptr;
+   typedef std::shared_ptr<Person> Personr_ptr;
 
 protected:
 
    long m_Contact_employer_id;
-   type_employer m_employer;
-   type_person m_person;
+   Employer_ptr m_employer;
+   Personr_ptr m_person;
 
 public:
 
@@ -26,16 +26,16 @@ public:
    Contact_employer(const long & id);
    virtual ~Contact_employer();
 
-   long getContact_employer_id() const;
-   type_employer getemployer() const;
-   type_person getperson() const;
+   long getcontact_employer_id() const;
+   Employer_ptr getemployer() const;
+   Personr_ptr getperson() const;
 
-   void setContact_employer_id(const long & val);
-   void setemployer(const type_employer & val);
-   void setperson(const type_person & val);
+   void setcontact_employer_id(const long & val);
+   void setemployer(const Employer_ptr & val);
+   void setperson(const Personr_ptr & val);
 
-   type_employer getemployer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_person getperson(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   Employer_ptr getemployer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   Personr_ptr getperson(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 
@@ -52,9 +52,9 @@ public:
 
 };
 
-typedef std::shared_ptr<Contact_employer> Contact_employer_ptr;
-typedef qx::QxCollection<long, Contact_employer_ptr> list_of_Contact_employer;
-typedef std::shared_ptr<list_of_Contact_employer> list_of_Contact_employer_ptr;
+typedef std::shared_ptr<Contact_employer> Contact_Employer_ptr;
+typedef qx::QxCollection<long, Contact_Employer_ptr> list_of_Contact_employer;
+typedef std::shared_ptr<list_of_Contact_employer> list_of_Contact_Employer_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Contact_employer, qx::trait::no_base_class_defined, 0, Contact_employer)
 

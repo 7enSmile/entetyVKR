@@ -29,8 +29,8 @@ void register_class(QxClass<Educational_program> & t)
 
    pRelation = t.relationOneToMany(& Educational_program::m_list_of_result_education, "list_of_result_education", "educational_program_id", 0);
    pRelation = t.relationOneToMany(& Educational_program::m_list_of_discipline, "list_of_discipline", "educational_program_id", 0);
-   pRelation = t.relationOneToMany(& Educational_program::m_list_of_Practice, "list_of_Practice", "Education_program", 0);
-   pRelation = t.relationOneToMany(& Educational_program::m_list_of_Student, "list_of_Student", "Education_program", 0);
+   pRelation = t.relationOneToMany(& Educational_program::m_list_of_practice, "list_of_Practice", "Education_program", 0);
+   pRelation = t.relationOneToMany(& Educational_program::m_list_of_student, "list_of_Student", "Education_program", 0);
 
    qx::QxValidatorX<Educational_program> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }
@@ -53,29 +53,29 @@ QString Educational_program::getfield() const { return m_field; }
 
 QString Educational_program::getfocus() const { return m_focus; }
 
-Educational_program::type_list_of_result_education Educational_program::getlist_of_result_education() const { return m_list_of_result_education; }
+Educational_program::ListOfResultEducation Educational_program::getlist_of_result_education() const { return m_list_of_result_education; }
 
-Educational_program::type_list_of_result_education & Educational_program::list_of_result_education() { return m_list_of_result_education; }
+Educational_program::ListOfResultEducation & Educational_program::list_of_result_education() { return m_list_of_result_education; }
 
-const Educational_program::type_list_of_result_education & Educational_program::list_of_result_education() const { return m_list_of_result_education; }
+const Educational_program::ListOfResultEducation & Educational_program::list_of_result_education() const { return m_list_of_result_education; }
 
-Educational_program::type_list_of_discipline Educational_program::getlist_of_discipline() const { return m_list_of_discipline; }
+Educational_program::ListOfDiscipline Educational_program::getlist_of_discipline() const { return m_list_of_discipline; }
 
-Educational_program::type_list_of_discipline & Educational_program::list_of_discipline() { return m_list_of_discipline; }
+Educational_program::ListOfDiscipline & Educational_program::list_of_discipline() { return m_list_of_discipline; }
 
-const Educational_program::type_list_of_discipline & Educational_program::list_of_discipline() const { return m_list_of_discipline; }
+const Educational_program::ListOfDiscipline & Educational_program::list_of_discipline() const { return m_list_of_discipline; }
 
-Educational_program::type_list_of_Practice Educational_program::getlist_of_Practice() const { return m_list_of_Practice; }
+Educational_program::ListOfPractice Educational_program::getlist_of_Practice() const { return m_list_of_practice; }
 
-Educational_program::type_list_of_Practice & Educational_program::list_of_Practice() { return m_list_of_Practice; }
+Educational_program::ListOfPractice & Educational_program::list_of_Practice() { return m_list_of_practice; }
 
-const Educational_program::type_list_of_Practice & Educational_program::list_of_Practice() const { return m_list_of_Practice; }
+const Educational_program::ListOfPractice & Educational_program::list_of_Practice() const { return m_list_of_practice; }
 
-Educational_program::type_list_of_Student Educational_program::getlist_of_Student() const { return m_list_of_Student; }
+Educational_program::ListOfStudent Educational_program::getlist_of_Student() const { return m_list_of_student; }
 
-Educational_program::type_list_of_Student & Educational_program::list_of_Student() { return m_list_of_Student; }
+Educational_program::ListOfStudent & Educational_program::list_of_Student() { return m_list_of_student; }
 
-const Educational_program::type_list_of_Student & Educational_program::list_of_Student() const { return m_list_of_Student; }
+const Educational_program::ListOfStudent & Educational_program::list_of_Student() const { return m_list_of_student; }
 
 
 void Educational_program::seteducational_program_id(const long & val) { m_educational_program_id = val; }
@@ -88,16 +88,16 @@ void Educational_program::setfield(const QString & val) { m_field = val; }
 
 void Educational_program::setfocus(const QString & val) { m_focus = val; }
 
-void Educational_program::setlist_of_result_education(const Educational_program::type_list_of_result_education & val) { m_list_of_result_education = val; }
+void Educational_program::setlist_of_result_education(const Educational_program::ListOfResultEducation & val) { m_list_of_result_education = val; }
 
-void Educational_program::setlist_of_discipline(const Educational_program::type_list_of_discipline & val) { m_list_of_discipline = val; }
+void Educational_program::setlist_of_discipline(const Educational_program::ListOfDiscipline & val) { m_list_of_discipline = val; }
 
-void Educational_program::setlist_of_Practice(const Educational_program::type_list_of_Practice & val) { m_list_of_Practice = val; }
+void Educational_program::setlist_of_Practice(const Educational_program::ListOfPractice & val) { m_list_of_practice = val; }
 
-void Educational_program::setlist_of_Student(const Educational_program::type_list_of_Student & val) { m_list_of_Student = val; }
+void Educational_program::setlist_of_Student(const Educational_program::ListOfStudent & val) { m_list_of_student = val; }
 
 
-Educational_program::type_list_of_result_education Educational_program::getlist_of_result_education(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Educational_program::ListOfResultEducation Educational_program::getlist_of_result_education(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_result_education(); }
@@ -112,7 +112,7 @@ Educational_program::type_list_of_result_education Educational_program::getlist_
    return m_list_of_result_education;
 }
 
-Educational_program::type_list_of_result_education & Educational_program::list_of_result_education(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Educational_program::ListOfResultEducation & Educational_program::list_of_result_education(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_result_education(); }
@@ -127,7 +127,7 @@ Educational_program::type_list_of_result_education & Educational_program::list_o
    return m_list_of_result_education;
 }
 
-Educational_program::type_list_of_discipline Educational_program::getlist_of_discipline(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Educational_program::ListOfDiscipline Educational_program::getlist_of_discipline(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_discipline(); }
@@ -142,7 +142,7 @@ Educational_program::type_list_of_discipline Educational_program::getlist_of_dis
    return m_list_of_discipline;
 }
 
-Educational_program::type_list_of_discipline & Educational_program::list_of_discipline(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Educational_program::ListOfDiscipline & Educational_program::list_of_discipline(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_discipline(); }
@@ -157,7 +157,7 @@ Educational_program::type_list_of_discipline & Educational_program::list_of_disc
    return m_list_of_discipline;
 }
 
-Educational_program::type_list_of_Practice Educational_program::getlist_of_Practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Educational_program::ListOfPractice Educational_program::getlist_of_Practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_Practice(); }
@@ -167,12 +167,12 @@ Educational_program::type_list_of_Practice Educational_program::getlist_of_Pract
    Educational_program tmp;
    tmp.m_educational_program_id = this->m_educational_program_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Practice = tmp.m_list_of_Practice; }
+   if (! daoError.isValid()) { this->m_list_of_practice = tmp.m_list_of_practice; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Practice;
+   return m_list_of_practice;
 }
 
-Educational_program::type_list_of_Practice & Educational_program::list_of_Practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Educational_program::ListOfPractice & Educational_program::list_of_Practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_Practice(); }
@@ -182,12 +182,12 @@ Educational_program::type_list_of_Practice & Educational_program::list_of_Practi
    Educational_program tmp;
    tmp.m_educational_program_id = this->m_educational_program_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Practice = tmp.m_list_of_Practice; }
+   if (! daoError.isValid()) { this->m_list_of_practice = tmp.m_list_of_practice; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Practice;
+   return m_list_of_practice;
 }
 
-Educational_program::type_list_of_Student Educational_program::getlist_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Educational_program::ListOfStudent Educational_program::getlist_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_Student(); }
@@ -197,12 +197,12 @@ Educational_program::type_list_of_Student Educational_program::getlist_of_Studen
    Educational_program tmp;
    tmp.m_educational_program_id = this->m_educational_program_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Student = tmp.m_list_of_Student; }
+   if (! daoError.isValid()) { this->m_list_of_student = tmp.m_list_of_student; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Student;
+   return m_list_of_student;
 }
 
-Educational_program::type_list_of_Student & Educational_program::list_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Educational_program::ListOfStudent & Educational_program::list_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_Student(); }
@@ -212,7 +212,7 @@ Educational_program::type_list_of_Student & Educational_program::list_of_Student
    Educational_program tmp;
    tmp.m_educational_program_id = this->m_educational_program_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_Student = tmp.m_list_of_Student; }
+   if (! daoError.isValid()) { this->m_list_of_student = tmp.m_list_of_student; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_Student;
+   return m_list_of_student;
 }

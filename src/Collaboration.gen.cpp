@@ -41,27 +41,27 @@ Collaboration::Collaboration(const long & id) : m_Collaboration_id(id) { ; }
 
 Collaboration::~Collaboration() { ; }
 
-long Collaboration::getCollaboration_id() const { return m_Collaboration_id; }
+long Collaboration::getcollaboration_id() const { return m_Collaboration_id; }
 
 QString Collaboration::getname() const { return m_name; }
 
 QString Collaboration::getdescription() const { return m_description; }
 
-Collaboration::type_list_of_employers Collaboration::getlist_of_employers() const { return m_list_of_employers; }
+Collaboration::ListOfEmployers Collaboration::getlist_of_employers() const { return m_list_of_employers; }
 
-Collaboration::type_list_of_employers & Collaboration::list_of_employers() { return m_list_of_employers; }
+Collaboration::ListOfEmployers & Collaboration::list_of_employers() { return m_list_of_employers; }
 
-const Collaboration::type_list_of_employers & Collaboration::list_of_employers() const { return m_list_of_employers; }
+const Collaboration::ListOfEmployers & Collaboration::list_of_employers() const { return m_list_of_employers; }
 
-void Collaboration::setCollaboration_id(const long & val) { m_Collaboration_id = val; }
+void Collaboration::setcollaboration_id(const long & val) { m_Collaboration_id = val; }
 
 void Collaboration::setname(const QString & val) { m_name = val; }
 
 void Collaboration::setdescription(const QString & val) { m_description = val; }
 
-void Collaboration::setlist_of_employers(const Collaboration::type_list_of_employers & val) { m_list_of_employers = val; }
+void Collaboration::setlist_of_employers(const Collaboration::ListOfEmployers & val) { m_list_of_employers = val; }
 
-Collaboration::type_list_of_employers Collaboration::getlist_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Collaboration::ListOfEmployers Collaboration::getlist_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_employers(); }
@@ -76,7 +76,7 @@ Collaboration::type_list_of_employers Collaboration::getlist_of_employers(bool b
    return m_list_of_employers;
 }
 
-Collaboration::type_list_of_employers & Collaboration::list_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Collaboration::ListOfEmployers & Collaboration::list_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_employers(); }

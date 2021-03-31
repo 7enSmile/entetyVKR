@@ -10,13 +10,13 @@ class DEPARTMENT_EXPORT Group
 
 public:
 
-   typedef qx::QxCollection<long, std::shared_ptr<Student> > type_list_of_Strudent;
+   typedef qx::QxCollection<long, std::shared_ptr<Student> > ListOfStudent;
 
 protected:
 
    long m_Groups_id;
    QString m_number;
-   type_list_of_Strudent m_list_of_Strudent;
+   ListOfStudent m_list_of_student;
 
 public:
 
@@ -24,22 +24,22 @@ public:
    Group(const long & id);
    virtual ~Group();
 
-   long getGroups_id() const;
+   long getgroup_id() const;
    QString getnumber() const;
-   type_list_of_Strudent getlist_of_Student() const;
-   type_list_of_Strudent & list_of_Student();
-   const type_list_of_Strudent & list_of_Student() const;
+   ListOfStudent getlist_of_student() const;
+   ListOfStudent & list_of_student();
+   const ListOfStudent & list_of_student() const;
 
-   void setGroups_id(const long & val);
+   void setgroup_id(const long & val);
    void setnumber(const QString & val);
-   void setlist_of_Strudent(const type_list_of_Strudent & val);
+   void setlist_of_student(const ListOfStudent & val);
 
-   type_list_of_Strudent getlist_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Strudent & list_of_Student(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfStudent getlist_of_student(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfStudent & list_of_student(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 
-   static QString relation_list_of_Strudent(bool key = false) { Q_UNUSED(key); return "list_of_Strudent"; }
+   static QString relation_list_of_student(bool key = false) { Q_UNUSED(key); return "list_of_student"; }
 
 public:
 
