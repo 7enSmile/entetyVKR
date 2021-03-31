@@ -13,18 +13,18 @@ class DEPARTMENT_EXPORT Head_university
 
 public:
 
-   typedef std::shared_ptr<Person> type_persone;
-   typedef std::shared_ptr<Department> type_department;
-   typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > type_list_of_passing_practice;
-   typedef qx::QxCollection<long, std::shared_ptr<Report> > type_list_of_Reports;
+   typedef std::shared_ptr<Person> Person_ptr;
+   typedef std::shared_ptr<Department> Department_ptr;
+   typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > ListOfPassingPractice;
+   typedef qx::QxCollection<long, std::shared_ptr<Report> > ListOfReport;
 
 protected:
 
    long m_Head_university_id;
-   type_persone m_persone;
-   type_department m_department;
-   type_list_of_passing_practice m_list_of_passing_practice;
-   type_list_of_Reports m_list_of_Reports;
+   Person_ptr m_persone;
+   Department_ptr m_department;
+   ListOfPassingPractice m_list_of_passing_practice;
+   ListOfReport m_list_of_Reports;
 
 public:
 
@@ -33,27 +33,27 @@ public:
    virtual ~Head_university();
 
    long getHead_university_id() const;
-   type_persone getpersone() const;
-   type_department getdepartment() const;
-   type_list_of_passing_practice getlist_of_passing_practice() const;
-   type_list_of_passing_practice & list_of_passing_practice();
-   const type_list_of_passing_practice & list_of_passing_practice() const;
-   type_list_of_Reports getlist_of_Reports() const;
-   type_list_of_Reports & list_of_Reports();
-   const type_list_of_Reports & list_of_Reports() const;
+   Person_ptr getpersone() const;
+   Department_ptr getdepartment() const;
+   ListOfPassingPractice getlist_of_passing_practice() const;
+   ListOfPassingPractice & list_of_passing_practice();
+   const ListOfPassingPractice & list_of_passing_practice() const;
+   ListOfReport getlist_of_Reports() const;
+   ListOfReport & list_of_Reports();
+   const ListOfReport & list_of_Reports() const;
 
    void setHead_university_id(const long & val);
-   void setpersone(const type_persone & val);
-   void setdepartment(const type_department & val);
-   void setlist_of_passing_practice(const type_list_of_passing_practice & val);
-   void setlist_of_Reports(const type_list_of_Reports & val);
+   void setpersone(const Person_ptr & val);
+   void setdepartment(const Department_ptr & val);
+   void setlist_of_passing_practice(const ListOfPassingPractice & val);
+   void setlist_of_Reports(const ListOfReport & val);
 
-   type_list_of_passing_practice getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_passing_practice & list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_persone getpersone(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_department getdepartment(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Reports getlist_of_Reports(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_list_of_Reports & list_of_Reports(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfPassingPractice getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfPassingPractice & list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   Person_ptr getpersone(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   Department_ptr getdepartment(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfReport getlist_of_Reports(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfReport & list_of_Reports(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 
 

@@ -42,34 +42,34 @@ Head_university::~Head_university() { ; }
 
 long Head_university::getHead_university_id() const { return m_Head_university_id; }
 
-Head_university::type_persone Head_university::getpersone() const { return m_persone; }
+Head_university::Person_ptr Head_university::getpersone() const { return m_persone; }
 
-Head_university::type_department Head_university::getdepartment() const { return m_department; }
+Head_university::Department_ptr Head_university::getdepartment() const { return m_department; }
 
-Head_university::type_list_of_passing_practice Head_university::getlist_of_passing_practice() const { return m_list_of_passing_practice; }
+Head_university::ListOfPassingPractice Head_university::getlist_of_passing_practice() const { return m_list_of_passing_practice; }
 
-Head_university::type_list_of_passing_practice & Head_university::list_of_passing_practice() { return m_list_of_passing_practice; }
+Head_university::ListOfPassingPractice & Head_university::list_of_passing_practice() { return m_list_of_passing_practice; }
 
-const Head_university::type_list_of_passing_practice & Head_university::list_of_passing_practice() const { return m_list_of_passing_practice; }
+const Head_university::ListOfPassingPractice & Head_university::list_of_passing_practice() const { return m_list_of_passing_practice; }
 
-Head_university::type_list_of_Reports Head_university::getlist_of_Reports() const { return m_list_of_Reports; }
+Head_university::ListOfReport Head_university::getlist_of_Reports() const { return m_list_of_Reports; }
 
-Head_university::type_list_of_Reports & Head_university::list_of_Reports() { return m_list_of_Reports; }
+Head_university::ListOfReport & Head_university::list_of_Reports() { return m_list_of_Reports; }
 
-const Head_university::type_list_of_Reports & Head_university::list_of_Reports() const { return m_list_of_Reports; }
+const Head_university::ListOfReport & Head_university::list_of_Reports() const { return m_list_of_Reports; }
 
 
 void Head_university::setHead_university_id(const long & val) { m_Head_university_id = val; }
 
-void Head_university::setpersone(const Head_university::type_persone & val) { m_persone = val; }
+void Head_university::setpersone(const Head_university::Person_ptr & val) { m_persone = val; }
 
-void Head_university::setdepartment(const Head_university::type_department & val) { m_department = val; }
+void Head_university::setdepartment(const Head_university::Department_ptr & val) { m_department = val; }
 
-void Head_university::setlist_of_passing_practice(const Head_university::type_list_of_passing_practice & val) { m_list_of_passing_practice = val; }
+void Head_university::setlist_of_passing_practice(const Head_university::ListOfPassingPractice & val) { m_list_of_passing_practice = val; }
 
-void Head_university::setlist_of_Reports(const Head_university::type_list_of_Reports & val) { m_list_of_Reports = val; }
+void Head_university::setlist_of_Reports(const Head_university::ListOfReport & val) { m_list_of_Reports = val; }
 
-Head_university::type_persone Head_university::getpersone(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Head_university::Person_ptr Head_university::getpersone(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getpersone(); }
@@ -84,7 +84,7 @@ Head_university::type_persone Head_university::getpersone(bool bLoadFromDatabase
    return m_persone;
 }
 
-Head_university::type_department Head_university::getdepartment(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Head_university::Department_ptr Head_university::getdepartment(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getdepartment(); }
@@ -98,7 +98,7 @@ Head_university::type_department Head_university::getdepartment(bool bLoadFromDa
    if (pDaoError) { (* pDaoError) = daoError; }
    return m_department;
 }
-Head_university::type_list_of_passing_practice Head_university::getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Head_university::ListOfPassingPractice Head_university::getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_passing_practice(); }
@@ -113,7 +113,7 @@ Head_university::type_list_of_passing_practice Head_university::getlist_of_passi
    return m_list_of_passing_practice;
 }
 
-Head_university::type_list_of_passing_practice & Head_university::list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Head_university::ListOfPassingPractice & Head_university::list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_passing_practice(); }
@@ -128,7 +128,7 @@ Head_university::type_list_of_passing_practice & Head_university::list_of_passin
    return m_list_of_passing_practice;
 }
 
-Head_university::type_list_of_Reports Head_university::getlist_of_Reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Head_university::ListOfReport Head_university::getlist_of_Reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_Reports(); }
@@ -143,7 +143,7 @@ Head_university::type_list_of_Reports Head_university::getlist_of_Reports(bool b
    return m_list_of_Reports;
 }
 
-Head_university::type_list_of_Reports & Head_university::list_of_Reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+Head_university::ListOfReport & Head_university::list_of_Reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_Reports(); }
