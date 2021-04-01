@@ -40,7 +40,7 @@ public:
 public:
 
    static QString relation_employer(bool key = false) { return (key ? QString("employer") : QString("employer_id")); }
-   static QString relation_persone(bool key = false) { Q_UNUSED(key); return "Persone"; }
+   static QString relation_person(bool key = false) { return (key ? QString("person") : QString("persone_id")); }
 
 public:
 

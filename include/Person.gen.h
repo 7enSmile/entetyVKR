@@ -13,12 +13,11 @@ class DEPARTMENT_EXPORT Person
    QX_REGISTER_FRIEND_CLASS(Person)
 
 public:
-       typedef std::shared_ptr<Student> type_Student;
-       typedef std::shared_ptr<Head_employer> type_Head_employer;
-       typedef std::shared_ptr<Head_university> type_Head_university;
-       typedef std::shared_ptr<Contact_employer> type_Contact_employer;
 
-
+   typedef qx::QxCollection<long, std::shared_ptr<Student> > type_list_of_students;
+   typedef qx::QxCollection<long, std::shared_ptr<Head_employer> > type_list_of_Head_employer;
+   typedef qx::QxCollection<long, std::shared_ptr<Contact_employer> > type_list_of_Contact_employer;
+   typedef qx::QxCollection<long, std::shared_ptr<Head_university> > type_list_of_Head_university;
 
 
 protected:
@@ -29,11 +28,10 @@ protected:
    QString m_patronymic;
    QString m_phone_number;
    QString m_email;
-   type_Student m_Student;
-   type_Head_employer m_Head_employer;
-   type_Head_university m_Head_university;
-   type_Contact_employer m_Contact_employer;
-
+   type_list_of_students m_list_of_students;
+   type_list_of_Head_employer m_list_of_Head_employer;
+   type_list_of_Contact_employer m_list_of_Contact_employer;
+   type_list_of_Head_university m_list_of_Head_university;
 
 
 public:
@@ -48,12 +46,18 @@ public:
    QString getpatronymic() const;
    QString getphone_number() const;
    QString getemail() const;
-   type_Student getStudent() const;
-   type_Head_employer getHead_employer() const;
-   type_Head_university getHead_university() const;
-   type_Contact_employer getContact_employer() const;
-
-
+   type_list_of_students getlist_of_Students() const;
+   type_list_of_students & list_of_students();
+   const type_list_of_students & list_of_students() const;
+   type_list_of_Head_employer getlist_of_Head_employer() const;
+   type_list_of_Head_employer & list_of_Head_employer();
+   const type_list_of_Head_employer & list_of_Head_employer() const;
+   type_list_of_Contact_employer getlist_of_Contact_employer() const;
+   type_list_of_Contact_employer & list_of_Contact_employer();
+   const type_list_of_Contact_employer & list_of_Contact_employer() const;
+   type_list_of_Head_university getlist_of_Head_university() const;
+   type_list_of_Head_university & list_of_Head_university();
+   const type_list_of_Head_university & list_of_Head_university() const;
 
 
    void setPerson_id(const long & val);
@@ -62,28 +66,28 @@ public:
    void setpatronymic(const QString & val);
    void setphone_number(const QString & val);
    void setemail(const QString & val);
-   void setStudent(const type_Student & val);
-   void setHead_employer(const type_Head_employer & val);
-   void setHead_university(const type_Head_university & val);
-   void setContact_employer(const type_Contact_employer & val);
+   void setlist_of_Students(const type_list_of_students & val);
+   void setlist_of_Head_employer(const type_list_of_Head_employer & val);
+   void setlist_of_Contact_employer(const type_list_of_Contact_employer & val);
+   void setlist_of_Head_university(const type_list_of_Head_university & val);
 
-   type_Student getStudent(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_Head_employer getHead_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_Head_university getHead_university(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   type_Contact_employer getContact_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-
-
+   type_list_of_students getlist_of_Students(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_list_of_students & list_of_students(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_list_of_Head_employer getlist_of_Head_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_list_of_Head_employer & list_of_Head_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_list_of_Contact_employer getlist_of_Contact_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_list_of_Contact_employer & list_of_Contact_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_list_of_Head_university getlist_of_Head_university(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   type_list_of_Head_university & list_of_Head_university(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 
 
 public:
 
-   static QString relation_Student(bool key = false) { Q_UNUSED(key); return "Student"; }
-   static QString relation_Head_employer(bool key = false) { Q_UNUSED(key); return "Head_employer"; }
-   static QString relation_Head_university(bool key = false) { Q_UNUSED(key); return "Head_university"; }
-   static QString relation_Contact_employer(bool key = false) { Q_UNUSED(key); return "Contact_employer"; }
-
-
+   static QString relation_list_of_students(bool key = false) { Q_UNUSED(key); return "list_of_students"; }
+   static QString relation_list_of_Head_employer(bool key = false) { Q_UNUSED(key); return "list_of_Head_employer"; }
+   static QString relation_list_of_Contact_employer(bool key = false) { Q_UNUSED(key); return "list_of_Contact_employer"; }
+   static QString relation_list_of_Head_university(bool key = false) { Q_UNUSED(key); return "list_of_Head_university"; }
 
 
 public:

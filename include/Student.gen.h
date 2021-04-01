@@ -82,7 +82,7 @@ public:
 public:
 
    static QString relation_group(bool key = false) { return (key ? QString("group") : QString("group_id")); }
-   static QString relation_Person_id(bool key = false) { Q_UNUSED(key); return "Person"; }
+   static QString relation_person(bool key = false) { Q_UNUSED(key); return "person"; }
    static QString relation_list_of_passing_practice(bool key = false) { Q_UNUSED(key); return "list_of_passing_practice"; }
    static QString relation_education_program(bool key = false) { Q_UNUSED(key); return "Education_program"; }
    static QString relation_list_of_reports(bool key = false) { Q_UNUSED(key); return "list_of_reports"; }

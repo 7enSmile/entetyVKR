@@ -24,7 +24,7 @@ void register_class(QxClass<Contact_employer> & t)
 
    pRelation = t.relationManyToOne(& Contact_employer::m_employer, "employer", 0);
    pRelation->getDataMember()->setName("employer_id");
-   pRelation = t.relationOneToOne(& Contact_employer::m_person, "Person", 0);
+   pRelation = t.relationManyToOne(& Contact_employer::m_person, "person", 0);
    pRelation->getDataMember()->setName("persone_id");
 
    qx::QxValidatorX<Contact_employer> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);

@@ -24,7 +24,7 @@ void register_class(QxClass<Student> & t)
 
    pRelation = t.relationManyToOne(& Student::m_group, "group", 0);
    pRelation->getDataMember()->setName("group_id");
-   pRelation = t.relationOneToOne(& Student::m_person, "Person", 0);
+   pRelation = t.relationManyToOne(& Student::m_person, "person", 0);
    pRelation = t.relationOneToMany(& Student::m_list_of_passing_practice, "list_of_passing_practice", "studen", 0);
    pRelation = t.relationManyToOne(& Student::m_education_program, "Education_program", 0);
    pRelation->getDataMember()->setName("Education_program_id");

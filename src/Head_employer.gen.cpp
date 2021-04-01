@@ -23,7 +23,7 @@ void register_class(QxClass<Head_employer> & t)
    pData = t.id(& Head_employer::m_head_employer, "Head_employer_id", 0);
 
    pRelation = t.relationManyToOne(& Head_employer::m_employer, "employer", 0);
-   pRelation = t.relationOneToOne(& Head_employer::m_person, "Persone", 0);
+   pRelation = t.relationManyToOne(& Head_employer::m_person, "person_id", 0);
    pRelation = t.relationOneToMany(& Head_employer::m_list_of_passing_practice, "list_of_passing_practice", "Head_employer_id", 0);
    pRelation = t.relationOneToMany(& Head_employer::m_list_of_reports, "list_of_reports", "Head_employer_id", 0);
 

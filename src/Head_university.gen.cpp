@@ -23,7 +23,7 @@ void register_class(QxClass<Head_university> & t)
    pData = t.id(& Head_university::m_Head_university_id, "Head_university_id", 0);
 
    pRelation = t.relationManyToOne(& Head_university::m_persone, "persone", 0);
-   pRelation = t.relationOneToOne(& Head_university::m_persone, "Persone", 0);
+   pRelation->getDataMember()->setName("persone_id");
    pRelation = t.relationManyToOne(& Head_university::m_department, "department_id", 0);
    pRelation->getDataMember()->setName("department_id");
    pRelation = t.relationOneToMany(& Head_university::m_list_of_passing_practice, "list_of_passing_practice", "Head_university_id", 0);
