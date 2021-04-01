@@ -1,7 +1,7 @@
 #ifndef _DEPARTMENT_EDUCATIONAL_PROGRAM_H_
 #define _DEPARTMENT_EDUCATIONAL_PROGRAM_H_
 
-class Result_education;
+class ResultEducation;
 class Discipline;
 class Practice;
 class Student;
@@ -13,7 +13,7 @@ class DEPARTMENT_EXPORT EducationalProgram
 
 public:
 
-   typedef qx::QxCollection<long, std::shared_ptr<Result_education> > ListOfResultEducation;
+   typedef qx::QxCollection<long, std::shared_ptr<ResultEducation> > ListOfResultEducation;
    typedef qx::QxCollection<long, std::shared_ptr<Discipline> > ListOfDiscipline;
    typedef qx::QxCollection<long, std::shared_ptr<Practice> > ListOfPractice;
    typedef qx::QxCollection<long, std::shared_ptr<Student> > ListOfStudent;

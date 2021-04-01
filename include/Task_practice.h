@@ -1,16 +1,16 @@
 #ifndef _DEPARTMENT_TASK_PRACTICE_H_
 #define _DEPARTMENT_TASK_PRACTICE_H_
 
-class Passing_practice;
+class PassingPractice;
 
-class DEPARTMENT_EXPORT Task_practice
+class DEPARTMENT_EXPORT TaskPractice
 {
 
-   QX_REGISTER_FRIEND_CLASS(Task_practice)
+   QX_REGISTER_FRIEND_CLASS(TaskPractice)
 
 public:
 
-   typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > ListOfPassingPractice;
+   typedef qx::QxCollection<long, std::shared_ptr<PassingPractice> > ListOfPassingPractice;
 
 protected:
 
@@ -20,9 +20,9 @@ protected:
 
 public:
 
-   Task_practice();
-   Task_practice(const long & id);
-   virtual ~Task_practice();
+   TaskPractice();
+   TaskPractice(const long & id);
+   virtual ~TaskPractice();
 
    long getTask_id() const;
    QString getdescription() const;
@@ -52,11 +52,11 @@ public:
 
 };
 
-typedef std::shared_ptr<Task_practice> Task_practice_ptr;
-typedef qx::QxCollection<long, Task_practice_ptr> list_of_Task_practice;
+typedef std::shared_ptr<TaskPractice> TaskPractice_ptr;
+typedef qx::QxCollection<long, TaskPractice_ptr> list_of_Task_practice;
 typedef std::shared_ptr<list_of_Task_practice> list_of_Task_practice_ptr;
 
-QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Task_practice, qx::trait::no_base_class_defined, 0, Task_practice)
+QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(TaskPractice, qx::trait::no_base_class_defined, 0, TaskPractice)
 
 #include "../include/Passing_practice.h"
 

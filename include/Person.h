@@ -4,7 +4,7 @@
 class Student;
 class HeadEmployer;
 class ContactEmployer;
-class Head_university;
+class HeadUniversity;
 
 
 class DEPARTMENT_EXPORT Person
@@ -17,7 +17,7 @@ public:
    typedef qx::QxCollection<long, std::shared_ptr<Student> > ListOfStudents;
    typedef qx::QxCollection<long, std::shared_ptr<HeadEmployer> > ListOfHeadEmployer;
    typedef qx::QxCollection<long, std::shared_ptr<ContactEmployer> > ListOfContactEmployer;
-   typedef qx::QxCollection<long, std::shared_ptr<Head_university> > ListOfHeadUniversity;
+   typedef qx::QxCollection<long, std::shared_ptr<HeadUniversity> > ListOfHeadUniversity;
 
 
 protected:

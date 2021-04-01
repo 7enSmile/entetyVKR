@@ -12,8 +12,8 @@ class Practice;
 class Events;
 class HeadEmployer;
 class ContactEmployer;
-class Passing_practice;
-class Result_education;
+class PassingPractice;
+class ResultEducation;
 
 
 class DEPARTMENT_EXPORT Employer
@@ -30,8 +30,8 @@ public:
    typedef qx::QxCollection<long, std::shared_ptr<Events> > ListOfEvents;
    typedef qx::QxCollection<long, std::shared_ptr<HeadEmployer> > ListOfHeadEmployer;
    typedef qx::QxCollection<long, std::shared_ptr<ContactEmployer> > ListOfContactEmployer;
-   typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > ListOfPassingPractice;
-   typedef qx::QxCollection<long, std::shared_ptr<Result_education> > ListOfResultEducation;
+   typedef qx::QxCollection<long, std::shared_ptr<PassingPractice> > ListOfPassingPractice;
+   typedef qx::QxCollection<long, std::shared_ptr<ResultEducation> > ListOfResultEducation;
 
 
 protected:

@@ -6,12 +6,12 @@
 
 #include <QxOrm_Impl.h>
 
-QX_REGISTER_COMPLEX_CLASS_NAME_CPP_DEPARTMENT(Head_university, Head_university)
+QX_REGISTER_COMPLEX_CLASS_NAME_CPP_DEPARTMENT(HeadUniversity, HeadUniversity)
 
 namespace qx {
 
 template <>
-void register_class(QxClass<Head_university> & t)
+void register_class(QxClass<HeadUniversity> & t)
 {
    qx::IxDataMember * pData = NULL; Q_UNUSED(pData);
    qx::IxSqlRelation * pRelation = NULL; Q_UNUSED(pRelation);
@@ -20,63 +20,63 @@ void register_class(QxClass<Head_university> & t)
 
    t.setName("t_Head_university");
 
-   pData = t.id(& Head_university::m_Head_university_id, "Head_university_id", 0);
+   pData = t.id(& HeadUniversity::m_Head_university_id, "Head_university_id", 0);
 
-   pRelation = t.relationManyToOne(& Head_university::m_persone, "person", 0);
+   pRelation = t.relationManyToOne(& HeadUniversity::m_persone, "person", 0);
    pRelation->getDataMember()->setName("person_id");
-   pRelation = t.relationManyToOne(& Head_university::m_department, "department_id", 0);
+   pRelation = t.relationManyToOne(& HeadUniversity::m_department, "department_id", 0);
    pRelation->getDataMember()->setName("department_id");
-   pRelation = t.relationOneToMany(& Head_university::m_list_of_passing_practice, "list_of_passing_practice", "Head_university_id", 0);
-   pRelation = t.relationOneToMany(& Head_university::m_list_of_Reports, "list_of_Reports", "Head_university_id", 0);
+   pRelation = t.relationOneToMany(& HeadUniversity::m_list_of_passing_practice, "list_of_passing_practice", "head_university_id", 0);
+   pRelation = t.relationOneToMany(& HeadUniversity::m_list_of_Reports, "list_of_Reports", "Head_university_id", 0);
 
-   qx::QxValidatorX<Head_university> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
+   qx::QxValidatorX<HeadUniversity> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }
 
 } // namespace qx
 
-Head_university::Head_university() : m_Head_university_id(0) { ; }
+HeadUniversity::HeadUniversity() : m_Head_university_id(0) { ; }
 
-Head_university::Head_university(const long & id) : m_Head_university_id(id) { ; }
+HeadUniversity::HeadUniversity(const long & id) : m_Head_university_id(id) { ; }
 
-Head_university::~Head_university() { ; }
+HeadUniversity::~HeadUniversity() { ; }
 
-long Head_university::getHead_university_id() const { return m_Head_university_id; }
+long HeadUniversity::getHeadUniversity_id() const { return m_Head_university_id; }
 
-Head_university::Person_ptr Head_university::getpersone() const { return m_persone; }
+HeadUniversity::Person_ptr HeadUniversity::getpersone() const { return m_persone; }
 
-Head_university::Department_ptr Head_university::getdepartment() const { return m_department; }
+HeadUniversity::Department_ptr HeadUniversity::getdepartment() const { return m_department; }
 
-Head_university::ListOfPassingPractice Head_university::getlist_of_passing_practice() const { return m_list_of_passing_practice; }
+HeadUniversity::ListOfPassingPractice HeadUniversity::getlist_of_passing_practice() const { return m_list_of_passing_practice; }
 
-Head_university::ListOfPassingPractice & Head_university::list_of_passing_practice() { return m_list_of_passing_practice; }
+HeadUniversity::ListOfPassingPractice & HeadUniversity::list_of_passing_practice() { return m_list_of_passing_practice; }
 
-const Head_university::ListOfPassingPractice & Head_university::list_of_passing_practice() const { return m_list_of_passing_practice; }
+const HeadUniversity::ListOfPassingPractice & HeadUniversity::list_of_passing_practice() const { return m_list_of_passing_practice; }
 
-Head_university::ListOfReport Head_university::getlist_of_Reports() const { return m_list_of_Reports; }
+HeadUniversity::ListOfReport HeadUniversity::getlist_of_Reports() const { return m_list_of_Reports; }
 
-Head_university::ListOfReport & Head_university::list_of_Reports() { return m_list_of_Reports; }
+HeadUniversity::ListOfReport & HeadUniversity::list_of_Reports() { return m_list_of_Reports; }
 
-const Head_university::ListOfReport & Head_university::list_of_Reports() const { return m_list_of_Reports; }
+const HeadUniversity::ListOfReport & HeadUniversity::list_of_Reports() const { return m_list_of_Reports; }
 
 
-void Head_university::setHead_university_id(const long & val) { m_Head_university_id = val; }
+void HeadUniversity::setHeadUniversity_id(const long & val) { m_Head_university_id = val; }
 
-void Head_university::setpersone(const Head_university::Person_ptr & val) { m_persone = val; }
+void HeadUniversity::setpersone(const HeadUniversity::Person_ptr & val) { m_persone = val; }
 
-void Head_university::setdepartment(const Head_university::Department_ptr & val) { m_department = val; }
+void HeadUniversity::setdepartment(const HeadUniversity::Department_ptr & val) { m_department = val; }
 
-void Head_university::setlist_of_passing_practice(const Head_university::ListOfPassingPractice & val) { m_list_of_passing_practice = val; }
+void HeadUniversity::setlist_of_passing_practice(const HeadUniversity::ListOfPassingPractice & val) { m_list_of_passing_practice = val; }
 
-void Head_university::setlist_of_Reports(const Head_university::ListOfReport & val) { m_list_of_Reports = val; }
+void HeadUniversity::setlist_of_Reports(const HeadUniversity::ListOfReport & val) { m_list_of_Reports = val; }
 
-Head_university::Person_ptr Head_university::getpersone(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+HeadUniversity::Person_ptr HeadUniversity::getpersone(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getpersone(); }
-   QString sRelation = "{Head_university_id} | persone";
+   QString sRelation = "{HeadUniversity_id} | persone";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
-   Head_university tmp;
+   HeadUniversity tmp;
    tmp.m_Head_university_id = this->m_Head_university_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
    if (! daoError.isValid()) { this->m_persone = tmp.m_persone; }
@@ -84,28 +84,28 @@ Head_university::Person_ptr Head_university::getpersone(bool bLoadFromDatabase, 
    return m_persone;
 }
 
-Head_university::Department_ptr Head_university::getdepartment(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+HeadUniversity::Department_ptr HeadUniversity::getdepartment(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getdepartment(); }
-   QString sRelation = "{Head_university_id} | department";
+   QString sRelation = "{HeadUniversity_id} | department";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
-   Head_university tmp;
+   HeadUniversity tmp;
    tmp.m_Head_university_id = this->m_Head_university_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
    if (! daoError.isValid()) { this->m_department = tmp.m_department; }
    if (pDaoError) { (* pDaoError) = daoError; }
    return m_department;
 }
-Head_university::ListOfPassingPractice Head_university::getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+HeadUniversity::ListOfPassingPractice HeadUniversity::getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_passing_practice(); }
-   QString sRelation = "{Head_university_id} | list_of_passing_practice";
+   QString sRelation = "{HeadUniversity_id} | list_of_passing_practice";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
-   Head_university tmp;
+   HeadUniversity tmp;
    tmp.m_Head_university_id = this->m_Head_university_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
    if (! daoError.isValid()) { this->m_list_of_passing_practice = tmp.m_list_of_passing_practice; }
@@ -113,14 +113,14 @@ Head_university::ListOfPassingPractice Head_university::getlist_of_passing_pract
    return m_list_of_passing_practice;
 }
 
-Head_university::ListOfPassingPractice & Head_university::list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+HeadUniversity::ListOfPassingPractice & HeadUniversity::list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_passing_practice(); }
-   QString sRelation = "{Head_university_id} | list_of_passing_practice";
+   QString sRelation = "{HeadUniversity_id} | list_of_passing_practice";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
-   Head_university tmp;
+   HeadUniversity tmp;
    tmp.m_Head_university_id = this->m_Head_university_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
    if (! daoError.isValid()) { this->m_list_of_passing_practice = tmp.m_list_of_passing_practice; }
@@ -128,14 +128,14 @@ Head_university::ListOfPassingPractice & Head_university::list_of_passing_practi
    return m_list_of_passing_practice;
 }
 
-Head_university::ListOfReport Head_university::getlist_of_Reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+HeadUniversity::ListOfReport HeadUniversity::getlist_of_Reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return getlist_of_Reports(); }
-   QString sRelation = "{Head_university_id} | list_of_Reports";
+   QString sRelation = "{HeadUniversity_id} | list_of_Reports";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
-   Head_university tmp;
+   HeadUniversity tmp;
    tmp.m_Head_university_id = this->m_Head_university_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
    if (! daoError.isValid()) { this->m_list_of_Reports = tmp.m_list_of_Reports; }
@@ -143,14 +143,14 @@ Head_university::ListOfReport Head_university::getlist_of_Reports(bool bLoadFrom
    return m_list_of_Reports;
 }
 
-Head_university::ListOfReport & Head_university::list_of_Reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+HeadUniversity::ListOfReport & HeadUniversity::list_of_Reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
    if (! bLoadFromDatabase) { return list_of_Reports(); }
-   QString sRelation = "{Head_university_id} | list_of_Reports";
+   QString sRelation = "{HeadUniversity_id} | list_of_Reports";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
-   Head_university tmp;
+   HeadUniversity tmp;
    tmp.m_Head_university_id = this->m_Head_university_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
    if (! daoError.isValid()) { this->m_list_of_Reports = tmp.m_list_of_Reports; }

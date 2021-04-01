@@ -5,10 +5,10 @@ class EducationalProgram;
 class Discipline;
 class Employer;
 
-class DEPARTMENT_EXPORT Result_education
+class DEPARTMENT_EXPORT ResultEducation
 {
 
-   QX_REGISTER_FRIEND_CLASS(Result_education)
+   QX_REGISTER_FRIEND_CLASS(ResultEducation)
 
 public:
 
@@ -27,9 +27,9 @@ protected:
 
 public:
 
-   Result_education();
-   Result_education(const long & id);
-   virtual ~Result_education();
+   ResultEducation();
+   ResultEducation(const long & id);
+   virtual ~ResultEducation();
 
    long getResult_discipline_id() const;
    QString getdescription() const;
@@ -72,11 +72,11 @@ public:
 
 };
 
-typedef std::shared_ptr<Result_education> Result_education_ptr;
-typedef qx::QxCollection<long, Result_education_ptr> list_of_Result_education;
+typedef std::shared_ptr<ResultEducation> ResultEducation_ptr;
+typedef qx::QxCollection<long, ResultEducation_ptr> list_of_Result_education;
 typedef std::shared_ptr<list_of_Result_education> list_of_Result_education_ptr;
 
-QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Result_education, qx::trait::no_base_class_defined, 0, Result_education)
+QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(ResultEducation, qx::trait::no_base_class_defined, 0, ResultEducation)
 #include "../include/Employer.h"
 #include "../include/Educational_program.h"
 #include "../include/Discipline.h"

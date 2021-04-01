@@ -3,10 +3,10 @@
 
 class Group;
 class Person;
-class Passing_practice;
+class PassingPractice;
 class EducationalProgram;
 class Report;
-class Practice_result;
+class PracticeResult;
 
 class DEPARTMENT_EXPORT Student
 {
@@ -17,10 +17,10 @@ public:
 
    typedef std::shared_ptr<Group> Group_ptr;
    typedef std::shared_ptr<Person> Person_ptr;
-   typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > ListOfPassingPractice;
+   typedef qx::QxCollection<long, std::shared_ptr<PassingPractice> > ListOfPassingPractice;
    typedef std::shared_ptr<EducationalProgram> EducationProgram_ptr;
    typedef qx::QxCollection<long, std::shared_ptr<Report> > ListOfReport;
-   typedef qx::QxCollection<long, std::shared_ptr<Practice_result> > ListOfPracticeResult;
+   typedef qx::QxCollection<long, std::shared_ptr<PracticeResult> > ListOfPracticeResult;
 
 
 

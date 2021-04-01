@@ -1,7 +1,7 @@
 #ifndef _DEPARTMENT_DEPARTMENT_H_
 #define _DEPARTMENT_DEPARTMENT_H_
 
-class Head_university;
+class HeadUniversity;
 
 class DEPARTMENT_EXPORT Department
 {
@@ -10,7 +10,7 @@ class DEPARTMENT_EXPORT Department
 
 public:
 
-   typedef qx::QxCollection<long, std::shared_ptr<Head_university> > ListOfHeadUniversity;
+   typedef qx::QxCollection<long, std::shared_ptr<HeadUniversity> > ListOfHeadUniversity;
 
 protected:
 

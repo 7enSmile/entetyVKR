@@ -6,7 +6,7 @@
 #define _DEPARTMENT_PRACTICE_H_
 
 class Employer;
-class Passing_practice;
+class PassingPractice;
 class EducationalProgram;
 
 
@@ -18,7 +18,7 @@ class DEPARTMENT_EXPORT Practice
 public:
 
    typedef qx::QxCollection<long, std::shared_ptr<Employer> > ListOfEmployer;
-   typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > ListOfPassingPractice;
+   typedef qx::QxCollection<long, std::shared_ptr<PassingPractice> > ListOfPassingPractice;
    typedef std::shared_ptr<EducationalProgram> EducationProgram_ptr;
 
 protected:

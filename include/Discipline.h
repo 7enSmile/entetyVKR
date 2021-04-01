@@ -2,7 +2,7 @@
 #define _DEPARTMENT_DISCIPLINE_H_
 
 class EducationalProgram;
-class Result_education;
+class ResultEducation;
 
 class DEPARTMENT_EXPORT Discipline
 {
@@ -12,7 +12,7 @@ class DEPARTMENT_EXPORT Discipline
 public:
 
    typedef std::shared_ptr<EducationalProgram> EducationProgram_ptr;
-   typedef qx::QxCollection<long, std::shared_ptr<Result_education> > ListOfResultEducational;
+   typedef qx::QxCollection<long, std::shared_ptr<ResultEducation> > ListOfResultEducational;
 
 protected:
 

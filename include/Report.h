@@ -1,10 +1,10 @@
 #ifndef _DEPARTMENT_REPORT_H_
 #define _DEPARTMENT_REPORT_H_
 
-class Practice_result;
-class Head_university;
+class PracticeResult;
+class HeadUniversity;
 class HeadEmployer;
-class Passing_practice;
+class PassingPractice;
 class Student;
 
 class DEPARTMENT_EXPORT Report
@@ -14,10 +14,10 @@ class DEPARTMENT_EXPORT Report
 
 public:
 
-   typedef std::shared_ptr<Practice_result> PracticeResult_ptr;
-   typedef std::shared_ptr<Head_university> HeadUniversity_ptr;
+   typedef std::shared_ptr<PracticeResult> PracticeResult_ptr;
+   typedef std::shared_ptr<HeadUniversity> HeadUniversity_ptr;
    typedef std::shared_ptr<HeadEmployer> HeadEmployer_ptr;
-   typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > ListOfPassingPractice;
+   typedef qx::QxCollection<long, std::shared_ptr<PassingPractice> > ListOfPassingPractice;
    typedef std::shared_ptr<Student> Student_ptr;
 
 protected:

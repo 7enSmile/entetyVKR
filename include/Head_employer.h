@@ -3,7 +3,7 @@
 
 class Employer;
 class Person;
-class Passing_practice;
+class PassingPractice;
 class Report;
 
 class DEPARTMENT_EXPORT HeadEmployer
@@ -15,7 +15,7 @@ public:
 
    typedef std::shared_ptr<Employer> Employer_ptr;
    typedef std::shared_ptr<Person> Person_ptr;
-   typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > ListOfPassingPractice;
+   typedef qx::QxCollection<long, std::shared_ptr<PassingPractice> > ListOfPassingPractice;
    typedef qx::QxCollection<long, std::shared_ptr<Report> > ListOfReport;
 
 protected:

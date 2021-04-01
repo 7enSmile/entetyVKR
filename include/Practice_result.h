@@ -2,18 +2,18 @@
 #define _DEPARTMENT_PRACTICE_RESULT_H_
 
 class Report;
-class Passing_practice;
+class PassingPractice;
 class Student;
 
-class DEPARTMENT_EXPORT Practice_result
+class DEPARTMENT_EXPORT PracticeResult
 {
 
-   QX_REGISTER_FRIEND_CLASS(Practice_result)
+   QX_REGISTER_FRIEND_CLASS(PracticeResult)
 
 public:
 
    typedef qx::QxCollection<long, std::shared_ptr<Report> > ListOfReport;
-   typedef std::shared_ptr<Passing_practice> PassingPractice_ptr;
+   typedef std::shared_ptr<PassingPractice> PassingPractice_ptr;
    typedef std::shared_ptr<Student> Student_ptr;
 
 
@@ -28,9 +28,9 @@ protected:
 
 public:
 
-   Practice_result();
-   Practice_result(const long & id);
-   virtual ~Practice_result();
+   PracticeResult();
+   PracticeResult(const long & id);
+   virtual ~PracticeResult();
 
    long getpractice_result_id() const;
    QString getestimate_employer() const;
@@ -71,11 +71,11 @@ public:
 
 };
 
-typedef std::shared_ptr<Practice_result> Practice_result_ptr;
-typedef qx::QxCollection<long, Practice_result_ptr> list_of_Practice_result;
+typedef std::shared_ptr<PracticeResult> PracticeResult_ptr;
+typedef qx::QxCollection<long, PracticeResult_ptr> list_of_Practice_result;
 typedef std::shared_ptr<list_of_Practice_result> list_of_Practice_result_ptr;
 
-QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Practice_result, qx::trait::no_base_class_defined, 0, Practice_result)
+QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(PracticeResult, qx::trait::no_base_class_defined, 0, PracticeResult)
 
 #include "../include/Passing_practice.h"
 #include "../include/Student.h"

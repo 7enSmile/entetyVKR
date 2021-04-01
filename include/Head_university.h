@@ -3,19 +3,19 @@
 
 class Person;
 class Department;
-class Passing_practice;
+class PassingPractice;
 class Report;
 
-class DEPARTMENT_EXPORT Head_university
+class DEPARTMENT_EXPORT HeadUniversity
 {
 
-   QX_REGISTER_FRIEND_CLASS(Head_university)
+   QX_REGISTER_FRIEND_CLASS(HeadUniversity)
 
 public:
 
    typedef std::shared_ptr<Person> Person_ptr;
    typedef std::shared_ptr<Department> Department_ptr;
-   typedef qx::QxCollection<long, std::shared_ptr<Passing_practice> > ListOfPassingPractice;
+   typedef qx::QxCollection<long, std::shared_ptr<PassingPractice> > ListOfPassingPractice;
    typedef qx::QxCollection<long, std::shared_ptr<Report> > ListOfReport;
 
 protected:
@@ -28,11 +28,11 @@ protected:
 
 public:
 
-   Head_university();
-   Head_university(const long & id);
-   virtual ~Head_university();
+   HeadUniversity();
+   HeadUniversity(const long & id);
+   virtual ~HeadUniversity();
 
-   long getHead_university_id() const;
+   long getHeadUniversity_id() const;
    Person_ptr getpersone() const;
    Department_ptr getdepartment() const;
    ListOfPassingPractice getlist_of_passing_practice() const;
@@ -42,7 +42,7 @@ public:
    ListOfReport & list_of_Reports();
    const ListOfReport & list_of_Reports() const;
 
-   void setHead_university_id(const long & val);
+   void setHeadUniversity_id(const long & val);
    void setpersone(const Person_ptr & val);
    void setdepartment(const Department_ptr & val);
    void setlist_of_passing_practice(const ListOfPassingPractice & val);
@@ -75,11 +75,11 @@ public:
 
 };
 
-typedef std::shared_ptr<Head_university> Head_university_ptr;
-typedef qx::QxCollection<long, Head_university_ptr> list_of_Head_university;
+typedef std::shared_ptr<HeadUniversity> HeadUniversity_ptr;
+typedef qx::QxCollection<long, HeadUniversity_ptr> list_of_Head_university;
 typedef std::shared_ptr<list_of_Head_university> list_of_Head_university_ptr;
 
-QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Head_university, qx::trait::no_base_class_defined, 0, Head_university)
+QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(HeadUniversity, qx::trait::no_base_class_defined, 0, HeadUniversity)
 
 #include "../include/Passing_practice.h"
 #include "../include/Person.h"

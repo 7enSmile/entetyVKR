@@ -4,28 +4,28 @@
 class Practice;
 class Student;
 class HeadEmployer;
-class Head_university;
-class Task_practice;
+class HeadUniversity;
+class TaskPractice;
 class Employer;
 class Report;
-class Practice_result;
+class PracticeResult;
 
-class DEPARTMENT_EXPORT Passing_practice
+class DEPARTMENT_EXPORT PassingPractice
 {
 
-   QX_REGISTER_FRIEND_CLASS(Passing_practice)
+   QX_REGISTER_FRIEND_CLASS(PassingPractice)
 
 public:
 
    typedef std::shared_ptr<Practice> type_practice;
 
    typedef std::shared_ptr<HeadEmployer> HeadEmployer_ptr;
-   typedef std::shared_ptr<Head_university> HeadUniversity_ptr;
-   typedef std::shared_ptr<Task_practice> Task_ptr;
+   typedef std::shared_ptr<HeadUniversity> HeadUniversity_ptr;
+   typedef std::shared_ptr<TaskPractice> Task_ptr;
    typedef std::shared_ptr<Employer> Employer_ptr;
    typedef std::shared_ptr<Student> Student_ptr;
    typedef std::shared_ptr<Report> Report_ptr;
-   typedef std::shared_ptr<Practice_result> PracticeResult_ptr;
+   typedef std::shared_ptr<PracticeResult> PracticeResult_ptr;
 
 
 
@@ -47,11 +47,11 @@ protected:
 
 public:
 
-   Passing_practice();
-   Passing_practice(const long & id);
-   virtual ~Passing_practice();
+   PassingPractice();
+   PassingPractice(const long & id);
+   virtual ~PassingPractice();
 
-   long getPassing_practice_id() const;
+   long getPassingPractice_id() const;
    QDate getbeginning() const;
    QDate getending() const;
    type_practice getpractice() const;
@@ -113,11 +113,11 @@ public:
 
 };
 
-typedef std::shared_ptr<Passing_practice> Passing_practice_ptr;
-typedef qx::QxCollection<long, Passing_practice_ptr> list_of_Passing_practice;
+typedef std::shared_ptr<PassingPractice> PassingPractice_ptr;
+typedef qx::QxCollection<long, PassingPractice_ptr> list_of_Passing_practice;
 typedef std::shared_ptr<list_of_Passing_practice> list_of_Passing_practice_ptr;
 
-QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Passing_practice, qx::trait::no_base_class_defined, 0, Passing_practice)
+QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(PassingPractice, qx::trait::no_base_class_defined, 0, PassingPractice)
 
 #include "../include/Report.h"
 #include "../include/Employer.h"
