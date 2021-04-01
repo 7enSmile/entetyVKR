@@ -59,7 +59,7 @@ public:
 public:
 
    static QString relation_employer(bool key = false) { Q_UNUSED(key); return "employer"; }
-   static QString relation_person_id(bool key = false) { Q_UNUSED(key); return "person_id"; }
+   static QString relation_Persone(bool key = false) { Q_UNUSED(key); return "Persone"; }
    static QString relation_list_of_passing_practice(bool key = false) { Q_UNUSED(key); return "list_of_passing_practice"; }
    static QString relation_list_of_reports(bool key = false) { Q_UNUSED(key); return "list_of_reports"; }
 
