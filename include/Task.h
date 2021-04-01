@@ -61,8 +61,8 @@ public:
 };
 
 typedef std::shared_ptr<Task> Task_ptr;
-typedef qx::QxCollection<long, Task_ptr> list_of_Task;
-typedef std::shared_ptr<list_of_Task> list_of_Task_ptr;
+typedef qx::QxCollection<long, Task_ptr> ListOfTask;
+typedef std::shared_ptr<ListOfTask> ListOfTask_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Task, qx::trait::no_base_class_defined, 0, Task)
 

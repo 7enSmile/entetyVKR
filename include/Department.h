@@ -53,8 +53,8 @@ public:
 };
 
 typedef std::shared_ptr<Department> Department_ptr;
-typedef qx::QxCollection<long, Department_ptr> list_of_Department;
-typedef std::shared_ptr<list_of_Department> list_of_Department_ptr;
+typedef qx::QxCollection<long, Department_ptr> ListOfDepartment;
+typedef std::shared_ptr<ListOfDepartment> ListOfDepartment_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Department, qx::trait::no_base_class_defined, 0, Department)
 

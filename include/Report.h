@@ -91,8 +91,8 @@ public:
 };
 
 typedef std::shared_ptr<Report> Report_ptr;
-typedef qx::QxCollection<long, Report_ptr> list_of_Report;
-typedef std::shared_ptr<list_of_Report> list_of_Report_ptr;
+typedef qx::QxCollection<long, Report_ptr> ListOfReport;
+typedef std::shared_ptr<ListOfReport> ListOfReport_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Report, qx::trait::no_base_class_defined, 0, Report)
 #include "../include/Passing_practice.h"

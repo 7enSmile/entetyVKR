@@ -146,8 +146,8 @@ public:
 };
 
 typedef std::shared_ptr<Employer> Employer_ptr;
-typedef qx::QxCollection<long, Employer_ptr> list_of_Employer;
-typedef std::shared_ptr<list_of_Employer> list_of_Employer_ptr;
+typedef qx::QxCollection<long, Employer_ptr> ListOfEmployer;
+typedef std::shared_ptr<ListOfEmployer> ListOfEmployer_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Employer, qx::trait::no_base_class_defined, 0, Employer)
 

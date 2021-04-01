@@ -53,8 +53,8 @@ public:
 };
 
 typedef std::shared_ptr<Group> Group_ptr;
-typedef qx::QxCollection<long, Group_ptr> list_of_Group;
-typedef std::shared_ptr<list_of_Group> list_of_Group_ptr;
+typedef qx::QxCollection<long, Group_ptr> ListOfGroup;
+typedef std::shared_ptr<ListOfGroup> ListOfGroup_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Group, qx::trait::no_base_class_defined, 0, Group)
 

@@ -73,8 +73,8 @@ public:
 };
 
 typedef std::shared_ptr<ResultEducation> ResultEducation_ptr;
-typedef qx::QxCollection<long, ResultEducation_ptr> list_of_Result_education;
-typedef std::shared_ptr<list_of_Result_education> list_of_Result_education_ptr;
+typedef qx::QxCollection<long, ResultEducation_ptr> ListOfResultEducation;
+typedef std::shared_ptr<ListOfResultEducation> ListOfResultEducation_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(ResultEducation, qx::trait::no_base_class_defined, 0, ResultEducation)
 #include "../include/Employer.h"

@@ -101,8 +101,8 @@ public:
 };
 
 typedef std::shared_ptr<Student> Student_ptr;
-typedef qx::QxCollection<long, Student_ptr> list_of_Student;
-typedef std::shared_ptr<list_of_Student> list_of_Student_ptr;
+typedef qx::QxCollection<long, Student_ptr> ListOfStudent;
+typedef std::shared_ptr<ListOfStudent> ListOfStudent_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Student, qx::trait::no_base_class_defined, 0, Student)
 #include "../include/Report.h"

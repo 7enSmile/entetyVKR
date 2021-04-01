@@ -114,8 +114,8 @@ public:
 };
 
 typedef std::shared_ptr<PassingPractice> PassingPractice_ptr;
-typedef qx::QxCollection<long, PassingPractice_ptr> list_of_Passing_practice;
-typedef std::shared_ptr<list_of_Passing_practice> list_of_Passing_practice_ptr;
+typedef qx::QxCollection<long, PassingPractice_ptr>  ListOfPassingPractice;
+typedef std::shared_ptr<ListOfPassingPractice> ListOfPassingPractice_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(PassingPractice, qx::trait::no_base_class_defined, 0, PassingPractice)
 

@@ -61,8 +61,8 @@ public:
 };
 
 typedef std::shared_ptr<Collaboration> Collaboration_ptr;
-typedef qx::QxCollection<long, Collaboration_ptr> list_of_Collaboration;
-typedef std::shared_ptr<list_of_Collaboration> list_of_Collaboration_ptr;
+typedef qx::QxCollection<long, Collaboration_ptr> ListOfCollaboration;
+typedef std::shared_ptr< ListOfCollaboration> ListOfCollaboration_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Collaboration, qx::trait::no_base_class_defined, 0, Collaboration)
 

@@ -68,8 +68,8 @@ public:
 };
 
 typedef std::shared_ptr<Discipline> Discipline_ptr;
-typedef qx::QxCollection<long, Discipline_ptr> list_of_Discipline;
-typedef std::shared_ptr<list_of_Discipline> list_of_Discipline_ptr;
+typedef qx::QxCollection<long, Discipline_ptr> ListOfDiscipline;
+typedef std::shared_ptr<ListOfDiscipline> ListOfDiscipline_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Discipline, qx::trait::no_base_class_defined, 0, Discipline)
 

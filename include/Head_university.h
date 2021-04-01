@@ -76,8 +76,8 @@ public:
 };
 
 typedef std::shared_ptr<HeadUniversity> HeadUniversity_ptr;
-typedef qx::QxCollection<long, HeadUniversity_ptr> list_of_Head_university;
-typedef std::shared_ptr<list_of_Head_university> list_of_Head_university_ptr;
+typedef qx::QxCollection<long, HeadUniversity_ptr> ListOfHeadUniversity;
+typedef std::shared_ptr<ListOfHeadUniversity> ListOfHeadUniversity_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(HeadUniversity, qx::trait::no_base_class_defined, 0, HeadUniversity)
 

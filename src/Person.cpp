@@ -44,9 +44,9 @@ Person::Person(const long & id) : m_Person(id) { ; }
 
 Person::~Person() { ; }
 
-long Person::getPerson_id() const { return m_Person; }
+long Person::getperson_id() const { return m_Person; }
 
-QString Person::getfistname() const { return m_firstname; }
+QString Person::getfirstname() const { return m_firstname; }
 
 QString Person::getlastname() const { return m_lastname; }
 
@@ -80,9 +80,9 @@ Person::ListOfHeadUniversity & Person::list_of_head_university() { return m_list
 
 const Person::ListOfHeadUniversity & Person::list_of_head_university() const { return m_list_of_head_university; }
 
-void Person::setPerson_id(const long & val) { m_Person = val; }
+void Person::setperson_id(const long & val) { m_Person = val; }
 
-void Person::setfistname(const QString & val) { m_firstname = val; }
+void Person::setfirstname(const QString & val) { m_firstname = val; }
 
 void Person::setlastname(const QString & val) { m_lastname = val; }
 

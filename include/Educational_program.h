@@ -97,8 +97,8 @@ public:
 };
 
 typedef std::shared_ptr<EducationalProgram> EducationalProgram_ptr;
-typedef qx::QxCollection<long, EducationalProgram_ptr> list_of_Educational_program;
-typedef std::shared_ptr<list_of_Educational_program> list_of_Educational_program_ptr;
+typedef qx::QxCollection<long, EducationalProgram_ptr> ListOfEducationalProgram;
+typedef std::shared_ptr<ListOfEducationalProgram> ListOfEducationalProgram_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(EducationalProgram, qx::trait::no_base_class_defined, 0, EducationalProgram)
 #include "../include/Practice.h"

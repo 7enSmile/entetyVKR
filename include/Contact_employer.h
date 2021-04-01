@@ -52,9 +52,9 @@ public:
 
 };
 
-typedef std::shared_ptr<ContactEmployer> Contact_Employer_ptr;
-typedef qx::QxCollection<long, Contact_Employer_ptr> list_of_Contact_employer;
-typedef std::shared_ptr<list_of_Contact_employer> list_of_Contact_Employer_ptr;
+typedef std::shared_ptr<ContactEmployer> ContactEmployer_ptr;
+typedef qx::QxCollection<long, ContactEmployer_ptr> ListOfContactEmployer;
+typedef std::shared_ptr<ListOfContactEmployer> ListOfContactEmployer_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(ContactEmployer, qx::trait::no_base_class_defined, 0, ContactEmployer)
 

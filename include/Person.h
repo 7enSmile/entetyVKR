@@ -40,8 +40,8 @@ public:
    Person(const long & id);
    virtual ~Person();
 
-   long getPerson_id() const;
-   QString getfistname() const;
+   long getperson_id() const;
+   QString getfirstname() const;
    QString getlastname() const;
    QString getpatronymic() const;
    QString getphone_number() const;
@@ -60,8 +60,8 @@ public:
    const ListOfHeadUniversity & list_of_head_university() const;
 
 
-   void setPerson_id(const long & val);
-   void setfistname(const QString & val);
+   void setperson_id(const long & val);
+   void setfirstname(const QString & val);
    void setlastname(const QString & val);
    void setpatronymic(const QString & val);
    void setphone_number(const QString & val);
@@ -106,8 +106,8 @@ public:
 };
 
 typedef std::shared_ptr<Person> Person_ptr;
-typedef qx::QxCollection<long, Person_ptr> list_of_Person;
-typedef std::shared_ptr<list_of_Person> list_of_Person_ptr;
+typedef qx::QxCollection<long, Person_ptr> ListOfPerson;
+typedef std::shared_ptr<ListOfPerson> ListOfPerson_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Person, qx::trait::no_base_class_defined, 0, Person)
 #include "../include/Head_university.h"

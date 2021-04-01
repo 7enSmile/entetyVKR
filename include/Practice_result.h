@@ -72,8 +72,8 @@ public:
 };
 
 typedef std::shared_ptr<PracticeResult> PracticeResult_ptr;
-typedef qx::QxCollection<long, PracticeResult_ptr> list_of_Practice_result;
-typedef std::shared_ptr<list_of_Practice_result> list_of_Practice_result_ptr;
+typedef qx::QxCollection<long, PracticeResult_ptr> ListOfPracticeResult;
+typedef std::shared_ptr<ListOfPracticeResult> ListOfPracticeResult_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(PracticeResult, qx::trait::no_base_class_defined, 0, PracticeResult)
 

@@ -62,8 +62,8 @@ public:
 };
 
 typedef std::shared_ptr<Events> Events_ptr;
-typedef qx::QxCollection<long, Events_ptr> list_of_events;
-typedef std::shared_ptr<list_of_events> list_of_events_ptr;
+typedef qx::QxCollection<long, Events_ptr> ListOfEvent;
+typedef std::shared_ptr<ListOfEvent> ListOfEvent_ptr;
 
 QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Events, qx::trait::no_base_class_defined, 0, Events)
 
