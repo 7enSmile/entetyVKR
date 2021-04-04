@@ -44,7 +44,7 @@ Student::Student(const long & id) : m_Strudent_id(id) { ; }
 
 Student::~Student() { ; }
 
-long Student::getStrudent_id() const { return m_Strudent_id; }
+long Student::getstudent_id() const { return m_Strudent_id; }
 
 Student::Group_ptr Student::getgroup() const { return m_group; }
 
@@ -54,7 +54,7 @@ Student::ListOfPassingPractice Student::getlist_of_passing_practice() const { re
 
 Student::ListOfPassingPractice & Student::list_of_passing_practice() { return m_list_of_passing_practice; }
 
-Student::EducationProgram_ptr Student::getEducation_program() const { return m_education_program; }
+Student::EducationProgram_ptr Student::geteducation_program() const { return m_education_program; }
 
 const Student::ListOfPassingPractice & Student::list_of_passing_practice() const { return m_list_of_passing_practice; }
 
@@ -71,7 +71,7 @@ Student::ListOfPracticeResult & Student::list_of_practice_result() { return m_li
 const Student::ListOfPracticeResult & Student::list_of_practice_result() const { return m_list_of_practice_result; }
 
 
-void Student::setStrudent_id(const long & val) { m_Strudent_id = val; }
+void Student::setstudent_id(const long & val) { m_Strudent_id = val; }
 
 void Student::setgroup(const Student::Group_ptr & val) { m_group = val; }
 
@@ -79,7 +79,7 @@ void Student::setperson(const Student::Person_ptr & val) { m_person = val; }
 
 void Student::setlist_of_passing_practice(const Student::ListOfPassingPractice & val) { m_list_of_passing_practice = val; }
 
-void Student::setEducation_program(const Student::EducationProgram_ptr & val) { m_education_program = val; }
+void Student::seteducation_program(const Student::EducationProgram_ptr & val) { m_education_program = val; }
 
 void Student::setlist_of_reports(const Student::ListOfReport & val) { m_list_of_reports = val; }
 
@@ -150,7 +150,7 @@ Student::ListOfPassingPractice & Student::list_of_passing_practice(bool bLoadFro
 Student::EducationProgram_ptr Student::getEducation_program(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getEducation_program(); }
+   if (! bLoadFromDatabase) { return geteducation_program(); }
    QString sRelation = "{Student_id} | Education_program";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }

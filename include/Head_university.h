@@ -21,7 +21,7 @@ public:
 protected:
 
    long m_Head_university_id;
-   Person_ptr m_persone;
+   Person_ptr m_person;
    Department_ptr m_department;
    ListOfPassingPractice m_list_of_passing_practice;
    ListOfReport m_list_of_Reports;
@@ -33,7 +33,7 @@ public:
    virtual ~HeadUniversity();
 
    long getHeadUniversity_id() const;
-   Person_ptr getpersone() const;
+   Person_ptr getperson() const;
    Department_ptr getdepartment() const;
    ListOfPassingPractice getlist_of_passing_practice() const;
    ListOfPassingPractice & list_of_passing_practice();
@@ -43,14 +43,14 @@ public:
    const ListOfReport & list_of_Reports() const;
 
    void setHeadUniversity_id(const long & val);
-   void setpersone(const Person_ptr & val);
+   void setperson(const Person_ptr & val);
    void setdepartment(const Department_ptr & val);
    void setlist_of_passing_practice(const ListOfPassingPractice & val);
    void setlist_of_Reports(const ListOfReport & val);
 
    ListOfPassingPractice getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    ListOfPassingPractice & list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   Person_ptr getpersone(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   Person_ptr getperson(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    Department_ptr getdepartment(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    ListOfReport getlist_of_Reports(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    ListOfReport & list_of_Reports(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
@@ -59,7 +59,7 @@ public:
 
 public:
 
-   static QString relation_persone(bool key = false) { return (key ? QString("persone") : QString("persone_id")); }
+   static QString relation_person(bool key = false) { return (key ? QString("person") : QString("person_id")); }
    static QString relation_department(bool key = false) { return (key ? QString("department") : QString("department_id")); }
    static QString relation_list_of_passing_practice(bool key = false) { Q_UNUSED(key); return "list_of_passing_practice"; }
    static QString relation_list_of_Reports(bool key = false) { Q_UNUSED(key); return "list_of_Reports"; }

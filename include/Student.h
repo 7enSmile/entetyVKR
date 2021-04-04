@@ -43,13 +43,13 @@ public:
    Student(const long & id);
    virtual ~Student();
 
-   long getStrudent_id() const;
+   long getstudent_id() const;
    Group_ptr getgroup() const;
    Person_ptr getperson() const;
    ListOfPassingPractice getlist_of_passing_practice() const;
    ListOfPassingPractice & list_of_passing_practice();
    const ListOfPassingPractice & list_of_passing_practice() const;
-   EducationProgram_ptr getEducation_program() const;
+   EducationProgram_ptr geteducation_program() const;
    ListOfReport getlist_of_reports() const;
    ListOfReport & list_of_reports();
    const ListOfReport & list_of_reports() const;
@@ -58,11 +58,11 @@ public:
    const ListOfPracticeResult & list_of_practice_result() const;
 
 
-   void setStrudent_id(const long & val);
+   void setstudent_id(const long & val);
    void setgroup(const Group_ptr & val);
    void setperson(const Person_ptr & val);
    void setlist_of_passing_practice(const ListOfPassingPractice & val);
-   void setEducation_program(const EducationProgram_ptr & val);
+   void seteducation_program(const EducationProgram_ptr & val);
    void setlist_of_reports(const ListOfReport & val);
    void setlist_of_practice_result(const ListOfPracticeResult & val);
 

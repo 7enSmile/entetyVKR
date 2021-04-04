@@ -22,7 +22,7 @@ void register_class(QxClass<HeadUniversity> & t)
 
    pData = t.id(& HeadUniversity::m_Head_university_id, "Head_university_id", 0);
 
-   pRelation = t.relationManyToOne(& HeadUniversity::m_persone, "person", 0);
+   pRelation = t.relationManyToOne(& HeadUniversity::m_person, "person", 0);
    pRelation->getDataMember()->setName("person_id");
    pRelation = t.relationManyToOne(& HeadUniversity::m_department, "department_id", 0);
    pRelation->getDataMember()->setName("department_id");
@@ -42,7 +42,7 @@ HeadUniversity::~HeadUniversity() { ; }
 
 long HeadUniversity::getHeadUniversity_id() const { return m_Head_university_id; }
 
-HeadUniversity::Person_ptr HeadUniversity::getpersone() const { return m_persone; }
+HeadUniversity::Person_ptr HeadUniversity::getperson() const { return m_person; }
 
 HeadUniversity::Department_ptr HeadUniversity::getdepartment() const { return m_department; }
 
@@ -61,7 +61,7 @@ const HeadUniversity::ListOfReport & HeadUniversity::list_of_Reports() const { r
 
 void HeadUniversity::setHeadUniversity_id(const long & val) { m_Head_university_id = val; }
 
-void HeadUniversity::setpersone(const HeadUniversity::Person_ptr & val) { m_persone = val; }
+void HeadUniversity::setperson(const HeadUniversity::Person_ptr & val) { m_person = val; }
 
 void HeadUniversity::setdepartment(const HeadUniversity::Department_ptr & val) { m_department = val; }
 
@@ -69,19 +69,19 @@ void HeadUniversity::setlist_of_passing_practice(const HeadUniversity::ListOfPas
 
 void HeadUniversity::setlist_of_Reports(const HeadUniversity::ListOfReport & val) { m_list_of_Reports = val; }
 
-HeadUniversity::Person_ptr HeadUniversity::getpersone(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+HeadUniversity::Person_ptr HeadUniversity::getperson(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
    if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getpersone(); }
-   QString sRelation = "{HeadUniversity_id} | persone";
+   if (! bLoadFromDatabase) { return getperson(); }
+   QString sRelation = "{HeadUniversity_id} | person";
    if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
    else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
    HeadUniversity tmp;
    tmp.m_Head_university_id = this->m_Head_university_id;
    QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_persone = tmp.m_persone; }
+   if (! daoError.isValid()) { this->m_person = tmp.m_person; }
    if (pDaoError) { (* pDaoError) = daoError; }
-   return m_persone;
+   return m_person;
 }
 
 HeadUniversity::Department_ptr HeadUniversity::getdepartment(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
