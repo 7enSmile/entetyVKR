@@ -32,8 +32,7 @@ public:
 protected:
 
    long m_Passing_practice_id;
-   QDate m_beginning;
-   QDate m_ending;
+
    type_practice m_practice;
 
    HeadEmployer_ptr m_head_employer_id;
@@ -52,8 +51,7 @@ public:
    virtual ~PassingPractice();
 
    long getPassingPractice_id() const;
-   QDate getbeginning() const;
-   QDate getending() const;
+
    type_practice getpractice() const;
    Student_ptr getstuden() const;
    HeadEmployer_ptr gethead_employer() const;
@@ -66,8 +64,7 @@ public:
 
 
    void setpassing_practice(const long & val);
-   void setbeginning(const QDate & val);
-   void setending(const QDate & val);
+
    void setpractice(const type_practice & val);
 
    void sethead_employer(const HeadEmployer_ptr & val);

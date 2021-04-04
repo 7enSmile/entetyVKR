@@ -24,6 +24,8 @@ void register_class(QxClass<Practice> & t)
    t.setName("t_Practice");
 
    pData = t.id(& Practice::m_Practice_id, "Practice_id", 0);
+   pData = t.data(& Practice::m_beginning, "beginning", 0, true, true);
+   pData = t.data(& Practice::m_ending, "ending", 0, true, true);
 
 
 
@@ -46,6 +48,9 @@ Practice::~Practice() { ; }
 
 long Practice::getPractice_id() const { return m_Practice_id; }
 
+QDate Practice::getbeginning() const { return m_beginning; }
+
+QDate Practice::getending() const { return m_ending; }
 
 
 Practice::ListOfEmployer Practice::getlist_of_employers() const { return m_list_of_employers; }
@@ -66,6 +71,9 @@ const Practice::ListOfPassingPractice & Practice::list_of_passing_practice() con
 
 void Practice::setpractice_id(const long & val) { m_Practice_id = val; }
 
+void Practice::setbeginning(const QDate & val) { m_beginning = val; }
+
+void Practice::setending(const QDate & val) { m_ending = val; }
 
 
 void Practice::setlist_of_employers(const Practice::ListOfEmployer & val) { m_list_of_employers = val; }

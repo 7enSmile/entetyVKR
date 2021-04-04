@@ -24,8 +24,7 @@ void register_class(QxClass<PassingPractice> & t)
 
    pData = t.id(& PassingPractice::m_Passing_practice_id, "Passing_practice_id", 0);
 
-   pData = t.data(& PassingPractice::m_beginning, "beginning", 0, true, true);
-   pData = t.data(& PassingPractice::m_ending, "ending", 0, true, true);
+
 
    pRelation = t.relationManyToOne(& PassingPractice::m_practice, "practice", 0);
    pRelation->getDataMember()->setName("practice_id");
@@ -56,9 +55,7 @@ PassingPractice::~PassingPractice() { ; }
 
 long PassingPractice::getPassingPractice_id() const { return m_Passing_practice_id; }
 
-QDate PassingPractice::getbeginning() const { return m_beginning; }
 
-QDate PassingPractice::getending() const { return m_ending; }
 
 PassingPractice::type_practice PassingPractice::getpractice() const { return m_practice; }
 
@@ -83,9 +80,6 @@ PassingPractice::PracticeResult_ptr PassingPractice::getpractice_result() const 
 
 void PassingPractice::setpassing_practice(const long & val) { m_Passing_practice_id = val; }
 
-void PassingPractice::setbeginning(const QDate & val) { m_beginning = val; }
-
-void PassingPractice::setending(const QDate & val) { m_ending = val; }
 
 void PassingPractice::setpractice(const PassingPractice::type_practice & val) { m_practice = val; }
 

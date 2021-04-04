@@ -27,6 +27,8 @@ protected:
    ListOfEmployer m_list_of_employers;
    ListOfPassingPractice m_list_of_passing_practice;
    EducationProgram_ptr m_education_program;
+   QDate m_beginning;
+   QDate m_ending;
 
 public:
 
@@ -42,6 +44,8 @@ public:
    ListOfPassingPractice & list_of_passing_practice();
    const ListOfPassingPractice & list_of_passing_practice() const;
    EducationProgram_ptr geteducation_program() const;
+   QDate getbeginning() const;
+   QDate getending() const;
 
    void setpractice_id(const long & val);
 
@@ -50,6 +54,10 @@ public:
    void setlist_of_passing_practice(const ListOfPassingPractice & val);
 
    void seteducation_program(const EducationProgram_ptr & val);
+
+   void setbeginning(const QDate & val);
+
+   void setending(const QDate & val);
 
    ListOfEmployer getlist_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    ListOfEmployer & list_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
