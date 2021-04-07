@@ -24,7 +24,7 @@ public:
    typedef std::shared_ptr<TaskPractice> Task_ptr;
    typedef std::shared_ptr<Employer> Employer_ptr;
    typedef std::shared_ptr<Student> Student_ptr;
-   typedef std::shared_ptr<Report> Report_ptr;
+   typedef qx::QxCollection<long, std::shared_ptr<Report> > ListOfReport;
    typedef std::shared_ptr<PracticeResult> PracticeResult_ptr;
 
 
@@ -40,7 +40,8 @@ protected:
    Task_ptr m_task;
    Employer_ptr m_employer;
    Student_ptr m_studen;
-   Report_ptr m_Report;
+   ListOfReport m_list_of_reports;
+
    PracticeResult_ptr m_practice_result;
 
 
@@ -58,8 +59,11 @@ public:
    HeadUniversity_ptr gethead_university() const;
    Task_ptr gettask() const;
    Employer_ptr getemployer() const;
-   Report_ptr getReport() const;
+
    PracticeResult_ptr getpractice_result() const;
+   ListOfReport getlist_of_reports() const;
+   ListOfReport & list_of_reports();
+   const ListOfReport & list_of_reports() const;
 
 
 
@@ -72,8 +76,10 @@ public:
    void settask(const Task_ptr & val);
    void setemployer(const Employer_ptr & val);
    void setstuden(const Student_ptr & val);
-   void setreport(const Report_ptr & val);
+
    void setpractice_result(const PracticeResult_ptr & val);
+
+   void setlist_of_reports(const ListOfReport & val);
 
    Task_ptr gettask(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    type_practice getpractice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
@@ -81,13 +87,14 @@ public:
    HeadUniversity_ptr gethead_university(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    Employer_ptr getemployer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    Student_ptr getstuden(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   Report_ptr getreport(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    PracticeResult_ptr getpractice_result(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfReport getlist_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfReport & list_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 
    static QString relation_practice(bool key = false) { return (key ? QString("practice") : QString("practice_id")); }
-
+   static QString relation_list_of_reports(bool key = false) { Q_UNUSED(key); return "list_of_reports"; }
    static QString relation_head_employer_id(bool key = false) { Q_UNUSED(key); return "head_employer_id"; }
    static QString relation_head_university_id(bool key = false) { Q_UNUSED(key); return "head_university_id"; }
    static QString relation_task(bool key = false) { return (key ? QString("task") : QString("task_id")); }

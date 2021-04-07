@@ -17,7 +17,8 @@ public:
    typedef std::shared_ptr<PracticeResult> PracticeResult_ptr;
    typedef std::shared_ptr<HeadUniversity> HeadUniversity_ptr;
    typedef std::shared_ptr<HeadEmployer> HeadEmployer_ptr;
-   typedef qx::QxCollection<long, std::shared_ptr<PassingPractice> > ListOfPassingPractice;
+   typedef std::shared_ptr<PassingPractice> PassingPractice_ptr;
+
    typedef std::shared_ptr<Student> Student_ptr;
 
 protected:
@@ -29,7 +30,8 @@ protected:
    PracticeResult_ptr m_practice_result;
    HeadUniversity_ptr m_head_university;
    HeadEmployer_ptr m_head_employer;
-   ListOfPassingPractice m_list_of_passing_practice;
+   PassingPractice_ptr m_passing_practice;
+
    Student_ptr m_student;
 
 
@@ -46,9 +48,9 @@ public:
    PracticeResult_ptr getpractice_result() const;
    HeadUniversity_ptr gethead_university() const;
    HeadEmployer_ptr gethead_employer() const;
-   ListOfPassingPractice getlist_of_passing_practice() const;
-   ListOfPassingPractice & list_of_passing_practice();
-   const ListOfPassingPractice & list_of_passing_practice() const;
+   PassingPractice_ptr getpassing_practice() const;
+
+
    Student_ptr getstudent() const;
 
    void setReport_id(const long & val);
@@ -58,19 +60,20 @@ public:
    void setpractice_result(const PracticeResult_ptr & val);
    void sethead_university(const HeadUniversity_ptr & val);
    void sethead_employer(const HeadEmployer_ptr & val);
-   void setlist_of_passing_practice(const ListOfPassingPractice & val);
+
    void setstudent(const Student_ptr & val);
+   void setpassing_practice(const PassingPractice_ptr & val);
+
 
    PracticeResult_ptr getpractice_result(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    HeadUniversity_ptr gethead_university(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    HeadEmployer_ptr gethead_employer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   ListOfPassingPractice getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   ListOfPassingPractice & list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    Student_ptr getstudent(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   PassingPractice_ptr getpassing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+
 
 public:
-
-   static QString relation_practice_result(bool key = false) { Q_UNUSED(key); return "practice_result"; }
+   static QString relation_passing_practice(bool key = false) { return (key ? QString("passing_practice") : QString("passing_practice_id")); }
    static QString relation_head_university(bool key = false) { return (key ? QString("head_university") : QString("head_university_id")); }
    static QString relation_head_employer(bool key = false) { return (key ? QString("head_employer") : QString("head_employer_id")); }
    static QString relation_list_of_passing_practice(bool key = false) { Q_UNUSED(key); return "list_of_passing_practice"; }
