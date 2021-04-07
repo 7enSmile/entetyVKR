@@ -33,7 +33,7 @@ void register_class(QxClass<Employer> & t)
    pRelation = t.relationManyToMany(& Employer::m_list_of_activity, "list_of_activity", "t_qxee_activity_Employer", "Employer_id", "Activity_id", 0);
    pRelation = t.relationManyToMany(& Employer::m_list_of_collaboration, "list_of_collaboration", "t_qxee_collaboration_Employer", "Employer_id", "Collaboration_id", 0);
    pRelation = t.relationManyToMany(& Employer::m_list_of_task, "list_of_task", "t_qxee_task_Employer", "Employer_id", "Task_id", 0);
-   pRelation = t.relationManyToMany(& Employer::m_list_of_practice, "list_of_practice", "t_qxee_practice_Employer", "Employer_id", "Practice_id", 0);
+   pRelation = t.relationOneToMany(& Employer::m_list_of_practice, "list_of_practice", "employer", 0);
    pRelation = t.relationOneToMany(& Employer::m_list_of_events, "list_of_events", "employer", 0);
    pRelation = t.relationOneToMany(& Employer::m_list_of_head_employer, "list_of_head_employer", "employer", 0);
    pRelation = t.relationOneToMany(& Employer::m_list_of_contact_employer, "list_of_contact_employer", "employer", 0);

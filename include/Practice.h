@@ -17,18 +17,20 @@ class DEPARTMENT_EXPORT Practice
 
 public:
 
-   typedef qx::QxCollection<long, std::shared_ptr<Employer> > ListOfEmployer;
+
    typedef qx::QxCollection<long, std::shared_ptr<PassingPractice> > ListOfPassingPractice;
    typedef std::shared_ptr<EducationalProgram> EducationProgram_ptr;
+   typedef std::shared_ptr<Employer>Employer_ptr;
 
 protected:
 
    long m_Practice_id;
-   ListOfEmployer m_list_of_employers;
+
    ListOfPassingPractice m_list_of_passing_practice;
    EducationProgram_ptr m_education_program;
    QDate m_beginning;
    QDate m_ending;
+   Employer_ptr m_employer;
 
 public:
 
@@ -37,19 +39,21 @@ public:
    virtual ~Practice();
 
    long getPractice_id() const;
-   ListOfEmployer getlist_of_employers() const;
-   ListOfEmployer & list_of_employers();
-   const ListOfEmployer & list_of_employers() const;
+
+
    ListOfPassingPractice getlist_of_passing_practice() const;
    ListOfPassingPractice & list_of_passing_practice();
    const ListOfPassingPractice & list_of_passing_practice() const;
    EducationProgram_ptr geteducation_program() const;
    QDate getbeginning() const;
    QDate getending() const;
+   Employer_ptr getemployer() const;
+
+
 
    void setpractice_id(const long & val);
 
-   void setlist_of_employers(const ListOfEmployer & val);
+
 
    void setlist_of_passing_practice(const ListOfPassingPractice & val);
 
@@ -59,17 +63,21 @@ public:
 
    void setending(const QDate & val);
 
-   ListOfEmployer getlist_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   ListOfEmployer & list_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   void setemployer(const Employer_ptr & val);
+
+
    ListOfPassingPractice getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    ListOfPassingPractice & list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    EducationProgram_ptr geteducation_program(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   Employer_ptr getemployer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 
 public:
    static QString relation_list_of_passing_practice(bool key = false) { Q_UNUSED(key); return "list_of_passing_practice"; }
-   static QString relation_list_of_employers(bool key = false) { Q_UNUSED(key); return "list_of_employers"; }
+
    static QString relation_education_program(bool key = false) { return (key ? QString("education_program") : QString("Education_program_id")); }
+
+   static QString relation_employer(bool key = false) { return (key ? QString("employer") : QString("employer_id")); }
 
 public:
 

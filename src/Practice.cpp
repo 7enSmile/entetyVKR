@@ -26,10 +26,10 @@ void register_class(QxClass<Practice> & t)
    pData = t.id(& Practice::m_Practice_id, "Practice_id", 0);
    pData = t.data(& Practice::m_beginning, "beginning", 0, true, true);
    pData = t.data(& Practice::m_ending, "ending", 0, true, true);
+   pRelation = t.relationManyToOne(& Practice::m_employer, "employer", 0);
+   pRelation->getDataMember()->setName("employer_id");
 
 
-
-   pRelation = t.relationManyToMany(& Practice::m_list_of_employers, "list_of_employers", "t_qxee_Practice_Employer", "Practice_id", "Employer_id", 0);
    pRelation = t.relationOneToMany(& Practice::m_list_of_passing_practice, "list_of_passing_practice", "practice", 0);
    pRelation = t.relationManyToOne(& Practice::m_education_program, "Education_program", 0);
    pRelation->getDataMember()->setName("Education_program_id");
@@ -52,12 +52,8 @@ QDate Practice::getbeginning() const { return m_beginning; }
 
 QDate Practice::getending() const { return m_ending; }
 
+Practice::Employer_ptr Practice::getemployer() const { return m_employer; }
 
-Practice::ListOfEmployer Practice::getlist_of_employers() const { return m_list_of_employers; }
-
-Practice::ListOfEmployer & Practice::list_of_employers() { return m_list_of_employers; }
-
-const Practice::ListOfEmployer & Practice::list_of_employers() const { return m_list_of_employers; }
 
 Practice::ListOfPassingPractice Practice::getlist_of_passing_practice() const { return m_list_of_passing_practice; }
 
@@ -76,42 +72,16 @@ void Practice::setbeginning(const QDate & val) { m_beginning = val; }
 void Practice::setending(const QDate & val) { m_ending = val; }
 
 
-void Practice::setlist_of_employers(const Practice::ListOfEmployer & val) { m_list_of_employers = val; }
+
 
 void Practice::setlist_of_passing_practice(const Practice::ListOfPassingPractice & val) { m_list_of_passing_practice = val; }
 
 void Practice::seteducation_program(const Practice::EducationProgram_ptr & val) { m_education_program = val; }
 
+void Practice::setemployer(const Practice::Employer_ptr & val) { m_employer = val; }
 
-Practice::ListOfEmployer Practice::getlist_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
-{
-   if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getlist_of_employers(); }
-   QString sRelation = "{Practice_id} | list_of_employers";
-   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
-   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
-   Practice tmp;
-   tmp.m_Practice_id = this->m_Practice_id;
-   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_employers = tmp.m_list_of_employers; }
-   if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_employers;
-}
 
-Practice::ListOfEmployer & Practice::list_of_employers(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
-{
-   if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return list_of_employers(); }
-   QString sRelation = "{Practice_id} | list_of_employers";
-   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
-   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
-   Practice tmp;
-   tmp.m_Practice_id = this->m_Practice_id;
-   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_list_of_employers = tmp.m_list_of_employers; }
-   if (pDaoError) { (* pDaoError) = daoError; }
-   return m_list_of_employers;
-}
+
 
 Practice::ListOfPassingPractice Practice::getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
@@ -156,5 +126,20 @@ Practice::EducationProgram_ptr Practice::geteducation_program(bool bLoadFromData
    if (! daoError.isValid()) { this->m_education_program = tmp.m_education_program; }
    if (pDaoError) { (* pDaoError) = daoError; }
    return m_education_program;
+}
+
+Practice::Employer_ptr Practice::getemployer(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return getemployer(); }
+   QString sRelation = "{practice_id} | employer";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Practice tmp;
+   tmp.m_Practice_id = this->m_Practice_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_employer = tmp.m_employer; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_employer;
 }
 
