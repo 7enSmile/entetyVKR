@@ -25,7 +25,7 @@ public:
 protected:
 
    long m_Practice_id;
-
+   int m_semester;
    ListOfPassingPractice m_list_of_passing_practice;
    EducationProgram_ptr m_education_program;
    QDate m_beginning;
@@ -48,6 +48,7 @@ public:
    QDate getbeginning() const;
    QDate getending() const;
    Employer_ptr getemployer() const;
+   int getsemester() const;
 
 
 
@@ -64,6 +65,8 @@ public:
    void setending(const QDate & val);
 
    void setemployer(const Employer_ptr & val);
+
+   void setsemester(const int & val);
 
 
    ListOfPassingPractice getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);

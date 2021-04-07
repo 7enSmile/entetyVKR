@@ -22,6 +22,7 @@ void register_class(QxClass<Practice> & t)
    qx::IxValidator * pValidator = NULL; Q_UNUSED(pValidator);
 
    t.setName("t_Practice");
+   pData = t.data(& Practice::m_semester, "semester", 0, true, true);
 
    pData = t.id(& Practice::m_Practice_id, "Practice_id", 0);
    pData = t.data(& Practice::m_beginning, "beginning", 0, true, true);
@@ -52,6 +53,8 @@ QDate Practice::getbeginning() const { return m_beginning; }
 
 QDate Practice::getending() const { return m_ending; }
 
+int Practice::getsemester() const { return m_semester; }
+
 Practice::Employer_ptr Practice::getemployer() const { return m_employer; }
 
 
@@ -79,6 +82,8 @@ void Practice::setlist_of_passing_practice(const Practice::ListOfPassingPractice
 void Practice::seteducation_program(const Practice::EducationProgram_ptr & val) { m_education_program = val; }
 
 void Practice::setemployer(const Practice::Employer_ptr & val) { m_employer = val; }
+
+void Practice::setsemester(const int & val) { m_semester = val; }
 
 
 
