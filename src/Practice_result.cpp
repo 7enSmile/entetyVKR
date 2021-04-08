@@ -25,8 +25,11 @@ void register_class(QxClass<PracticeResult> & t)
    pData = t.data(& PracticeResult::m_estimate_university, "estimate_university", 0, true, true);
 
    pRelation = t.relationOneToMany(& PracticeResult::m_list_of_reports, "list_of_reports", "practice_result", 0);
-   pRelation = t.relationOneToOne(& PracticeResult::m_passing_practice, "passing_practice", 0);
+
    pRelation = t.relationManyToOne(& PracticeResult::m_student, "Student_id", 0);
+
+   pRelation = t.relationManyToOne(& PracticeResult::m_passing_practice, "passing_practice", 0);
+   pRelation->getDataMember()->setName("passing_practice_id");
 
    qx::QxValidatorX<PracticeResult> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
 }
@@ -51,10 +54,9 @@ PracticeResult::ListOfReport & PracticeResult::list_of_reports() { return m_list
 
 const PracticeResult::ListOfReport & PracticeResult::list_of_reports() const { return m_list_of_reports; }
 
+PracticeResult::Student_ptr PracticeResult::getStudent() const { return m_student; }
 
 PracticeResult::PassingPractice_ptr PracticeResult::getpassing_practice() const { return m_passing_practice; }
-
-PracticeResult::Student_ptr PracticeResult::getStudent() const { return m_student; }
 
 void PracticeResult::setpractice_result_id(const long & val) { m_practice_result_id = val; }
 
@@ -64,9 +66,11 @@ void PracticeResult::setestimate_university(const QString & val) { m_estimate_un
 
 void PracticeResult::setlist_of_reports(const PracticeResult::ListOfReport & val) { m_list_of_reports = val; }
 
-void PracticeResult::setpassing_practice(const PracticeResult::PassingPractice_ptr & val) { m_passing_practice = val; }
+
 
 void PracticeResult::setStudent(const PracticeResult::Student_ptr & val) { m_student = val; }
+
+void PracticeResult::setpassing_practice(const PracticeResult::PassingPractice_ptr & val) { m_passing_practice = val; }
 
 PracticeResult::ListOfReport PracticeResult::getlist_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
@@ -98,20 +102,7 @@ PracticeResult::ListOfReport & PracticeResult::list_of_reports(bool bLoadFromDat
    return m_list_of_reports;
 }
 
-PracticeResult::PassingPractice_ptr PracticeResult::getpassing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
-{
-   if (pDaoError) { (* pDaoError) = QSqlError(); }
-   if (! bLoadFromDatabase) { return getpassing_practice(); }
-   QString sRelation = "{PracticeResult_id} | passing_practice";
-   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
-   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
-   PracticeResult tmp;
-   tmp.m_practice_result_id = this->m_practice_result_id;
-   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
-   if (! daoError.isValid()) { this->m_passing_practice = tmp.m_passing_practice; }
-   if (pDaoError) { (* pDaoError) = daoError; }
-   return m_passing_practice;
-}
+
 
 PracticeResult::Student_ptr PracticeResult::getStudent(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
 {
@@ -127,3 +118,19 @@ PracticeResult::Student_ptr PracticeResult::getStudent(bool bLoadFromDatabase, c
    if (pDaoError) { (* pDaoError) = daoError; }
    return m_student;
 }
+
+PracticeResult::PassingPractice_ptr PracticeResult::getpassing_practice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return getpassing_practice(); }
+   QString sRelation = "{practice_result_id} | passing_practice";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   PracticeResult tmp;
+   tmp.m_practice_result_id = this->m_practice_result_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_passing_practice = tmp.m_passing_practice; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_passing_practice;
+}
+

@@ -24,6 +24,7 @@ protected:
    QString m_estimate_university;
    ListOfReport m_list_of_reports;
    PassingPractice_ptr m_passing_practice;
+
    Student_ptr m_student;
 
 public:
@@ -39,25 +40,32 @@ public:
    ListOfReport & list_of_reports();
    const ListOfReport & list_of_reports() const;
    PassingPractice_ptr getpassing_practice() const;
+
    Student_ptr getStudent() const;
 
    void setpractice_result_id(const long & val);
    void setestimate_employer(const QString & val);
    void setestimate_university(const QString & val);
    void setlist_of_reports(const ListOfReport & val);
-   void setpassing_practice(const PassingPractice_ptr & val);
+
    void setStudent(const Student_ptr & val);
+
+   void setpassing_practice(const PassingPractice_ptr & val);
 
    ListOfReport getlist_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    ListOfReport & list_of_reports(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
-   PassingPractice_ptr getpassing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+
    Student_ptr getStudent(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+
+   PassingPractice_ptr getpassing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 public:
 
    static QString relation_list_of_reports(bool key = false) { Q_UNUSED(key); return "list_of_reports"; }
-   static QString relation_passing_practice(bool key = false) { Q_UNUSED(key); return "passing_practice"; }
+
    static QString relation_Student(bool key = false) { Q_UNUSED(key); return "Student"; }
+
+   static QString relation_passing_practice(bool key = false) { return (key ? QString("passing_practice") : QString("passing_practice_id")); }
 
 public:
 
