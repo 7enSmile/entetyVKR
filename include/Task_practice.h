@@ -16,6 +16,7 @@ protected:
 
    long m_Task_id;
    QString m_description;
+   QString m_name;
    ListOfPassingPractice m_list_of_passeing_practice;
 
 public:
@@ -26,12 +27,14 @@ public:
 
    long getTask_id() const;
    QString getdescription() const;
+   QString getname() const;
    ListOfPassingPractice getlist_of_passeing_practice() const;
    ListOfPassingPractice & list_of_passeing_practice();
    const ListOfPassingPractice & list_of_passeing_practice() const;
 
    void setTask_id(const long & val);
    void setdescription(const QString & val);
+   void setname(const QString & val);
    void setlist_of_passeing_practice(const ListOfPassingPractice & val);
 
    ListOfPassingPractice getlist_of_passeing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);

@@ -23,6 +23,8 @@ void register_class(QxClass<TaskPractice> & t)
 
    pData = t.data(& TaskPractice::m_description, "description", 0, true, true);
 
+   pData = t.data(& TaskPractice::m_name, "name", 0, true, true);
+
    pRelation = t.relationOneToMany(& TaskPractice::m_list_of_passeing_practice, "list_of_passeing_practice", "task", 0);
 
    qx::QxValidatorX<TaskPractice> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
@@ -40,6 +42,8 @@ long TaskPractice::getTask_id() const { return m_Task_id; }
 
 QString TaskPractice::getdescription() const { return m_description; }
 
+QString TaskPractice::getname() const { return m_name; }
+
 TaskPractice::ListOfPassingPractice TaskPractice::getlist_of_passeing_practice() const { return m_list_of_passeing_practice; }
 
 TaskPractice::ListOfPassingPractice & TaskPractice::list_of_passeing_practice() { return m_list_of_passeing_practice; }
@@ -49,6 +53,8 @@ const TaskPractice::ListOfPassingPractice & TaskPractice::list_of_passeing_pract
 void TaskPractice::setTask_id(const long & val) { m_Task_id = val; }
 
 void TaskPractice::setdescription(const QString & val) { m_description = val; }
+
+void TaskPractice::setname(const QString & val) { m_name = val; }
 
 void TaskPractice::setlist_of_passeing_practice(const TaskPractice::ListOfPassingPractice & val) { m_list_of_passeing_practice = val; }
 
