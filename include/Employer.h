@@ -14,7 +14,7 @@ class HeadEmployer;
 class ContactEmployer;
 class PassingPractice;
 class ResultEducation;
-
+class TestPractice;
 
 class DEPARTMENT_EXPORT Employer
 {
@@ -32,6 +32,7 @@ public:
    typedef qx::QxCollection<long, std::shared_ptr<ContactEmployer> > ListOfContactEmployer;
    typedef qx::QxCollection<long, std::shared_ptr<PassingPractice> > ListOfPassingPractice;
    typedef qx::QxCollection<long, std::shared_ptr<ResultEducation> > ListOfResultEducation;
+   typedef qx::QxCollection<long, std::shared_ptr<TestPractice> > ListOfTestPractice;
 
 
 protected:
@@ -47,6 +48,7 @@ protected:
    ListOfContactEmployer m_list_of_contact_employer;
    ListOfPassingPractice m_list_of_passing_practice;
    ListOfResultEducation m_list_of_result_education;
+   ListOfTestPractice  m_list_of_TestPractice;
 
 
 public:
@@ -84,6 +86,9 @@ public:
    ListOfResultEducation getlist_of_result_education() const;
    ListOfResultEducation & list_of_result_education();
    const ListOfResultEducation & list_of_result_education() const;
+   ListOfTestPractice getlist_of_TestPractice() const;
+   ListOfTestPractice & list_of_TestPractice();
+   const ListOfTestPractice & list_of_TestPractice() const;
 
    void setEmployer_id(const long & val);
    void setname(const QString & val);
@@ -96,6 +101,7 @@ public:
    void setlist_of_contact_employer(const ListOfContactEmployer & val);
    void setlist_of_passing_practice(const ListOfPassingPractice & val);
    void setlist_of_result_education(const ListOfResultEducation & val);
+   void setlist_of_TestPractice(const ListOfTestPractice & val);
 
 
    ListOfActivity getlist_of_activity(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
@@ -116,6 +122,8 @@ public:
    ListOfPassingPractice & list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    ListOfResultEducation getlist_of_result_education(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    ListOfResultEducation & list_of_result_education(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfTestPractice getlist_of_TestPractice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfTestPractice & list_of_TestPractice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 
 
@@ -131,6 +139,7 @@ public:
    static QString relation_list_of_contact_employer(bool key = false) { Q_UNUSED(key); return "list_of_contact_employer"; }
    static QString relation_list_of_passing_practice(bool key = false) { Q_UNUSED(key); return "list_of_passing_practice"; }
    static QString relation_list_of_result_education(bool key = false) { Q_UNUSED(key); return "list_of_result_education"; }
+   static QString relation_list_of_TestPractice(bool key = false) { Q_UNUSED(key); return "list_of_TestPractice"; }
 
 
 
@@ -161,4 +170,5 @@ QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Employer, qx::trait::no_base_class
 #include "../custom/include/Employer.h"
 #include "../include/Passing_practice.h"
 #include "../include/Result_education.h"
+#include "../include/Test_practice.h"
 #endif // _DEPARTMENT_EMPLOYER_H_

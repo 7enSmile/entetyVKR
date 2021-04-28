@@ -29,6 +29,7 @@ HEADERS += $$PWD/include/Practice_result.h
 HEADERS += $$PWD/include/Discipline.h
 HEADERS += $$PWD/include/Educational_program.h
 HEADERS += $$PWD/include/Result_education.h
+HEADERS += $$PWD/include/Test_practice.h
 
 
 contains(DEFINES, _QX_UNITY_BUILD) {
@@ -57,6 +58,7 @@ SOURCES += $$PWD/src/Practice_result.cpp
 SOURCES += $$PWD/src/Educational_program.cpp
 SOURCES += $$PWD/src/Discipline.cpp
 SOURCES += $$PWD/src/Result_education.cpp
+SOURCES += $$PWD/src/Test_practice.cpp
 
 
 } # contains(DEFINES, _QX_UNITY_BUILD)

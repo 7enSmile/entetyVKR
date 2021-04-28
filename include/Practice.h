@@ -8,7 +8,7 @@
 class Employer;
 class PassingPractice;
 class EducationalProgram;
-
+class TestPractice;
 
 class DEPARTMENT_EXPORT Practice
 {
@@ -21,6 +21,7 @@ public:
    typedef qx::QxCollection<long, std::shared_ptr<PassingPractice> > ListOfPassingPractice;
    typedef std::shared_ptr<EducationalProgram> EducationProgram_ptr;
    typedef std::shared_ptr<Employer>Employer_ptr;
+   typedef qx::QxCollection<long, std::shared_ptr<TestPractice> > ListOfTestPractice;
 
 protected:
 
@@ -31,6 +32,8 @@ protected:
    QDate m_beginning;
    QDate m_ending;
    Employer_ptr m_employer;
+   ListOfTestPractice m_list_of_TestPractice;
+
 
 public:
 
@@ -49,6 +52,9 @@ public:
    QDate getending() const;
    Employer_ptr getemployer() const;
    int getsemester() const;
+   ListOfTestPractice getlist_of_TestPractice() const;
+   ListOfTestPractice & list_of_TestPractice();
+   const ListOfTestPractice & list_of_TestPractice() const;
 
 
 
@@ -68,11 +74,15 @@ public:
 
    void setsemester(const int & val);
 
+   void setlist_of_TestPractice(const ListOfTestPractice & val);
+
 
    ListOfPassingPractice getlist_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    ListOfPassingPractice & list_of_passing_practice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    EducationProgram_ptr geteducation_program(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
    Employer_ptr getemployer(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfTestPractice getlist_of_TestPractice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
+   ListOfTestPractice & list_of_TestPractice(bool bLoadFromDatabase, const QString & sAppendRelations = QString(), QSqlDatabase * pDatabase = NULL, QSqlError * pDaoError = NULL);
 
 
 public:
@@ -81,6 +91,8 @@ public:
    static QString relation_education_program(bool key = false) { return (key ? QString("education_program") : QString("Education_program_id")); }
 
    static QString relation_employer(bool key = false) { return (key ? QString("employer") : QString("employer_id")); }
+
+   static QString relation_list_of_TestPractice(bool key = false) { Q_UNUSED(key); return "list_of_TestPractice"; }
 
 public:
 
@@ -108,5 +120,7 @@ QX_REGISTER_COMPLEX_CLASS_NAME_HPP_DEPARTMENT(Practice, qx::trait::no_base_class
 #include "../include/Educational_program.h"
 
 #include "../custom/include/Practice.h"
+
+#include "../include/Test_practice.h"
 
 #endif // _DEPARTMENT_PRACTICE_H_

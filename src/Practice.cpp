@@ -34,6 +34,7 @@ void register_class(QxClass<Practice> & t)
    pRelation = t.relationOneToMany(& Practice::m_list_of_passing_practice, "list_of_passing_practice", "practice", 0);
    pRelation = t.relationManyToOne(& Practice::m_education_program, "Education_program", 0);
    pRelation->getDataMember()->setName("Education_program_id");
+   pRelation = t.relationOneToMany(& Practice::m_list_of_TestPractice, "list_of_TestPractice", "practice", 0);
 
 
    qx::QxValidatorX<Practice> * pAllValidator = t.getAllValidator(); Q_UNUSED(pAllValidator);
@@ -68,6 +69,12 @@ Practice::ListOfPassingPractice & Practice::list_of_passing_practice() { return 
 const Practice::ListOfPassingPractice & Practice::list_of_passing_practice() const { return m_list_of_passing_practice; }
 
 
+Practice::ListOfTestPractice Practice::getlist_of_TestPractice() const { return m_list_of_TestPractice; }
+
+Practice::ListOfTestPractice & Practice::list_of_TestPractice() { return m_list_of_TestPractice; }
+
+const Practice::ListOfTestPractice & Practice::list_of_TestPractice() const { return m_list_of_TestPractice; }
+
 void Practice::setpractice_id(const long & val) { m_Practice_id = val; }
 
 void Practice::setbeginning(const QDate & val) { m_beginning = val; }
@@ -85,6 +92,7 @@ void Practice::setemployer(const Practice::Employer_ptr & val) { m_employer = va
 
 void Practice::setsemester(const int & val) { m_semester = val; }
 
+void Practice::setlist_of_TestPractice(const Practice::ListOfTestPractice & val) { m_list_of_TestPractice = val; }
 
 
 
@@ -146,5 +154,35 @@ Practice::Employer_ptr Practice::getemployer(bool bLoadFromDatabase, const QStri
    if (! daoError.isValid()) { this->m_employer = tmp.m_employer; }
    if (pDaoError) { (* pDaoError) = daoError; }
    return m_employer;
+}
+
+Practice::ListOfTestPractice Practice::getlist_of_TestPractice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return getlist_of_TestPractice(); }
+   QString sRelation = "{Practice_id} | list_of_TestPractice";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Practice tmp;
+   tmp.m_Practice_id = this->m_Practice_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_TestPractice = tmp.m_list_of_TestPractice; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_TestPractice;
+}
+
+Practice::ListOfTestPractice & Practice::list_of_TestPractice(bool bLoadFromDatabase, const QString & sAppendRelations /* = QString() */, QSqlDatabase * pDatabase /* = NULL */, QSqlError * pDaoError /* = NULL */)
+{
+   if (pDaoError) { (* pDaoError) = QSqlError(); }
+   if (! bLoadFromDatabase) { return list_of_TestPractice(); }
+   QString sRelation = "{Practice_id} | list_of_TestPractice";
+   if (! sAppendRelations.isEmpty() && ! sAppendRelations.startsWith("->") && ! sAppendRelations.startsWith(">>")) { sRelation += "->" + sAppendRelations; }
+   else if (! sAppendRelations.isEmpty()) { sRelation += sAppendRelations; }
+   Practice tmp;
+   tmp.m_Practice_id = this->m_Practice_id;
+   QSqlError daoError = qx::dao::fetch_by_id_with_relation(sRelation, tmp, pDatabase);
+   if (! daoError.isValid()) { this->m_list_of_TestPractice = tmp.m_list_of_TestPractice; }
+   if (pDaoError) { (* pDaoError) = daoError; }
+   return m_list_of_TestPractice;
 }
 
